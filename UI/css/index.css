@@ -510,7 +510,8 @@
   .book-button {
   background-color: #F64C72;
   display: inline-block;
-  border-radius: 25px;
+  border-radius: 20px;
+  margin-right: 5px;
   padding: 5px;
   text-align: center;
   width: 80px;
@@ -612,5 +613,6 @@
     margin-bottom: 30px;
     
     }
+    #more {display: none;}   
     
 
