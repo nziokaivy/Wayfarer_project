@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f1f1f1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#sideMenu {
+    background: #242582;
+    width: 280px;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+    
+}
+@media screen and (max-height: 450px) {
+    #sideMenu {padding-top: 15px;}
+    nav a {font-size: 18px;}
+  }
+nav {
+    padding-top: 100px;
+}
+
+nav a {
+    display: block;
+    color: #EAEDF3;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+}
+nav a:hover {
+    background:  #282639;
+    border-left: 5px solid #F64C72;
+    padding: 15px 30px 15px 25px;
+}
+
+.fa:hover {
+    color: #F64C72;
+
+}
+
+nav a.active {
+    background: #282639;
+    border-left: 5px solid #F64C72;
+    padding: 15px 30px 15px 25px;
+}
+
+.fa-home,
+.fa-edit,
+.fa-user-circle-o {
+    color:  #eaedf3;
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    top: 2px;
+}
+
+.fa.active {
+    color: #F64C72;
+}
+
+header {
+    margin-left: 280px;
+    padding: 30px;
+
+}
+
+.user-field {
+    display: inline-block;
+    float: right;
+    padding: 10px;
+}
+
+.user-field a {
+    color: #282639;
+    display: inline-block;
+    padding-right: 20px;
+    text-decoration: none;
+    vertical-align: top;
+    height: 30px;
+
+}
+
+.circle {
+    display: inline-block;
+    background: #F64C72;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 4px;
+    left: 9px;
+
+}
+
+.notification {
+    color: #242582;
+    position: relative;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.fa-bell-o {
+    color: #242582;
+
+}
+.add {
+    color: #242582;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 7px;
+}
+
+.user-img {
+    background: 
+    url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.fa-caret-down {
+    position: relative;
+    top: -8px;
+    color: #282639;
+}
+
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    #sideMenu {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    nav a {float: left;}
+    header {
+        margin-left: 0;
+        margin-right: 130px;
+        font-size: 10px;
+    }
+    #content-area {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    nav a {
+      text-align: center;
+      float: none;
+    }
+    header {
+        margin-left: 1px;
+        margin-right: 30px;
+        font-size: 10px;
+        padding: 0;
+        width: 100%;
+    }
+  }
+
+  #content-area {
+    margin-left: 280px;
+    padding: 1px 16px;
+    height: 1000px;
+ }
+
+.heading h1{
+    color: #242582;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+
+}
+
+.heading p{
+    color:  #242582;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 0 10px;
+}
+  
+.fa-users,
+.fa-bus ,
+.fa-calendar {
+    font-size: 56px;
+    color: #F64C72;
+} 
+
+.row {margin: 0 -5px;}
+  
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+}
+  
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    text-align: center;
+    background-color: #f1f1f1;
+    font-size: 46px;
+    color: #242582;
+    margin-bottom: 20px;
+}
+
+.semi-title {
+    font-size: 24px;
+    color: #242582;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background:  #F64C72;
+    -webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topleft: 25px;
+-moz-border-radius-topright: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+th {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: left;
+    padding: 20px 10px;
+    color:  #000;
+    
+    
+}
+
+tbody {
+    background: #fff;
+    font-size: 1rem;
+}
+
+td {
+    padding: 20px 10px;
+    color:  #242582;
+}
+
+.logo {
+    display: inline-block;
+    background: #F64C72;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 20px;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+}
+
+
+.fa-close {
+    padding: 20px 10px;
+    color:  #F64C72;
+    font-size: 96px;
+}
+
+.cancel-button {
+    background-color: #242582;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #242582;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+ }
+ #confirm .message {
+    text-align: center;
+    padding: 10px;
+}
+
+.status-active {
+    background-color: green;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.status-inactive {
+    background-color: red;
+    display: inline-block;
+    border-radius: 25px;
+    padding: 5px;
+    text-align: center;
+    width: 80px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
