@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f1f1f1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color:  #F64C72;
+}
+
+h2 {
+    text-align: center;
+}
+
+.tab button {
+  background-color: inherit;
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
+  color: #242582;
+}
+
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.card {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: auto;
+
+}
+
+.user_img {
+    background: 
+    url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.user-name {
+    color: #242582;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.user-title {
+    display: block;
+    font-size: 0.8rem;
+    text-align: center; 
+    margin: 10px 0;
+}
+
+
+.details {
+    padding: 20px;
+    
+}
+
+.fa {
+    font-size: 30px;
+    padding: 5px;
+}
+
+.button-details {
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    background: #F64C72;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  background: #f1f1f1;
+}
+
+th{
+  text-align: left;
+  padding: 20px;
+  border-bottom: 1px solid #F64C72;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+
+}
+
+
+.fa-trash-o {
+    padding: 20px 10px;
+    color:  #F64C72;
+    font-size: 96px;
+}
+
+
