@@ -1,0 +1,90 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('../images/image5.jpg') 50% 50% no-repeat;
+    background-size: cover;
+    display: table;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:  #242582;
+    opacity: 0.8;
+}
+
+.signin {
+    border: 1px solid #F64C72;
+    border-radius: 5px;
+    padding: 10em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+h2 {
+    margin-top:  0px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+}
+
+.fa {
+   padding: 10px;
+   color: white;
+   min-width: 50px;
+   text-align: center;
+   font-size: 36px;
+
+}
+
+input {
+    display: block;
+    width: 320px;
+    height: 50px;
+    background: #fff;
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:lighter;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: #000;
+}
+
+button {
+    width: 332px;
+    height: 50px;
+    font-size: 16px;
+    background: #F64C72;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 70px;
+}
