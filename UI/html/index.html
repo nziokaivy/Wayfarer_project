@@ -31,7 +31,117 @@
         <slide><p>Lagos</p></slide>
         <slide><p>Kigali</p></slide>
     </slider>
+    
+    <div class="booking" id="book">
+        <h1 class="booking-title">Book a trip</h1>
+        <div class="border"></div>
+        <form>
+            <div class="row">
+                <div class="col-25">
+                    <label for="origin">Origin</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="origin" name="origin" placeholder="Enter city">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="destination">Destination</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="destination" name="destination" placeholder="Enter city">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="depature">Departure Date</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" id="departure" name="departure" placeholder="dd/mm/yyyy">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="seats">No.of seats</label>
+                </div>
+                <div class="col-75">
+                    <select id="seats" name="seats">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+                </div>
+            <div class="row">
+                <input type="submit" value="Check Availability">
+            </div>
+        </form>
+    </div>
+            
 
+    <section id="trips">
+        <div class="heading">
+            <h1>Trips</h1>
+        <div class="border"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        ORIGIN
+                    </th>
+                    <th>
+                        DESTINATION
+                    </th>
+                    <th>
+                        PRICE
+                    </th>
+                    <th>
+                        DEPARTURE DATE
+                    </th>
+                    <th>
+                        DEPARTURE TIME 
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="logo-icon">IM</span>Nairobi</td>
+                    <td>Mombasa</td>
+                    <td>kshs 1000</td>
+                    <td>10 July, 2019</td>
+                    <td>9: 30 am</td>
+                    <td><a href="specifictrip.html" class="book-button">More</a></td>
+                </tr>
+                <tr>
+                    <td><span class="logo-icon">GG</span>Nairobi</td>
+                    <td>Mombasa</td>
+                    <td>kshs 1000</td>
+                    <td>10 July, 2019</td>
+                    <td>11: 30 am</td>
+                    <td><a href="specifictrip.html" class="book-button">More</a></td>
+                </tr>
+                <tr>
+                    <td><span class="logo-icon">VZ</span>Nairobi</td>
+                    <td>Mombasa</td>
+                    <td>kshs 1000</td>
+                    <td>10 July, 2019</td>
+                    <td>5: 30 pm</td>
+                    <td><a href="specifictrip.html" class="book-button">More</a></td>
+                </tr>
+                <tr>
+                    <td><span class="logo-icon">AM</span>Nairobi</td>
+                    <td>Mombasa</td>
+                    <td>kshs 1000</td>
+                    <td>10 July, 2019</td>
+                    <td>5: 30 pm</td>
+                    <td><a href="specifictrip.html" class="book-button">More</a></td>
+                </tr>
+            </tbody>
+        </table> 
+    </section>
     <div class="about-section" id="about">
         <div class="inner-width">
             <h1>About Us</h1>

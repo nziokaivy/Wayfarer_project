@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="../js/index.js"></script>
+
+    <link rel="stylesheet" href="css/msc-style.css">
+
+</head>
+<body>        
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'profile')">Profile</button>
+      <button class="tablinks" onclick="openTab(event, 'my-trips')">My Trips</button>
+    </div>
+    
+    <div id="profile" class="tabcontent">
+        <div class="card">
+                <div class="user_img"></div>
+                <p class="user-name">Mary Doe</p>
+                <hr>
+
+                <div class="col-md-9">
+                    <p class="details"><i class="fa fa-user"></i> First Name:   John</p>
+                    <p class="details"><i class="fa fa-user"></i>  Second Name:  Doe</p>
+                    <p class="details"><i class="fa fa-envelope"></i>  Email:  johndoe@demo.com</p>
+                    <button class="button-details">Edit Profile</button>
+                </div>   
+        </div>
+    </div>
+    
+    <div id="my-trips" class="tabcontent">
+      <h3>My Trips</h3>
+      <div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+    </tr>
+    <tr>
+      <td>Mombasa</td>
+      <td>Nairobi</td>
+      <td>11 July 2019</td>
+      <td>5:00 pm</td>
+      <td><i onclick="functionAlert();" class="fa fa-trash-o"></i></td>
+
+    </tr>
+    <tr>
+      <td>Nairobi</td>
+      <td>Kigali</td>
+      <td>13 July 2019</td>
+      <td>5:00 pm</td>
+      <td><i onclick="functionAlert();"class="fa fa-trash-o"></i></td>
+    </tr>
+  </table>
+</div> 
+    </div>
+    
+</body>
+</html>
