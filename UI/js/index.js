@@ -1,4 +1,4 @@
-
+//functionality for tabs in profile page
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -13,7 +13,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
   }
   
-  
+//functionality for responsive navbar  
   function navBar() {
      var x = document.getElementById("myTopnav");
      if (x.className === "topnav") {
@@ -22,7 +22,7 @@ function openTab(evt, tabName) {
        x.className = "topnav";
      }
   }
-  //sticky navbar
+//functionality for sticky navbar
   window.onscroll = function() {stickyNav()};
   
   var navbar = document.getElementById("myTopnav");
@@ -36,52 +36,3 @@ function openTab(evt, tabName) {
       myTopnav.classList.remove("sticky");
     }
   }
-  
-  function functionAlert(msg, myYes) {
-      var confirmBox = $("#confirm");
-      confirmBox.find(".message").text(msg);
-      confirmBox.find(".yes").unbind().click(function() {
-         confirmBox.hide();
-      });
-      confirmBox.find(".yes").click(myYes);
-      confirmBox.show();
-   }
-
-
- 
- function navBar() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
- }
- //sticky navbar
- window.onscroll = function() {stickyNav()};
- 
- var navbar = document.getElementById("myTopnav");
- var sticky = navbar.offsetTop;
- 
- // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
- function stickyNav() {
-   if (window.pageYOffset >= sticky) {
-     myTopnav.classList.add("sticky")
-   } else {
-     myTopnav.classList.remove("sticky");
-   }
- }
- 
- function functionAlert(msg, myYes) {
-     var confirmBox = $("#confirm");
-     confirmBox.find(".message").text(msg);
-     confirmBox.find(".yes").unbind().click(function() {
-        confirmBox.hide();
-     });
-     confirmBox.find(".yes").click(myYes);
-     confirmBox.show();
-  }
- 
-
-
-

@@ -23,10 +23,7 @@ html {
     overflow: auto;
     
 }
-@media screen and (max-height: 450px) {
-    #sideMenu {padding-top: 15px;}
-    nav a {font-size: 18px;}
-  }
+
 nav {
     padding-top: 100px;
 }
@@ -148,38 +145,6 @@ header {
     color: #282639;
 }
 
-
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
-    #sideMenu {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    nav a {float: left;}
-    header {
-        margin-left: 0;
-        margin-right: 130px;
-        font-size: 10px;
-    }
-    #content-area {margin-left: 0;}
-  }
-  
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-    nav a {
-      text-align: center;
-      float: none;
-    }
-    header {
-        margin-left: 1px;
-        margin-right: 30px;
-        font-size: 10px;
-        padding: 0;
-        width: 100%;
-    }
-  }
-
   #content-area {
     margin-left: 280px;
     padding: 1px 16px;
@@ -191,6 +156,7 @@ header {
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 30px;
+    text-align: center;
 
 }
 
@@ -222,16 +188,7 @@ header {
     display: table;
     clear: both;
 }
-  
-
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-}
-  
+   
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -247,8 +204,6 @@ header {
     font-size: 24px;
     color: #242582;
 }
-
-
 
 table {
     width: 100%;
@@ -271,9 +226,7 @@ th {
     font-weight: 500;
     text-align: left;
     padding: 20px 10px;
-    color:  #000;
-    
-    
+    color:  #000;   
 }
 
 tbody {
@@ -282,19 +235,8 @@ tbody {
 }
 
 td {
-    padding: 20px 10px;
+    padding: 20px 5px;
     color:  #242582;
-}
-
-.logo {
-    display: inline-block;
-    background: #F64C72;
-    padding: 15px;
-    border-radius: 50%;
-    margin-right: 20px;
-    color: #fff;
-    width: 45px;
-    height: 45px;
 }
 
 
@@ -315,10 +257,6 @@ td {
     cursor: pointer;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
- }
- #confirm .message {
-    text-align: center;
-    padding: 10px;
 }
 
 .status-active {
@@ -345,3 +283,78 @@ td {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* On screens that are less than 1000px wide, make the sidebar into a topbar */
+@media screen and (max-width: 1000px) {
+    #sideMenu {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    nav a {float: left;}
+    header {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 10px;
+    }
+    #content-area {
+        margin: 0;
+        text-align: center;
+        float: left;
+        padding-left: 0;
+        width: 100%;
+    }
+  }
+
+@media screen and (max-height: 450px) {
+    #sideMenu {padding-top: 15px;}
+    nav a {
+        font-size: 18px;
+        padding: 55px;
+    }
+  }
+
+@media screen and (max-width: 1000px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+}
+  /* On screens that are less than 1000px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 1000px) {
+    nav a {
+      text-align: left;
+      float: none;
+    }
+    header {
+        font-size: 10px;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .heading {
+        font-size: 10px;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #content-area {
+        margin: 0px;
+    }
+
+    #bookings {
+        width: 100%;
+        margin-top: 0;
+        text-align: center;
+        padding: 0;
+    }
+    th {
+        text-align: center;
+        padding: 10px;
+    } 
+    td {
+        text-align: center;
+        padding: 10px;
+    } 
+    
+}
