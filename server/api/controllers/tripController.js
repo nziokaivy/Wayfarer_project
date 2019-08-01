@@ -26,6 +26,15 @@ const TripController = {
         }
         return res.status(200).json({ status: 'success', data: specificTrip});
     },
+
+    cancelTrip(req, res) {
+        const id = parseInt(req.params.id);
+        const cancelTrip = Trip.cancelTrip(id);
+        if(!cancelTrip) {
+            return res.status(404).json ({ status: 'error', error: 'Not found'});
+        }
+        return res.status(200).json({ status: 'success', data: cancelTrip});
+    },
 };
 
 export default TripController;

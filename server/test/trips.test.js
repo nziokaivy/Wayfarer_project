@@ -65,4 +65,27 @@ describe('Trip Tests', () => {
         done();
         });
     });
+
+    // CANCEL A TRIP TEST
+    it('PATCH/api/v1/trips/:trip-id/cancel Should cancel all trips', (done) => {
+        const trip = {
+            id: Trip.getAllTrips().length + 1,
+            seating_capacity: 67,
+            bus_license_number: 'KZE432Y',
+            origin: 'Nairobi',
+            destination: 'Kigali',
+            trip_date: '23-07-2019',
+            fare: 4000,
+            status: 1,
+        };
+        const tripId = Trip.createNewTrip(trip).id;
+        chai
+        .request(app)
+        .patch(`/api/v1/trips/${tripId}/cancel`)
+        .end((err, res) => {
+        res.should.have.status(200);
+        res.should.should.be.a('object');
+        done();
+        });
+    });
 });

@@ -13,5 +13,6 @@ router.post('/auth/signin', SignIn.signin);
 router.post('/trips', Trip.createNewTrip);
 router.get('/trips', Trip.getAllTrips);
 router.get('/trips/:id', Trip.getSpecificTrip);
+router.patch('/trips/:id/cancel', Trip.cancelTrip);
 
 export default router;
