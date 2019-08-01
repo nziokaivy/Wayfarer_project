@@ -38,4 +38,24 @@ describe('Book Seat', () => {
         done();
         });
     });
+
+    // TEST FOR DELETE A BOOKING
+    it('DELETE /api/v1/booking/:id Should delete a specific booking', (done) => {
+        const booking = {
+          id: Booking.getAllBookings().length + 1,
+          trip_id: 4,
+          user_id: 6,
+          seat_number: 33,
+          create_on: '23-07-2019',
+        };
+        const bookingId = Booking.createNewBooking(booking).id;
+        chai
+          .request(app)
+          .delete(`/api/v1/booking/${bookingId}`)
+          .end((err, res) => {
+            res.should.have.status(204);
+            res.body.should.be.a('object');
+            done();
+          });
+      });
 });
