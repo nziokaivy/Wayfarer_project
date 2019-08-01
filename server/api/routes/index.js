@@ -12,5 +12,6 @@ router.post('/auth/signin', SignIn.signin);
 //trip routes
 router.post('/trips', Trip.createNewTrip);
 router.get('/trips', Trip.getAllTrips);
+router.get('/trips/:id', Trip.getSpecificTrip);
 
 export default router;
