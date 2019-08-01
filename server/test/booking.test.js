@@ -27,4 +27,15 @@ describe('Book Seat', () => {
             done();
         });
     });
+    //TEST FOR GETTING ALL BOOKINGS
+    it('GET/api/v1/bookings Should fetch all bookings', (done) => {
+        chai
+        .request(app)
+        .get('/api/v1/bookings')
+        .end((err, res) => {
+        res.should.have.status(200);
+        res.should.should.be.a('object');
+        done();
+        });
+    });
 });
