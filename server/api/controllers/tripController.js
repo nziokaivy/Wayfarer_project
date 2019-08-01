@@ -17,6 +17,15 @@ const TripController = {
         }
         return res.status(200).json({ status: 'success', data: allTrips});
     },
+
+    getSpecificTrip(req, res) {
+        const id = parseInt(req.params.id);
+        const specificTrip = Trip.getSpecificTrip(id);
+        if(!specificTrip) {
+            return res.status(404).json ({ status: 'error', error: 'Not found'});
+        }
+        return res.status(200).json({ status: 'success', data: specificTrip});
+    },
 };
 
 export default TripController;
