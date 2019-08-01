@@ -11,6 +11,14 @@ const BookingController = {
         const newBooking = Booking.createNewBooking(body);
         return res.status(201).json({ status: 'success', data: newBooking});
     },
+    
+    getAllBookings(req, res) {
+        const allBookings = Booking.getAllBookings();
+        if(!allBookings.length) {
+            return res.status(404).json({ status: 'error', error: 'Not found'});
+        }
+        return res.status(200).json({ status: 'success', data: allBookings});
+    },
  
 
 };

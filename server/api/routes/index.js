@@ -18,5 +18,6 @@ router.patch('/trips/:id/cancel', Trip.cancelTrip);
 
 //booking routes
 router.post('/bookings', Booking.booking);
+router.get('/bookings', Booking.getAllBookings);
 
 export default router;
