@@ -30,4 +30,16 @@ describe('Trip Tests', () => {
         done();
         });
     });
+
+    //TEST FOR GET ALL TRIPS
+    it('GET/api/v1/trips Should fetch all trips', (done) => {
+        chai
+        .request(app)
+        .get('/api/v1/trips')
+        .end((err, res) => {
+        res.should.have.status(200);
+        res.should.should.be.a('object');
+        done();
+        });
+    });
 });
