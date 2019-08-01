@@ -9,6 +9,14 @@ const TripController = {
         const newTrip = Trip.createNewTrip(body);
         return res.status(201).json({ status: 'success', data: newTrip});
     },
+
+    getAllTrips(req, res) {
+        const allTrips = Trip.getAllTrips();
+        if(!allTrips.length) {
+            return res.status(404).json({ status: 'error', error: 'Not found'});
+        }
+        return res.status(200).json({ status: 'success', data: allTrips});
+    },
 };
 
 export default TripController;
