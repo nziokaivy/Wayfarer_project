@@ -494,7 +494,11 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-  
+
+.fa-long-arrow-right {
+  font-size: 148px;
+}
+
 thead {
   background: #F64C72;
   -webkit-border-top-left-radius: 10px;
@@ -542,13 +546,14 @@ td {
   margin-top : 140px;
   padding:5px;
 }
-  .heading h1{
+.heading h1{
   text-align: center;
   color: #242582;
   margin-bottom: 30px;
   font-size: 30px;
   
 }
+
 
 @media screen and (max-width:1000px) {
   #trips {
@@ -558,21 +563,62 @@ td {
     padding: 0;
 
     }
-  th {
-    text-align: center;
-    padding: 10px;
-  } 
   .more-button {
     display: block;
     float: left;
   }  
-  td {
-    margin: 5px;
-  }
+
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
-  } 
+  }
+  
+  @media 
+  only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+  
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    tr { border: 1px solid #F64C72; }
+    
+    td { 
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee; 
+      position: relative;
+      padding-left: 50%; 
+    }
+    
+    td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+    }
+    
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before { content: "TRIP"; }
+    td:nth-of-type(2):before { content: "ORIGIN"; }
+    td:nth-of-type(3):before { content: ""; }
+    td:nth-of-type(4):before { content: "DESTINATION"; }
+    td:nth-of-type(5):before { content: "PRICE"; }
+    td:nth-of-type(6):before { content: ""; }
+  }  
 /*end of trip section */
