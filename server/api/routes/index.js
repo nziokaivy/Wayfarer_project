@@ -19,5 +19,6 @@ router.patch('/trips/:id/cancel', Trip.cancelTrip);
 //booking routes
 router.post('/bookings', Booking.booking);
 router.get('/bookings', Booking.getAllBookings);
+router.delete('/booking/:id', Booking.deleteBooking);
 
 export default router;
