@@ -10,7 +10,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background: url('../images/image3.jpg') 50% 50% no-repeat;
+    background: url('../images/image3.jpg') no-repeat;
     background-size: cover;
     display: table;
 }
@@ -95,13 +95,32 @@ button {
     border: 0;
     border-radius: 5px;
     margin-top: 40px;
-    margin-left: 190px;
+    text-align: center;
+
+ 
 }
 
-@media screen and (max-width: 600px) {
-    select, input, input[type=submit] {
+@media screen and (max-width: 1000px) {
+    select, input, .btn , label{
       width: 100%;
       margin-top: 0;
-      font-size: 10px;
+      font-size: 17px;
+    }
+    .newtrip h2 {
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    .btn {
+        margin-top: 20px;
+    }
+    .overlay {
+        width: 400px;
+        height: 750px;
+        margin-top: 0;
+        position: absolute;
+    }
+    body {
+        height: 100vh;
+        background: url('../images/image3.jpg') no-repeat;
     }
   }
