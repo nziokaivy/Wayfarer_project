@@ -1,10 +1,13 @@
 import User from '../db/user';
+import loginValidation from '../helpers/signInValidators';
 
 const SignIn = {
     signin(req, res) {
         const { body } = req;
-        if(!body.email || !body.password) {
-        return res.status(400).json({ status: 'error', error: 'Bad Request! Please ensure you have the correct email and password'});
+
+        const { error } = loginValidation.validateLogin(body);
+        if (error){
+            return res.status(400).json({ status: 'error', error: error.details[0].message})
         }
         const getUser = User.getAllUsers().find(user => user.email === body.email && user.password === body.password);
         if(!getUser) {
