@@ -11,7 +11,7 @@ class User {
         },
         {
           id: 2,
-          email: 'janeode@gmail.com',
+          email: 'janedoe@gmail.com',
           first_name: 'Jane',
           last_name: 'Doe',
           password: 'pass@12345',

@@ -10,7 +10,7 @@ describe('Sign in', () => {
     it('POST/api/v1/auth/signin Should login an existing user', (done) => {
 
         const user = {
-            email: 'janeode@gmail.com',
+            email: 'janedoe@gmail.com',
             password: 'pass@12345',
         };
         chai

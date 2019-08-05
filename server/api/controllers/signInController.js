@@ -1,5 +1,6 @@
 import User from '../db/user';
 import loginValidation from '../helpers/signInValidators';
+import tokenGenerator from '../helpers/authToken';
 
 const SignIn = {
     signin(req, res) {
