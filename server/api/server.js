@@ -17,7 +17,7 @@ app.use(express.json());
 app.get('/', (req, res) => res.status(200).send({ message: 'Welcome to Wayfarer API.'}));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/api', routes);
+app.use('/api/v1/', routes);
 
 app.listen(port, () => {
    console.log(`Server is running on PORT ${port}....`);
