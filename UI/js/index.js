@@ -36,3 +36,11 @@ function openTab(evt, tabName) {
       myTopnav.classList.remove("sticky");
     }
   }
+  function myFunction() {
+    var x = document.getElementById("tabs");
+    if (x.className === "tabs") {
+      x.className += " responsive";
+    } else {
+      x.className = "tabs";
+    }
+  }
