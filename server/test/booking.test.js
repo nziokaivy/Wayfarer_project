@@ -2,10 +2,28 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Booking from '../api/db/booking';
+import user from '../api/db/user';
 
 const should = chai.should();
 chai.use(chaiHttp);
 
+describe('Bookings Tests', () => {
+    let token = '';
+    before((done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .send({
+           email: 'maryjane@gmail.com',
+           password: 'pass@1234',
+        })
+        .end((err, res) => {
+            console.log(err)
+          const result = JSON.parse(res.text);
+          token = result.data.token;
+          done();
+        });
+    }); 
 describe('Book Seat', () => {
     // TEST FOR BOOKING A SEAT
     it('POST/api/v1/bookings Should book a seat', (done) => {
@@ -21,6 +39,7 @@ describe('Book Seat', () => {
         .request(app)
         .post('/api/v1/bookings')
         .send(bookings)
+        .set('auth',token)
         .end((err, res) => {
             res.should.have.status(201);
             res.should.should.be.a('object');
@@ -32,6 +51,7 @@ describe('Book Seat', () => {
         chai
         .request(app)
         .get('/api/v1/bookings')
+        .set('auth',token)
         .end((err, res) => {
         res.should.have.status(200);
         res.should.should.be.a('object');
@@ -52,10 +72,12 @@ describe('Book Seat', () => {
         chai
           .request(app)
           .delete(`/api/v1/booking/${bookingId}`)
+          .set('auth',token)
           .end((err, res) => {
             res.should.have.status(204);
             res.body.should.be.a('object');
             done();
           });
       });
+});
 });

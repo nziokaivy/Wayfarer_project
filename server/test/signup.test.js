@@ -20,6 +20,7 @@ describe('Sign up', () => {
         .post('/api/v1/auth/signup')
         .send(user)
         .end((err, res) => {
+            console.log(err);
             res.should.have.status(201);
             res.should.should.be.a('object');
             done();

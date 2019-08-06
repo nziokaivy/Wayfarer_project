@@ -1,6 +1,6 @@
 import User from '../db/user';
 import loginValidation from '../helpers/signInValidators';
-import tokenGenerator from '../helpers/authToken';
+import createToken from '../middleware/authorization';
 
 const SignIn = {
     signin(req, res) {
@@ -14,8 +14,17 @@ const SignIn = {
         if(!getUser) {
             return res.status(404).json({ status: 'error', error: 'User not found' });
         }
-        return res.status(200).json({ status: 'success', data: getUser});
+        const compare = getUser.password === body.password;
+        if (!compare) {
+            return res.status(401).json({ status: 'error', error: 'Incorrect password' });
+        }
+        const token = createToken.createToken(getUser);
+        getUser.token = token;
+        return res.status(200).json({ status: 'success', data: getUser });
+    
         },
     };
+    
+
 
 export default SignIn;
