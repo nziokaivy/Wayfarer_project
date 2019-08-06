@@ -6,7 +6,23 @@ import Trip from '../api/db/trip';
 const should = chai.should();
 chai.use(chaiHttp);
 
-
+describe('Trip Tests', () => {
+    let token = '';
+    before((done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .send({
+           email: 'maryjane@gmail.com',
+           password: 'pass@1234',
+        })
+        .end((err, res) => {
+            console.log(err)
+          const result = JSON.parse(res.text);
+          token = result.data.token;
+          done();
+        });
+    }); 
 describe('Trip Tests', () => {
     // TEST FOR POST  NEW TRIP
     it('POST/api/v1/trips Should create a new trip', (done) => {
@@ -24,6 +40,7 @@ describe('Trip Tests', () => {
         .request(app)
         .post('/api/v1/trips')
         .send(trip)
+        .set('auth',token)
         .end((err, res) => {
         res.should.have.status(201);
         res.should.should.be.a('object');
@@ -36,6 +53,7 @@ describe('Trip Tests', () => {
         chai
         .request(app)
         .get('/api/v1/trips')
+        .set('auth',token)
         .end((err, res) => {
         res.should.have.status(200);
         res.should.should.be.a('object');
@@ -59,6 +77,7 @@ describe('Trip Tests', () => {
         chai
         .request(app)
         .get(`/api/v1/trips/${tripId}`)
+        .set('auth',token)
         .end((err, res) => {
         res.should.have.status(200);
         res.should.should.be.a('object');
@@ -82,10 +101,12 @@ describe('Trip Tests', () => {
         chai
         .request(app)
         .patch(`/api/v1/trips/${tripId}/cancel`)
+        .set('auth',token)
         .end((err, res) => {
         res.should.have.status(200);
         res.should.should.be.a('object');
         done();
         });
     });
+});
 });
