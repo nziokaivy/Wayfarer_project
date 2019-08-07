@@ -15,7 +15,7 @@ describe('Sign up', () => {
                 first_name: 'John',
                 last_name: 'Doe',
                 email: 'johndoe@gmail.com',
-                password: 'pass@123',
+                password: 'Ivyme@123',
             })
             .end((err, res) => {
                 res.should.have.status(201);
@@ -30,7 +30,7 @@ describe('Sign up', () => {
             .post('/api/v1/auth/signin')
             .send({
                 email: 'janedoe@gmail.com',
-                password: 'pass@12345',
+                password: 'Ivyme@123',
             })
             .end((err, res) => {
                 res.should.have.status(200);

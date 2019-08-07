@@ -24,6 +24,7 @@
   "homepage": "https://github.com/nziokaivy/Wayfarer_project#readme",
   "dependencies": {
     "@hapi/joi": "^15.1.0",
+    "@hapi/joi-date": "^1.3.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",

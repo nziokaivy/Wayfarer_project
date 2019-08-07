@@ -6,7 +6,7 @@ class User {
           email: 'maryjane@gmail.com',
           first_name: 'Mary',
           last_name: 'Jane',
-          password: 'pass@1234',
+          password: 'Ivyme@123',
           is_admin: true,
         },
         {
@@ -14,7 +14,7 @@ class User {
           email: 'janedoe@gmail.com',
           first_name: 'Jane',
           last_name: 'Doe',
-          password: 'pass@12345',
+          password: 'Ivyme@123',
           is_admin: false,
         },
       ];

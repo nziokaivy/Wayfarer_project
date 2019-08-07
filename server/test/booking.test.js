@@ -14,11 +14,11 @@ describe('Book Seat', () => {
     // TEST FOR BOOKING A SEAT
     it('POST/api/v1/bookings Should book a seat', (done) => {
         const bookings = {
-            trip_id: 1,
+            trip_id: '1',
             first_name: 'John',
             last_name: 'Doe',
             email: 'johndoe@gmail.com',
-            seat_number: 23,
+            seat_number: '23',
         };
         chai
             .request(app)
@@ -62,7 +62,7 @@ describe('Book Seat', () => {
     it('DELETE /api/v1/booking/:id Should not delete a non-existent booking id', (done) => {
         chai
             .request(app)
-            .delete(`/api/v1/booking/${23}`)
+            .delete(`/api/v1/booking/23`)
             .set('authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(404);

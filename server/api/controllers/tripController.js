@@ -2,24 +2,20 @@ import Trip from '../db/trip';
 
 const TripController = {
     createNewTrip(req, res) {
-        try {
-            const {
-                body
-            } = req;
-            if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare || !body.status) {
-                return res.status(400).json({
-                    status: 'error',
-                    error: 'Bad Request! Please ensure you have filled in all the fields'
-                });
-            }
-            const newTrip = Trip.createNewTrip(body);
-            return res.status(201).json({
-                status: 'success',
-                data: newTrip
+        const {
+            body
+        } = req;
+        if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare) {
+            return res.status(400).json({
+                status: 'error',
+                error: 'Bad Request! Please ensure you have filled in all the fields'
             });
-        } catch (error) {
-            console.log(error);
         }
+        const newTrip = Trip.createNewTrip(body);
+        return res.status(201).json({
+            status: 'success',
+            data: newTrip
+        });
     },
 
     getAllTrips(req, res) {
@@ -40,19 +36,19 @@ const TripController = {
 
         const id = parseInt(req.params.id);
         const specificTrip = Trip.getSpecificTrip(id);
-        if (isNaN(req.params.id) ) {
+        if (isNaN(req.params.id)) {
             return res.status(404).json({
                 status: 'error',
                 error: 'Please input an integer'
             });
-        }    
+        }
         if (!specificTrip) {
             return res.status(404).json({
                 status: 'error',
                 error: 'Not found'
             });
         }
-        
+
         return res.status(200).json({
             status: 'success',
             data: specificTrip
@@ -70,7 +66,7 @@ const TripController = {
                 error: 'Not found'
             });
         }
-        if(tripStatus === 2) {
+        if (tripStatus === 2) {
             return res.status(409).json({
                 status: 'error',
                 error: 'Trip already cancelled'

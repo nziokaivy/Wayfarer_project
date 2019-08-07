@@ -9,17 +9,17 @@ const router = express.Router();
   
 //authentication routes
 router.post('/auth/signup', allValidations.signup, allValidations.validateEmail, Users.signup);
-router.post('/auth/signin', Users.signin);
+router.post('/auth/signin', allValidations.signin, Users.signin);
 
 //trip routes
-router.post('/trips', Auth.checkAdmin, Trip.createNewTrip);
+router.post('/trips', Auth.checkAdmin, allValidations.validateTrip, Trip.createNewTrip);
 router.get('/trips', Auth.checkUser, Trip.getAllTrips);
-router.get('/trips/:id',  Auth.checkUser, Trip.getSpecificTrip);
-router.patch('/trips/:id/cancel', Auth.checkAdmin, Trip.cancelTrip);
+router.get('/trips/:id',  Auth.checkUser, allValidations.validateId, Trip.getSpecificTrip);
+router.patch('/trips/:id/cancel', Auth.checkAdmin, allValidations.validateId, Trip.cancelTrip);
 
 //booking routes
-router.post('/bookings', Auth.checkUser, Booking.booking);
+router.post('/bookings', Auth.checkUser, allValidations.validateBooking, Booking.booking);
 router.get('/bookings', Auth.checkUser, Booking.getAllBookings);
-router.delete('/booking/:id', Auth.checkUser, Booking.deleteBooking);
+router.delete('/booking/:id', Auth.checkUser, allValidations.validateId, Booking.deleteBooking);
 
 export default router;

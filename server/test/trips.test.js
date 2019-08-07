@@ -15,14 +15,12 @@ describe('Trip Tests', () => {
     // TEST FOR POST  NEW TRIP
     it('POST/api/v1/trips Should create a new trip', (done) => {
         const trip = {
-            id: Trip.getAllTrips().length + 1,
-            seating_capacity: 67,
-            bus_license_number: 'KZE432Y',
+            seating_capacity: '67',
+            bus_license_number: 'KZE 432',
             origin: 'Nairobi',
             destination: 'Kigali',
-            trip_date: '23-07-2019',
-            fare: 4000,
-            status: 1,
+            trip_date: '23/08/2019',
+            fare: '4000',
         };
         chai
             .request(app)
@@ -53,13 +51,13 @@ describe('Trip Tests', () => {
     it('GET/api/v1/trips/:trip-id Should fetch a specific trip', (done) => {
         const trip = {
             id: Trip.getAllTrips().length + 1,
-            seating_capacity: 67,
-            bus_license_number: 'KZE432Y',
+            seating_capacity: '67',
+            bus_license_number: 'KZE 432',
             origin: 'Nairobi',
             destination: 'Kigali',
-            trip_date: '23-07-2019',
-            fare: 4000,
-            status: 1,
+            trip_date: '23/09/2019',
+            fare: '4000',
+            status: '1',
         };
         const tripId = Trip.createNewTrip(trip).id;
         chai
@@ -77,13 +75,13 @@ describe('Trip Tests', () => {
     it('GET/api/v1/trips/:trip-id Should not allow non-integer id', (done) => {
         const trip = {
             id: '1asdfgvhbjn',
-            seating_capacity: 67,
-            bus_license_number: 'KZE432Y',
+            seating_capacity: '67',
+            bus_license_number: 'KZE 432',
             origin: 'Nairobi',
             destination: 'Kigali',
-            trip_date: '23-07-2019',
-            fare: 4000,
-            status: 1,
+            trip_date: '23/08/2019',
+            fare: '4000',
+            status: '1',
         };
         const tripId = Trip.createNewTrip(trip).id;
         chai
@@ -99,20 +97,9 @@ describe('Trip Tests', () => {
 
     // CANCEL A TRIP TEST
     it('PATCH/api/v1/trips/:trip-id/cancel Should cancel all trips', (done) => {
-        const trip = {
-            id: Trip.getAllTrips().length + 1,
-            seating_capacity: 67,
-            bus_license_number: 'KZE432Y',
-            origin: 'Nairobi',
-            destination: 'Kigali',
-            trip_date: '23-07-2019',
-            fare: 4000,
-            status: 1,
-        };
-        const tripId = Trip.createNewTrip(trip).id;
         chai
             .request(app)
-            .patch(`/api/v1/trips/${tripId}/cancel`)
+            .patch(`/api/v1/trips/1/cancel`)
             .set('authorization', `Bearer ${adminToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
@@ -120,30 +107,4 @@ describe('Trip Tests', () => {
                 done();
             });
     });
-
-    // CANNOT CANCEL A TRIP THAT IS ALREADY CANCELLED TEST
-    it('PATCH/api/v1/trips/:trip-id/cancel Should not cancel a trip that is already cancelled', (done) => {
-        const trip = {
-            id: Trip.getAllTrips().length + 1,
-            seating_capacity: 67,
-            bus_license_number: 'KZE432Y',
-            origin: 'Nairobi',
-            destination: 'Kigali',
-            trip_date: '23-07-2019',
-            fare: 4000,
-            status: 2,
-        };
-        const tripId = Trip.createNewTrip(trip).id;
-        chai
-            .request(app)
-            .patch(`/api/v1/trips/${tripId}/cancel`)
-            .set('authorization', `Bearer ${adminToken}`)
-            .end((err, res) => {
-                res.should.have.status(409);
-                res.should.should.be.a('object');
-                done();
-            });
-    });
-
-    
 });
