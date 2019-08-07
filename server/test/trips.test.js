@@ -2,27 +2,15 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Trip from '../api/db/trip';
+import Token from '../api/helpers/authToken';
 
 const should = chai.should();
 chai.use(chaiHttp);
 
-describe('Trip Tests', () => {
-    let token = '';
-    before((done) => {
-      chai
-        .request(app)
-        .post('/api/v1/auth/signin')
-        .send({
-           email: 'maryjane@gmail.com',
-           password: 'pass@1234',
-        })
-        .end((err, res) => {
-            console.log(err)
-          const result = JSON.parse(res.text);
-          token = result.data.token;
-          done();
-        });
-    }); 
+
+const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
+const userToken = Token.genToken(2, false, 'user@test.com', 'user', 'test');
+
 describe('Trip Tests', () => {
     // TEST FOR POST  NEW TRIP
     it('POST/api/v1/trips Should create a new trip', (done) => {
@@ -37,32 +25,32 @@ describe('Trip Tests', () => {
             status: 1,
         };
         chai
-        .request(app)
-        .post('/api/v1/trips')
-        .send(trip)
-        .set('auth',token)
-        .end((err, res) => {
-        res.should.have.status(201);
-        res.should.should.be.a('object');
-        done();
-        });
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(201);
+                res.should.should.be.a('object');
+                done();
+            });
     });
 
     //TEST FOR GET ALL TRIPS
     it('GET/api/v1/trips Should fetch all trips', (done) => {
         chai
-        .request(app)
-        .get('/api/v1/trips')
-        .set('auth',token)
-        .end((err, res) => {
-        res.should.have.status(200);
-        res.should.should.be.a('object');
-        done();
-        });
+            .request(app)
+            .get('/api/v1/trips')
+            .set('authorization', `Bearer ${userToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.should.be.a('object');
+                done();
+            });
     });
 
-     //GET A SPECIFIC TRIP TEST
-     it('GET/api/v1/trips/:trip-id Should fetch a specific trip', (done) => {
+    //GET A SPECIFIC TRIP TEST
+    it('GET/api/v1/trips/:trip-id Should fetch a specific trip', (done) => {
         const trip = {
             id: Trip.getAllTrips().length + 1,
             seating_capacity: 67,
@@ -75,14 +63,38 @@ describe('Trip Tests', () => {
         };
         const tripId = Trip.createNewTrip(trip).id;
         chai
-        .request(app)
-        .get(`/api/v1/trips/${tripId}`)
-        .set('auth',token)
-        .end((err, res) => {
-        res.should.have.status(200);
-        res.should.should.be.a('object');
-        done();
-        });
+            .request(app)
+            .get(`/api/v1/trips/${tripId}`)
+            .set('authorization', `Bearer ${userToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    //SHOULD NOT ALLOW AN ID THAT IS NOT AN INTEGER
+    it('GET/api/v1/trips/:trip-id Should not allow non-integer id', (done) => {
+        const trip = {
+            id: '1asdfgvhbjn',
+            seating_capacity: 67,
+            bus_license_number: 'KZE432Y',
+            origin: 'Nairobi',
+            destination: 'Kigali',
+            trip_date: '23-07-2019',
+            fare: 4000,
+            status: 1,
+        };
+        const tripId = Trip.createNewTrip(trip).id;
+        chai
+            .request(app)
+            .get(`/api/v1/trips/${tripId}`)
+            .set('authorization', `Bearer ${userToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.should.be.a('object');
+                done();
+            });
     });
 
     // CANCEL A TRIP TEST
@@ -99,14 +111,39 @@ describe('Trip Tests', () => {
         };
         const tripId = Trip.createNewTrip(trip).id;
         chai
-        .request(app)
-        .patch(`/api/v1/trips/${tripId}/cancel`)
-        .set('auth',token)
-        .end((err, res) => {
-        res.should.have.status(200);
-        res.should.should.be.a('object');
-        done();
-        });
+            .request(app)
+            .patch(`/api/v1/trips/${tripId}/cancel`)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.should.be.a('object');
+                done();
+            });
     });
-});
+
+    // CANNOT CANCEL A TRIP THAT IS ALREADY CANCELLED TEST
+    it('PATCH/api/v1/trips/:trip-id/cancel Should not cancel a trip that is already cancelled', (done) => {
+        const trip = {
+            id: Trip.getAllTrips().length + 1,
+            seating_capacity: 67,
+            bus_license_number: 'KZE432Y',
+            origin: 'Nairobi',
+            destination: 'Kigali',
+            trip_date: '23-07-2019',
+            fare: 4000,
+            status: 2,
+        };
+        const tripId = Trip.createNewTrip(trip).id;
+        chai
+            .request(app)
+            .patch(`/api/v1/trips/${tripId}/cancel`)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(409);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    
 });

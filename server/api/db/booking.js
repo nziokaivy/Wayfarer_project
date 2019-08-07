@@ -1,27 +1,43 @@
 class Booking {
     constructor() {
-        this.bookings = [
+        this.bookings = [{
+                booking_id: 1,
+                trip_id: 1,
+                user_id: 1,
+                bus_license_number: 'KGA344R',
+                trip_date: '21-06-2019',
+                first_name: 'John',
+                last_name: 'Doe',
+                email: 'johndoe@gmail.com',
+                seat_number: 23,
+            },
             {
-
-            booking_id: 2,
-            bus_license_number: 'KGA344R',
-            trip_date: '21-06-2019',
-            first_name: 'John',
-            last_name: 'Doe',
-            user_email: 'johndoe@gmail.com',
-
-        },
-    ];
+                booking_id: 2,
+                trip_id: 1,
+                user_id: 2,
+                bus_license_number: 'KGA344R',
+                trip_date: '21-06-2019',
+                first_name: 'Test',
+                last_name: 'User',
+                email: 'testuser@gmail.com',
+                seat_number: 34,
+            },
+        ];
     }
-    createNewBooking(data) {
+    createNewBooking({
+        trip_id,
+        seat_number,
+        first_name,
+        last_name,
+        email
+    }) {
         const newBooking = {
             id: this.bookings.length + 1,
-            seat_number: data.seat_number,
-            bus_license_number: data.bus_license_number,
-            trip_date: data.trip_date,
-            first_name: data.last_name,
-            last_name: data.last_name,
-            user_email: data.user_email,
+            trip_id: trip_id,
+            seat_number: seat_number,
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
 
         };
         this.bookings.push(newBooking);
@@ -30,14 +46,15 @@ class Booking {
     getAllBookings() {
         return this.bookings;
     }
-    getSpecificBooking(id) {
-        return this.bookings.find(booking => booking.id === id);
-    }
+ 
     deleteBooking(id) {
-        const booking = this.getSpecificBooking(id);
-        const index = this.bookings.indexOf(booking);
-        this.bookings.splice(index, 1);
-        return {};
+        const booking_Id = parseInt(id);
+        const booking_data = this.bookings.find(data => data.booking_id === booking_Id);
+        if (booking_data) {
+            const user = this.bookings.splice(this.bookings.booking_id - 1, 1);
+            return true;
+        }
+        return false;
     }
 }
 

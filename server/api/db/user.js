@@ -19,36 +19,35 @@ class User {
         },
       ];
     }
-    createNewUser(data) {
+
+    createNewUser({first_name,last_name,email,password}) {
       const newUser = {
         id: this.users.length + 1,
-        email: data.email,
-        first_name: data.first_name,
-        last_name: data.last_name,
-        password: data.password,
-        is_admin: data.is_admin || false,
+        first_name: first_name,
+        last_name:last_name,
+        email: email,
+        password: password,
+        is_admin: false,
       };
       this.users.push(newUser);
       return newUser;
     }
+
     getUser(id) {
       return this.users.find(user => user.id === id);
     }
+
     getAllUsers() {
       return this.users;
     }
+    verifyEmail(email) {
+      const confirmEmail = this.users.find(user => user.email === email);
+      if (!confirmEmail) {
+        return false;
+      }
+      this.result = email;
+      return true;
+    }
   }
   export default new User();
-
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
   

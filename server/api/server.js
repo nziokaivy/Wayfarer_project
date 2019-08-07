@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import routes from './routes';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './api-docs/swagger.json';
-import tokenCreated from './middleware/authorization';
+import tokenCreated from './helpers/authToken';
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -22,17 +22,7 @@ app.use((req, res, next) => {
    }
    next();
  });
-app.get('/fetchToken',(req,res) => {
-   const token = tokenCreated.createToken({
-      id: 3,
-      email: 'testtoken@gmail.com',
-      first_name: 'Test',
-      last_name: 'Token',
-      password: 'pass@321',
-      is_admin: true,
-   });
-   res.send ({ token });
-})
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1/', routes);
 
