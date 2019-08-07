@@ -52,7 +52,7 @@ describe('Book Seat', () => {
             .delete(`/api/v1/booking/${2}`)
             .set('authorization', `Bearer ${userToken}`)
             .end((err, res) => {
-                res.should.have.status(204);
+                res.should.have.status(200);
                 res.body.should.be.a('object');
                 done();
             });

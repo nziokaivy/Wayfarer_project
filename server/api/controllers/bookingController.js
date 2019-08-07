@@ -73,7 +73,7 @@ const BookingController = {
         const bookingId = parseInt(req.params.id);
         const booking_delete = Booking.deleteBooking(bookingId);
         if (booking_delete === true) {
-            return res.status(204).json({
+            return res.status(200).json({
                 status: 'success',
                 data: {
                     message: 'Booking Deleted Successfully!'
