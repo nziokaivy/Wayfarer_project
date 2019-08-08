@@ -5,7 +5,7 @@ class Booking {
                 trip_id: 1,
                 user_id: 1,
                 bus_license_number: 'KGA 344R',
-                trip_date: '21/06/2019',
+                trip_date: '21/09/2019',
                 first_name: 'John',
                 last_name: 'Doe',
                 email: 'johndoe@gmail.com',
@@ -14,13 +14,35 @@ class Booking {
             {
                 booking_id: 2,
                 trip_id: 1,
+                user_id: 1,
+                bus_license_number: 'KGA 344R',
+                trip_date: '21/10/2019',
+                first_name: 'John',
+                last_name: 'Doe',
+                email: 'maryjane@gmail.com',
+                seat_number: 24,
+            },
+            {
+                booking_id: 3,
+                trip_id: 1,
                 user_id: 2,
                 bus_license_number: 'KGA 344R',
-                trip_date: '21/06/2019',
+                trip_date: '21/11/2019',
                 first_name: 'Test',
                 last_name: 'User',
                 email: 'testuser@gmail.com',
                 seat_number: 34,
+            },
+            {
+                booking_id: 3,
+                trip_id: 1,
+                user_id: 2,
+                bus_license_number: 'KTZ 590M',
+                trip_date: '21/09/2019',
+                first_name: 'Jane',
+                last_name: 'Doe',
+                email: 'janedoe@gmail.com',
+                seat_number: 4,
             },
         ];
     }
@@ -56,6 +78,19 @@ class Booking {
         }
         return false;
     }
+
+    getOnlyBookingsByUser(email) {
+        console.log(email);
+        const myBookings = this.bookings.find(data => data.email === email);
+        console.log(myBookings,'data');
+        
+		if ( myBookings == undefined) {
+			this.result = 'You have no existing booking.';
+			return false;
+		}
+		this.result = myBookings;
+		return myBookings;
+	}
 }
 
 export default new Booking();

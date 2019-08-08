@@ -3,10 +3,10 @@ class User {
       this.users = [
         {
           id: 1,
-          email: 'maryjane@gmail.com',
-          first_name: 'Mary',
-          last_name: 'Jane',
-          password: 'Ivyme@123',
+          email: 'admin@gmail.com',
+          first_name: 'admin',
+          last_name: 'admin',
+          password: 'Pass@123',
           is_admin: true,
         },
         {
@@ -40,6 +40,7 @@ class User {
     getAllUsers() {
       return this.users;
     }
+    
     verifyEmail(email) {
       const confirmEmail = this.users.find(user => user.email === email);
       if (!confirmEmail) {

@@ -8,19 +8,19 @@ class allValidations {
     static signup(req,res,next) {
         const { first_name,last_name,email,password, } = req.body;
         if (!first_name) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your first name'});
+			return res.status(400).json({ status: 400, error:'Please fill in your first name'});
         }
         if (!last_name) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your last name'});
+			return res.status(400).json({status: 400, error:'Please fill in your last name'});
         }
         if (!email) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your email address'});
+			return res.status(400).json({status: 400, error:'Please fill in your email address'});
         }
         if (!password) {
-			return res.status(400).json({status:'error', messgage:'Please fill in a password of your choice'});
+			return res.status(400).json({status: 400, error:'Please fill in a password of your choice'});
         }
         if (!first_name || !last_name || !email || !password) {
-			return res.status(400).json({status:'error', messgage:'Ensure you have fill in: first name,last name, email and password'});
+			return res.status(400).json({status: 400, error:'Ensure you have fill in: first name,last name, email and password'});
         }
 
         const schema = Joi.object().keys({
@@ -32,21 +32,21 @@ class allValidations {
         return Joi.validate({ first_name,last_name,email,password }, schema, (error) => {
             if(error) {
                 return res.status(400).json({
-                  message: error.message
+                    status: 400,
+                   error: error.message
                 })
             }
             next();
         });
     }
 
-    
     static signin(req,res,next) {
         const {email,password,} = req.body;
         if (!email) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your email address'});
+			return res.status(400).json({status:400, error:'Please fill in your email address'});
         }
         if (!password) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your password'});
+			return res.status(400).json({status:400, error:'Please fill in your password'});
         }
         next();
     }
@@ -54,25 +54,25 @@ class allValidations {
     static validateTrip(req,res,next) {
         const { seating_capacity,bus_license_number,origin,destination,trip_date,fare, } = req.body;
         if (!seating_capacity) {
-			return res.status(400).json({status:'error', messgage:'Please fill in seating capacity'});
+			return res.status(400).json({status:400, error:'Please fill in seating capacity'});
         }
         if (!bus_license_number) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the bus license number'});
+			return res.status(400).json({status:400, error:'Please fill in the bus license number'});
         }
         if (!origin) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the origin of the trip'});
+			return res.status(400).json({status:400, error:'Please fill in the origin of the trip'});
         }
         if (!destination) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the destination of your trip'});
+			return res.status(400).json({status:400, error:'Please fill in the destination of your trip'});
         }
         if (!trip_date) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the trip date'});
+			return res.status(400).json({status:400, error:'Please fill in the trip date'});
         }
         if (!fare) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the charges of the trip'});
+			return res.status(400).json({status:400, error:'Please fill in the charges of the trip'});
         }
         if (!seating_capacity || !bus_license_number || !origin || !destination || !trip_date || !fare) {
-			return res.status(400).json({status:'error', message:'Ensure you have fill in: the seating capacity, the bus license number,the trip\'s origin, the trip\'s destination, trip date, fare,status'});
+			return res.status(400).json({status:400, error:'Ensure you have fill in: the seating capacity, the bus license number,the trip\'s origin, the trip\'s destination, trip date, fare,status'});
         }
         const schema = Joi.object().keys({
             seating_capacity: Joi.string().regex(/^[1-9]+$/).trim().required().error(new Error('Please ensure the seating capacity entered is a number only')),
@@ -102,7 +102,8 @@ class allValidations {
         return Joi.validate({ id }, schema, (error) => {
             if(error) {
                 return res.status(400).json({
-                  message: error.message
+                    status: 400,
+                    error: error.message
                 })
             }
             next();
@@ -113,18 +114,19 @@ class allValidations {
 		const { email } = req.body;
 		const checkEmail = await User.verifyEmail(email);
 		if (checkEmail) {
-            return res.status(409).json({ status: 'error', error: 'Email already exist.Please use another one' });
+            return res.status(409).json({ status: 409, error: 'Email already exist.Please use another one' });
 		}
 		next();
     }
     
     static validateBooking(req,res,next) {
         const { trip_id, seat_number } = req.body;
+        console.log('found');
         if (!trip_id) {
-			return res.status(400).json({status:'error', messgage:'Please fill in the trip id'});
+			return res.status(400).json({status:400, error:'Please fill in the trip id'});
         }
         if (!seat_number) {
-			return res.status(400).json({status:'error', messgage:'Please fill in your seat number'});
+			return res.status(400).json({status:400, error:'Please fill in your seat number'});
         }
 
         const schema = Joi.object().keys({
@@ -135,13 +137,12 @@ class allValidations {
         return Joi.validate({ trip_id, seat_number }, schema, (error) => {
             if(error) {
                 return res.status(400).json({
-                  message: error.message
+                    status: 400,
+                    error: error.message
                 })
             }
             next();
         });
     }
-
-
 }
 export default allValidations;

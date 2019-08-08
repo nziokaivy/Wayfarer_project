@@ -13,13 +13,14 @@ router.post('/auth/signin', allValidations.signin, Users.signin);
 
 //trip routes
 router.post('/trips', Auth.checkAdmin, allValidations.validateTrip, Trip.createNewTrip);
-router.get('/trips', Auth.checkUser, Trip.getAllTrips);
-router.get('/trips/:id',  Auth.checkUser, allValidations.validateId, Trip.getSpecificTrip);
+router.get('/trips', Trip.getAllTrips);
+router.get('/trips/:id',  allValidations.validateId, Trip.getSpecificTrip);
 router.patch('/trips/:id/cancel', Auth.checkAdmin, allValidations.validateId, Trip.cancelTrip);
 
 //booking routes
 router.post('/bookings', Auth.checkUser, allValidations.validateBooking, Booking.booking);
-router.get('/bookings', Auth.checkUser, Booking.getAllBookings);
+router.get('/bookings', Auth.checkAdmin, Booking.getAllBookings);
+router.get('/userbookings', Auth.checkUser, Booking.bookingsByUserOnly);
 router.delete('/booking/:id', Auth.checkUser, allValidations.validateId, Booking.deleteBooking);
 
 export default router;

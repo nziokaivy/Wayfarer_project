@@ -26,7 +26,7 @@ describe('Trip Tests', () => {
             .request(app)
             .post('/api/v1/trips')
             .send(trip)
-            .set('authorization', `Bearer ${adminToken}`)
+            .set('Authorization', `Bearer ${adminToken}`)
             .end((err, res) => {
                 res.should.have.status(201);
                 res.should.should.be.a('object');
@@ -39,7 +39,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get('/api/v1/trips')
-            .set('authorization', `Bearer ${userToken}`)
+            .set('Authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -63,7 +63,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get(`/api/v1/trips/${tripId}`)
-            .set('authorization', `Bearer ${userToken}`)
+            .set('Authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -87,7 +87,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get(`/api/v1/trips/${tripId}`)
-            .set('authorization', `Bearer ${userToken}`)
+            .set('Authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -100,7 +100,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .patch(`/api/v1/trips/1/cancel`)
-            .set('authorization', `Bearer ${adminToken}`)
+            .set('Authorization', `Bearer ${adminToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
