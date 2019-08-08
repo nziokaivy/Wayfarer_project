@@ -12,7 +12,7 @@ const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'user@test.com', 'user', 'test');
 
 describe('Trip Tests', () => {
-    // TEST FOR POST  NEW TRIP
+    // TEST FOR CREATING A NEW TRIP
     it('POST/api/v1/trips Should create a new trip', (done) => {
         const trip = {
             seating_capacity: '67',
@@ -26,9 +26,141 @@ describe('Trip Tests', () => {
             .request(app)
             .post('/api/v1/trips')
             .send(trip)
-            .set('Authorization', `Bearer ${adminToken}`)
+            .set('authorization', `Bearer ${adminToken}`)
             .end((err, res) => {
                 res.should.have.status(201);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING SEATING CAPACITY
+    it('POST/api/v1/trips Should not create a new trip if seating capacit is missing', (done) => {
+        const trip = {
+            seating_capacity: '',
+            bus_license_number: 'KZE 432',
+            origin: 'Nairobi',
+            destination: 'Kigali',
+            trip_date: '23/08/2019',
+            fare: '4000',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING BUS LICENSE NUMBER
+    it('POST/api/v1/trips Should not create a new trip if bus license number is missing', (done) => {
+        const trip = {
+            seating_capacity: '23',
+            bus_license_number: '',
+            origin: 'Nairobi',
+            destination: 'Kigali',
+            trip_date: '23/08/2019',
+            fare: '4000',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING ORIGIN
+    it('POST/api/v1/trips Should not create a new trip if origin is missing', (done) => {
+        const trip = {
+            seating_capacity: '23',
+            bus_license_number: 'KZE 432',
+            origin: '',
+            destination: 'Kigali',
+            trip_date: '23/08/2019',
+            fare: '4000',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING DESTINATION
+    it('POST/api/v1/trips Should not create a new trip if destination is missing', (done) => {
+        const trip = {
+            seating_capacity: '23',
+            bus_license_number: 'KZE 432',
+            origin: 'Nairobi',
+            destination: '',
+            trip_date: '23/08/2019',
+            fare: '4000',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING TRIP DATE
+    it('POST/api/v1/trips Should not create a new trip if trip date is missing', (done) => {
+        const trip = {
+            seating_capacity: '23',
+            bus_license_number: 'KZE 432',
+            origin: 'Nairobi',
+            destination: 'KIgali',
+            trip_date: '',
+            fare: '4000',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
+                res.should.should.be.a('object');
+                done();
+            });
+    });
+
+    // TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING FARE
+    it('POST/api/v1/trips Should not create a new trip if fare is missing', (done) => {
+        const trip = {
+            seating_capacity: '23',
+            bus_license_number: 'KZE 432',
+            origin: 'Nairobi',
+            destination: 'KIgali',
+            trip_date: '23/08/2019',
+            fare: '',
+        };
+        chai
+            .request(app)
+            .post('/api/v1/trips')
+            .send(trip)
+            .set('authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(400);
                 res.should.should.be.a('object');
                 done();
             });
@@ -39,7 +171,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get('/api/v1/trips')
-            .set('Authorization', `Bearer ${userToken}`)
+            .set('authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -63,7 +195,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get(`/api/v1/trips/${tripId}`)
-            .set('Authorization', `Bearer ${userToken}`)
+            .set('authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -87,7 +219,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .get(`/api/v1/trips/${tripId}`)
-            .set('Authorization', `Bearer ${userToken}`)
+            .set('authorization', `Bearer ${userToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');
@@ -100,7 +232,7 @@ describe('Trip Tests', () => {
         chai
             .request(app)
             .patch(`/api/v1/trips/1/cancel`)
-            .set('Authorization', `Bearer ${adminToken}`)
+            .set('authorization', `Bearer ${adminToken}`)
             .end((err, res) => {
                 res.should.have.status(200);
                 res.should.should.be.a('object');

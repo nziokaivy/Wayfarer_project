@@ -83,9 +83,7 @@ class allValidations {
 			fare: Joi.string().regex(/^[0-9]*$/).required().error(new Error('Please ensure that the fare amount is only a number')),
         });
         return Joi.validate({ seating_capacity,bus_license_number,origin,destination,trip_date,fare}, schema, (error) => {
-            if(error) {
-                console.log(error);
-                
+            if(error) {   
                 return res.status(400).json({
                   message: error.message
                 })
@@ -96,22 +94,17 @@ class allValidations {
     
     static validateId(req, res, next) {
 		const { id } = req.params;
-        const schema = Joi.object().keys({
-            id: Joi.string().regex(/^[1-9]+$/).trim().required().error(new Error('Please ensure that the id is an integer only')),
-        });
-        return Joi.validate({ id }, schema, (error) => {
-            if(error) {
-                return res.status(400).json({
-                    status: 400,
-                    error: error.message
-                })
-            }
-            next();
-        });
+        if(isNaN(id)){
+            return res.status(400).json({
+                status: 400,
+                error: "id must be an integer"
+            })
+        }
+        next();
     }
 
     static async validateEmail(req, res, next) {
-		const { email } = req.body;
+		const { email } = req.body; 
 		const checkEmail = await User.verifyEmail(email);
 		if (checkEmail) {
             return res.status(409).json({ status: 409, error: 'Email already exist.Please use another one' });

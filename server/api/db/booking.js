@@ -53,6 +53,10 @@ class Booking {
         last_name,
         email
     }) {
+        const tripId=this.bookings.filter(trip => trip.trip_id === trip_id);
+        if(!tripId){
+            return false;
+        }
         const newBooking = {
             id: this.bookings.length + 1,
             trip_id: trip_id,

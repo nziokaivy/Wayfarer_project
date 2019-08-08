@@ -13,9 +13,11 @@ class Auth {
                     status: 401,
                     message: 'Token required'
                 });
+
             } else {
                 const token = req.headers.authorization.split(' ')[1];
                 const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+
                 if (decodedToken.is_admin === true) {
                     next();
                 } else {
@@ -26,25 +28,31 @@ class Auth {
                 }
             }
         } catch (error) {
-            return error.toString();
+            return res.status(403).json({
+                status: 403,
+                error: 'Invalid Token'
+            })
         }
     }
 
     static checkUser(req, res, next) {
         try {
             const token = req.headers.authorization.split(' ')[1];
-            console.log(token, 'auth');
-            if (!token || token === null || token === '') {
-                return res.status(401).json({
-                    status: 401,
-                    error: 'Token required'
-                });
-            } else {
-                const decodedToken = jwt.verify(token, process.env.JWT_KEY);
-                next();
-            }
+            const decodedToken = jwt.verify(token, process.env.JWT_KEY, (err, decodedToken) => {
+                if (err) {
+                    return res.status(403).json({
+                        status: 403,
+                        error: 'Invalid Token'
+                    })
+                }
+            });
+            next();
+
         } catch (error) {
-            return error.toString()
+            return res.status(403).json({
+                status: 403,
+                error: 'Invalid Token'
+            })
         }
     }
 }

@@ -6,7 +6,7 @@ class User {
           email: 'admin@gmail.com',
           first_name: 'admin',
           last_name: 'admin',
-          password: 'Pass@123',
+          password: 'Pass@123y',
           is_admin: true,
         },
         {
@@ -40,7 +40,7 @@ class User {
     getAllUsers() {
       return this.users;
     }
-    
+
     verifyEmail(email) {
       const confirmEmail = this.users.find(user => user.email === email);
       if (!confirmEmail) {
