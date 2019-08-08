@@ -1,0 +1,51 @@
+{
+  "name": "Wayfarer_project",
+  "version": "1.0.0",
+  "description": "#####Link:",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./server/api/server.js",
+    "test": "mocha --require @babel/register ./server/test/*.test.js --exit --timeout 20000",
+    "build": "rm -rf ./build && babel ./server/api -d build",
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nziokaivy/Wayfarer_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nziokaivy/Wayfarer_project/issues"
+  },
+  "homepage": "https://github.com/nziokaivy/Wayfarer_project#readme",
+  "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.0.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1"
+  }
+}
