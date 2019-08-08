@@ -2,9 +2,7 @@ import Trip from '../db/trip';
 
 const TripController = {
     createNewTrip(req, res) {
-        const {
-            body
-        } = req;
+        const { body } = req;
         if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare) {
             return res.status(400).json({
                 status: 400,
