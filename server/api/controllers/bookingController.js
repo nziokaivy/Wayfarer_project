@@ -44,12 +44,19 @@ const BookingController = {
         }
         return res.status(404).json({ status: 'error', error: 'Not found' });
     },
-
-    deleteBooking(req, res) {
-        const bookingId = parseInt(req.params.id);
-        const specificBooking = Booking.getSpecificBooking(bookingId);
-        if (!specificBooking) {
-            return res.status(404).json({ status: 'error', error: 'Not Found'});             
+    bookingsByUserOnly(req, res) {
+        const token = req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+        req.body.data = decodedToken;
+        const {
+            email
+        } = req.body.data;
+        const userBookings = Booking.getOnlyBookingsByUser(email);
+        if (!userBookings) {
+            return res.status(404).json({
+                status: 404,
+                message: 'You do not have any existing bookings!',
+            });
         }
         Booking.deleteBooking(bookingId);
             return res.status(204).json({ status: 'success', data: { message: 'Booking Deleted Successfully!' } });

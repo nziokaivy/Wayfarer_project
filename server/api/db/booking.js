@@ -13,7 +13,11 @@ class Booking {
         },
     ];
     }
-    createNewBooking(data) {
+    createNewBooking({ trip_id, seat_number, first_name,last_name,email }) {
+        const tripId=this.bookings.filter(trip => trip.trip_id === trip_id);
+        if(!tripId){
+            return false;
+        }
         const newBooking = {
             id: this.bookings.length + 1,
             seat_number: data.seat_number,
@@ -39,6 +43,16 @@ class Booking {
         this.bookings.splice(index, 1);
         return {};
     }
+
+    getOnlyBookingsByUser(email) {
+        const myBookings = this.bookings.find(data => data.email === email)     
+		if ( myBookings == undefined) {
+			this.result = 'You have no existing booking.';
+			return false;
+		}
+		this.result = myBookings;
+		return myBookings;
+	}
 }
 
 export default new Booking();
