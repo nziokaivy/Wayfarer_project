@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="../images/bus_favicon.png"/>
+    <script src="../js/index.js"></script>
 </head>
 <body>
     <header>
@@ -44,6 +45,8 @@
             <div id="tab-content2" class="content">
                         <h1 class="booking-title">My Trips</h1>
                         <div class="border"></div>
+
+                       
                 <table>
                 <tr>
                     <th>Origin</th>
@@ -131,7 +134,9 @@
                                 <h1>All Trips</h1>
                             <div class="border"></div>
                             </div>
-                            <table>
+                            <input type="text" id="myInput" onkeyup="aFunction()" placeholder="Search by origin.." title="Type in an origin">
+
+                            <table id="myTable">
                                 <thead>
                                     <tr>
                                         <th>
@@ -185,8 +190,25 @@
                                         <td>Kshs 1000</td>
                                         <td><a href="specifictrip.html" class="more-button">More</a></td>
                                     </tr>
+                                    <tr>
+                                        <td><i class="fa fa-bus"></i></td>
+                                        <td>Kisumu</td>
+                                        <td><i class="fa fa-long-arrow-right"></i></td>
+                                        <td>Mombasa</td>
+                                        <td>Kshs 1000</td>
+                                        <td><a href="specifictrip.html" class="more-button">More</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-bus"></i></td>
+                                        <td>Kigali</td>
+                                        <td><i class="fa fa-long-arrow-right"></i></td>
+                                        <td>Mombasa</td>
+                                        <td>Kshs 5000</td>
+                                        <td><a href="specifictrip.html" class="more-button">More</a></td>
+                                    </tr>
                                 </tbody>
-                            </table> 
+                            </table>
+
                         </section> 
             </div>
         </li>
