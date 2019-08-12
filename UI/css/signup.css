@@ -10,7 +10,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background:  #242582;
+    background: #242582;
     opacity: 0.8;
 }
 body {
@@ -32,7 +32,7 @@ body {
     transform: translateX(-50%) translateY(-50%);
 }
 h2 {
-    margin-top:  0px;
+    margin-top: 0px;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
     color: #fff;
@@ -40,16 +40,17 @@ h2 {
     text-align: center;
 }
 .input-container {
-    display: -ms-flexbox; /* IE10 */
+    display: -ms-flexbox;
+    /* IE10 */
     display: flex;
     width: 100%;
 }
 .fa {
-   padding: 10px;
-   color: white;
-   min-width: 50px;
-   text-align: center;
-   font-size: 36px;
+    padding: 10px;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+    font-size: 36px;
 }
 input {
     display: block;
@@ -57,14 +58,14 @@ input {
     height: 50px;
     background: #fff;
     outline: none;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     font-family: 'Montserrat', sans-serif;
-    font-weight:lighter;
+    font-weight: lighter;
     font-size: 20px;
     margin-bottom: 10px;
     padding-left: 10px;
     border-radius: 5px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
 }
 button {
     width: 332px;
@@ -86,15 +87,16 @@ button {
     font-family: 'Montserrat', sans-serif;
 }
 @media screen and (max-width: 1000px) {
-    select , .input-container{
-      width: 200px;
-      margin-top: 0;
-      font-size: 17px;
+    select,
+    .input-container {
+        width: 200px;
+        margin-top: 0;
+        font-size: 17px;
     }
     input {
-      width: 200px;
-      margin-top: 0;
-      font-size: 17px;
+        width: 200px;
+        margin-top: 0;
+        font-size: 17px;
     }
     .btn {
         margin-top: 20px;
@@ -123,5 +125,4 @@ button {
     html {
         height: 1000px;
     }
-  }
-  
+}

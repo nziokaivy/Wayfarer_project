@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Booking from '../api/db/booking';
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
 describe('Book Seat', () => {

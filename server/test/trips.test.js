@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Trip from '../api/db/trip';
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
 
 describe('Trip Tests', () => {

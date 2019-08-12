@@ -19,7 +19,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background:  #242582;
+    background: #242582;
     opacity: 0.8;
 }
 .newtrip {
@@ -32,7 +32,7 @@ body {
     border: 1px solid #F64C72;
 }
 h2 {
-    margin-top:  0px;
+    margin-top: 0px;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
     color: #fff;
@@ -45,9 +45,9 @@ select {
     height: 50px;
     background: #fff;
     outline: none;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     font-family: 'Montserrat', sans-serif;
-    font-weight:lighter;
+    font-weight: lighter;
     font-size: 20px;
     margin-bottom: 10px;
     padding-left: 10px;
@@ -68,9 +68,9 @@ input {
     height: 50px;
     background: #fff;
     outline: none;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     font-family: 'Montserrat', sans-serif;
-    font-weight:lighter;
+    font-weight: lighter;
     font-size: 20px;
     margin-bottom: 10px;
     padding-left: 10px;
@@ -91,10 +91,13 @@ button {
     text-align: center;
 }
 @media screen and (max-width: 1000px) {
-    select, input, .btn , label{
-      width: 100%;
-      margin-top: 0;
-      font-size: 17px;
+    select,
+    input,
+    .btn,
+    label {
+        width: 100%;
+        margin-top: 0;
+        font-size: 17px;
     }
     .newtrip h2 {
         margin-top: 50px;
@@ -113,4 +116,4 @@ button {
         height: 100vh;
         background: url('../images/image3.jpg') no-repeat;
     }
-  }
+}

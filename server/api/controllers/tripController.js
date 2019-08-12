@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import Trip from '../db/trip';
 
 const TripController = {
