@@ -80,7 +80,6 @@ const BookingController = {
         const {
             email
         } = req.body.data;
-        console.log(email);
         const userBookings = Booking.getOnlyBookingsByUser(email);
         if (!userBookings) {
             return res.status(404).json({
