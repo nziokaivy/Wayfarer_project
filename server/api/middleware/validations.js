@@ -24,7 +24,7 @@ class allValidations {
         }
 
         const schema = Joi.object().keys({
-            first_name: Joi.string().regex(/^[a-zA-Z]{3,}/).trim().required().error(new Error('Please ensure your first name exceeds 3 letters')),
+            first_name: Joi.string().regex(/^[A-Za-z]{3,}/).trim().required().error(new Error('Please ensure your first name exceeds 3 letters')),
             last_name: Joi.string().regex(/^[a-zA-Z]{3,}/).trim().required().error(new Error('Please ensure your last name exceeds 3 letters')),
             email: Joi.string().regex(/(^[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\.[a-z]+$)/).trim().required().error(new Error('Please ensure your email address is in the format username@gmail.com')),
             password: Joi.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{8,}$/).required().error(new Error('Please ensure your password has a minimum of 8 characters, capital letters, an alphanumeric and a number')),
@@ -76,7 +76,7 @@ class allValidations {
         }
         const schema = Joi.object().keys({
             seating_capacity: Joi.string().regex(/^[1-9]+$/).trim().required().error(new Error('Please ensure the seating capacity entered is a number only')),
-            bus_license_number: Joi.string().regex(/^([a-zA-Z])+(\s)+[0-999]+$/).trim().required().error(new Error('Please ensure the bus license number follows a specified format e.g, KSE234T ')),
+            bus_license_number: Joi.string().regex(/^([a-zA-Z])+(\s)+[0-999]+$/).trim().required().error(new Error('Please ensure the bus license number follows a specified format e.g, KVB 234 ')),
             origin: Joi.string().regex(/^[a-zA-Z]{3,}$/).trim().required().error(new Error('Please ensure that the origin is a string and has a minimum of 3 letters.')),
             destination: Joi.string().regex(/^[a-zA-Z]{3,}$/).required().error(new Error('Please ensure that the destination is a string and has a minimum of 3 letters.')),
             trip_date: dateJoi.date().min(new Date()).format(['DD/MM/YYYY']).iso().required().error(new Error('Please ensure your trip date follows this format: DD/MM/YYYY')),
@@ -114,7 +114,6 @@ class allValidations {
     
     static validateBooking(req,res,next) {
         const { trip_id, seat_number } = req.body;
-        console.log('found');
         if (!trip_id) {
 			return res.status(400).json({status:400, error:'Please fill in the trip id'});
         }

@@ -47,13 +47,8 @@ class Booking {
             },
         ];
     }
-    createNewBooking({
-        trip_id,
-        seat_number,
-        first_name,
-        last_name,
-        email
-    }) {
+
+    createNewBooking({ trip_id, seat_number, first_name,last_name,email }) {
         const tripId=this.bookings.filter(trip => trip.trip_id === trip_id);
         if(!tripId){
             return false;
@@ -85,10 +80,8 @@ class Booking {
     }
 
     getOnlyBookingsByUser(email) {
-        console.log(email);
         const myBookings = this.bookings.find(data => data.email === email);
-        console.log(myBookings,'data');
-        
+
 		if ( myBookings == undefined) {
 			this.result = 'You have no existing booking.';
 			return false;
