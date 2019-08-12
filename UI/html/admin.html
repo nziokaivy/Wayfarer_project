@@ -7,11 +7,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/admin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="../images/bus_favicon.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/bus_favicon.png" />
     <title>Admin</title>
     <script src="index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 <body>
     <section id="sideMenu">
@@ -20,26 +19,23 @@
             <a href="#trips"><i class="fa fa-edit" aria-hidden="true"></i>Trips</a>
             <a href="#bookings"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Bookings</a>
             <a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a>
-
         </nav>
-    </section>    
+    </section>
     <header>
         <div class="user-field">
             <a href="newtrip.html" class="add">+ Add Trip</a>
             <a href="#" class="notification"><i class="fa fa-bell-o" aria-hidden="true"></i>
-            <span class="circle">3</span></a>
+                <span class="circle">3</span></a>
             <a href="#">
                 <div class="user-img"></div>
             </a>
-        </div>        
+        </div>
     </header>
-
     <section id="content-area">
         <div class="heading">
             <h1>Dashboard</h1>
             <p>Welcome to Wayfarer</p>
-        </div> 
-    
+        </div>
         <div class="row">
             <div class="column">
                 <div class="card">
@@ -48,81 +44,70 @@
                     <p class="semi-title">Users</p>
                 </div>
             </div>
-                
             <div class="column">
                 <div class="card">
                     <h3><i class="fa fa-bus"></i></h3>
                     <p class="statistics">4</p>
                     <p class="semi-title">Trips</p>
                 </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h3><i class="fa fa-calendar"></i></h3>
+                    <p class="statistics">5</p>
+                    <p class="semi-title">Bookings</p>
                 </div>
-                
-                <div class="column">
-                    <div class="card">
-                        <h3><i class="fa fa-calendar"></i></h3>
-                        <p class="statistics">5</p>
-                        <p class="semi-title">Bookings</p>
-                    </div>
-                </div>
-        
+            </div>
         </div>
-
         <section id="bookings">
-                <div class="heading">
-                    <h1>Bookings</h1>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                USER 
-                            </th>
-                            <th>
-                                TRIP ID
-                            </th>
-                            <th>
-                                STATUS
-                            </th>
-                            <th>
-                                DATE CREATED
-                            </th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                        <tr>
-                            <td>johndoe@gmail.com</td>
-                            <td>#456789</td>
-                            <td><button class="status-active">Active</button></td>
-                            <td>21 July, 2018</td>
-                                
-                        </tr>
-                    
-                        <tr>
-                            <td>mary@demo.com</td>
-                            <td>#123456</td>
-                            <td><button class="status-inactive">Inactive</button></td>
-                            <td>03 Feb, 2018</td>
-                        </tr>
-                    
-                        <tr>
-                            <td>jane@demo.com</td>
-                            <td>#135791</td>
-                            <td><button class="status-active">Active</button></td>
-                            <td>21 June, 2018</td>
-                        </tr>
-                    
-                        <tr>
-                            <td>paul@demo.com</td>
-                            <td>#246802</td>
-                            <td><button class="status-active">Active</button></td>
-                            <td>2 Aug, 2018</td>
-    
-                        </tr>
-                    </tbody>
-                </table>    
-            </section>
-
+            <div class="heading">
+                <h1>Bookings</h1>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            USER
+                        </th>
+                        <th>
+                            TRIP ID
+                        </th>
+                        <th>
+                            STATUS
+                        </th>
+                        <th>
+                            DATE CREATED
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>johndoe@gmail.com</td>
+                        <td>#456789</td>
+                        <td><button class="status-active">Active</button></td>
+                        <td>21 July, 2018</td>
+                    </tr>
+                    <tr>
+                        <td>mary@demo.com</td>
+                        <td>#123456</td>
+                        <td><button class="status-inactive">Inactive</button></td>
+                        <td>03 Feb, 2018</td>
+                    </tr>
+                    <tr>
+                        <td>jane@demo.com</td>
+                        <td>#135791</td>
+                        <td><button class="status-active">Active</button></td>
+                        <td>21 June, 2018</td>
+                    </tr>
+                    <tr>
+                        <td>paul@demo.com</td>
+                        <td>#246802</td>
+                        <td><button class="status-active">Active</button></td>
+                        <td>2 Aug, 2018</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
         <section id="trips">
             <div class="heading">
                 <h1>Trips</h1>
@@ -143,11 +128,9 @@
                             DATE CREATED
                         </th>
                         <th>
-                                
                         </th>
                     </tr>
                 </thead>
-                
                 <tbody>
                     <tr>
                         <td>Nairobi</td>
@@ -155,41 +138,32 @@
                         <td>kshs 1000</td>
                         <td>21 July, 2018</td>
                         <td><a href="specifictrip_admin.html" class="cancel-button">More</a></td>
-                  
-                            
-
                     </tr>
-                
                     <tr>
                         <td>Nairobi</td>
                         <td>Mombasa</td>
                         <td>kshs 1000</td>
                         <td>21 July, 2018</td>
                         <td><a href="specifictrip_admin.html" class="cancel-button">More</a></td>
-                  
                     </tr>
-                
                     <tr>
                         <td>Nairobi</td>
                         <td>Mombasa</td>
                         <td>kshs 1000</td>
                         <td>21 July, 2018</td>
                         <td><a href="specifictrip_admin.html" class="cancel-button">More</a></td>
-                  
                     </tr>
-                
                     <tr>
                         <td>Nairobi</td>
                         <td>Mombasa</td>
                         <td>kshs 1000</td>
                         <td>21 July, 2018</td>
                         <td><a href="specifictrip_admin.html" class="cancel-button">More</a></td>
-                  
                     </tr>
                 </tbody>
-            </table>    
-        </section>    
-    </section>        
+            </table>
+        </section>
+    </section>
 </body>
-</html>
 
+</html>

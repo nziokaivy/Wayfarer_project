@@ -1,16 +1,13 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Montserrat', sans-serif;
     background: #f1f1f1;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 #sideMenu {
     background: #242582;
     width: 280px;
@@ -21,13 +18,10 @@ html {
     left: 0;
     height: 100%;
     overflow: auto;
-    
 }
-
 nav {
     padding-top: 100px;
 }
-
 nav a {
     display: block;
     color: #EAEDF3;
@@ -37,27 +31,23 @@ nav a {
     transition: all 0.3s ease-in-out;
 }
 nav a:hover {
-    background:  #282639;
+    background: #282639;
     border-left: 5px solid #F64C72;
     padding: 15px 30px 15px 25px;
 }
-
 .fa:hover {
     color: #F64C72;
-
 }
-
 nav a.active {
     background: #282639;
     border-left: 5px solid #F64C72;
     padding: 15px 30px 15px 25px;
 }
-
 .fa-home,
 .fa-sign-out,
 .fa-edit,
 .fa-user-circle-o {
-    color:  #eaedf3;
+    color: #eaedf3;
     font-size: 1.4rem;
     margin-right: 0.8rem;
     display: inline-block;
@@ -65,23 +55,18 @@ nav a.active {
     position: relative;
     top: 2px;
 }
-
 .fa.active {
     color: #F64C72;
 }
-
 header {
     margin-left: 280px;
     padding: 30px;
-
 }
-
 .user-field {
     display: inline-block;
     float: right;
     padding: 10px;
 }
-
 .user-field a {
     color: #282639;
     display: inline-block;
@@ -89,9 +74,7 @@ header {
     text-decoration: none;
     vertical-align: top;
     height: 30px;
-
 }
-
 .circle {
     display: inline-block;
     background: #F64C72;
@@ -105,19 +88,15 @@ header {
     position: absolute;
     top: 4px;
     left: 9px;
-
 }
-
 .notification {
     color: #242582;
     position: relative;
     font-size: 20px;
     padding-top: 5px;
 }
-
 .fa-bell-o {
     color: #242582;
-
 }
 .add {
     color: #242582;
@@ -125,72 +104,61 @@ header {
     font-weight: 500;
     padding-top: 7px;
 }
-
 .user-img {
-    background: 
-    url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center ; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border-radius: 50%;
-  margin-right: 10px;
+    background:
+        url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
 }
-
 .fa-caret-down {
     position: relative;
     top: -8px;
     color: #282639;
 }
-
-  #content-area {
+#content-area {
     margin-left: 280px;
     padding: 1px 16px;
     height: 1000px;
- }
-
-.heading h1{
+}
+.heading h1 {
     color: #242582;
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 30px;
     text-align: center;
-
 }
-
-.heading p{
-    color:  #242582;
+.heading p {
+    color: #242582;
     font-size: 1.5rem;
     margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
 }
-
 .column {
     float: left;
     width: 33.33%;
     padding: 0 10px;
 }
-  
 .fa-users,
-.fa-bus ,
+.fa-bus,
 .fa-calendar {
     font-size: 56px;
     color: #F64C72;
-} 
-
-.row {margin: 0 -5px;}
-  
-
+}
+.row {
+    margin: 0 -5px;
+}
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-   
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 10px;
@@ -200,53 +168,44 @@ header {
     color: #242582;
     margin-bottom: 20px;
 }
-
 .semi-title {
     font-size: 24px;
     color: #242582;
 }
-
 table {
     width: 100%;
     border-collapse: collapse;
 }
-
 thead {
-    background:  #F64C72;
+    background: #F64C72;
     -webkit-border-top-left-radius: 10px;
--webkit-border-top-right-radius: 10px;
--moz-border-radius-topleft: 25px;
--moz-border-radius-topright: 10px;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 25px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
-
 th {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
     text-align: left;
     padding: 20px 10px;
-    color:  #000;   
+    color: #000;
 }
-
 tbody {
     background: #fff;
     font-size: 1rem;
 }
-
 td {
     padding: 20px 5px;
-    color:  #242582;
+    color: #242582;
 }
-
-
 .fa-close {
     padding: 20px 10px;
-    color:  #F64C72;
+    color: #F64C72;
     font-size: 96px;
 }
-
 .cancel-button {
     background-color: #242582;
     display: inline-block;
@@ -259,7 +218,6 @@ td {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
-
 .status-active {
     background-color: green;
     display: inline-block;
@@ -271,7 +229,6 @@ td {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
-
 .status-inactive {
     background-color: red;
     display: inline-block;
@@ -283,15 +240,16 @@ td {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
-
 /* On screens that are less than 1000px wide, make the sidebar into a topbar */
 @media screen and (max-width: 1000px) {
     #sideMenu {
-      width: 100%;
-      height: auto;
-      position: relative;
+        width: 100%;
+        height: auto;
+        position: relative;
     }
-    nav a {float: left;}
+    nav a {
+        float: left;
+    }
     header {
         margin-left: 0;
         margin-right: 0;
@@ -304,28 +262,28 @@ td {
         padding-left: 0;
         width: 100%;
     }
-  }
-
+}
 @media screen and (max-height: 450px) {
-    #sideMenu {padding-top: 15px;}
+    #sideMenu {
+        padding-top: 15px;
+    }
     nav a {
         font-size: 18px;
         padding: 55px;
     }
-  }
-
+}
 @media screen and (max-width: 1000px) {
     .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
     }
 }
-  /* On screens that are less than 1000px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 1000px) {
+/* On screens that are less than 1000px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 1000px) {
     nav a {
-      text-align: left;
-      float: none;
+        text-align: left;
+        float: none;
     }
     header {
         font-size: 10px;
@@ -342,58 +300,67 @@ td {
     #content-area {
         margin: 0px;
     }
-
     #bookings {
         width: 100%;
         margin-top: 0;
         text-align: center;
         padding: 0;
     }
-    
 }
 
-@media 
-only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
-
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #F64C72; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #F64C72;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    /*
 	Label the data
 	*/
-	td:nth-of-type(1):before { content: "ORIGIN"; }
-	td:nth-of-type(2):before { content: "DESTINATION"; }
-	td:nth-of-type(3):before { content: "PRICE"; }
-	td:nth-of-type(4):before { content: "DATE CREATED"; }
-	td:nth-of-type(5):before { content: ""; }
+    td:nth-of-type(1):before {
+        content: "ORIGIN";
+    }
+    td:nth-of-type(2):before {
+        content: "DESTINATION";
+    }
+    td:nth-of-type(3):before {
+        content: "PRICE";
+    }
+    td:nth-of-type(4):before {
+        content: "DATE CREATED";
+    }
+    td:nth-of-type(5):before {
+        content: "";
+    }
 }

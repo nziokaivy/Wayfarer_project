@@ -23,9 +23,7 @@ header {
 }
 .topnav {
   overflow: hidden;
-
 }
-  
 .topnav a {
   float: right;
   display: block;
@@ -39,7 +37,6 @@ header {
   font-weight: 600;
   margin-top: 20px;
 }
-
 .topnav .icon {
   display: none;
 }
@@ -76,11 +73,9 @@ header {
   text-align: left;
 }
 }
-  
 .logo {
   float: left;
 }
-  
 .topnav a {
   float: right;
   display: block;
@@ -94,7 +89,6 @@ header {
   font-weight: 600;
   margin-top: 20px;
 }
-  
 .fa-bus {
   font-size: 84px;
   font-family: 'Montserrat', sans-serif;
@@ -108,7 +102,6 @@ slider {
   overflow: hidden;
   position: absolute;
 }
-
 slider > * {
   position: absolute;
   display: block;
@@ -118,41 +111,32 @@ slider > * {
   animation: slide 12s infinite;
   overflow: hidden;
 }
-
 slide:nth-child(1) {
   left: 0%;
   animation-delay: -1s;
   background-image: url("../images/nrb.jpg");
   background-size: cover;
   background-position: center;
-
 }
-
 slide:nth-child(2) {
   animation-delay: 2s;
   background-image: url("../images/msa.jpg");
   background-size: cover;
   background-position: center;
-
 }
-
 slide:nth-child(3) {
   animation-delay: 5s;
   background-image: url("../images/los.jpg");
   background-size: cover;
   background-position: center;
-
 }
-
 slide:nth-child(4) {
   left: 0%;
   animation-delay: 8s;
   background-image: url("../images/kgl.jpg");
   background-size: cover;
   background-position: center;
-
 }
-
 slide p {
   font-family: 'Montserrat', sans-serif;
   font-size: 70px;
@@ -161,9 +145,7 @@ slide p {
   width: 100%;
   margin-top: 154px;
   color: #fff;
-
 }
-
 @keyframes slide {
   0% { left: 100%; width: 100;}
   5% { left: 0%;}
@@ -172,19 +154,16 @@ slide p {
   30.0001% { left: -100%; width: 0%;}
   100% { left: 100%; width: 0%;}
 }
-
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
-}
-    
+}  
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .slider {
     padding-top: 60px;
-}
-    
+}  
 /* end of header section */
 
 /* about section */
@@ -196,40 +175,33 @@ slide p {
   margin-bottom: 280px;
   text-align: center;
 }
-
 .inner-width{
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-
 .about-section h1{
   text-align: center;
   color: #242582;
   font-size:30px;
 }
-
 .border{
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
-}
-  
+} 
 .about-section-row{
   display: flex;
   flex-wrap: wrap;
 }
-
 .about-section-col{
   flex: 50%;
 }
-
 .about{
   padding-right: 30px;
 }
-
 .about p{
   text-align: center;
   margin-bottom: 20px;
@@ -237,7 +209,6 @@ slide p {
   padding: 10px;
   font-size: 17px;
 }
-
 .about a{
   display: inline-block;
   color: #F64C72;
@@ -247,18 +218,15 @@ slide p {
   padding: 8px 40px;
   transition: 0.4s linear;
 }
-
 .about a:hover{
   color: #fff;
   background: #F64C72;
 }
-
 @media screen and (max-width:1000px) {
   .about-section-col{
   flex: 100%;
   margin: 10px 0;
 }
-
 .about{
   padding: 0;
   text-align: center;
@@ -275,7 +243,6 @@ slide p {
   color: white;
   text-align: center;
 }
-  
 .footer .fa {
   padding: 20px;
   font-size: 36px;
@@ -291,55 +258,46 @@ slide p {
 }
 
 /* end of footer section */
-
 .contact-section{
   width: 100%;
   background: #242582;
   opacity: 0.8;
   padding: 80px 0;
 }
-  
 .inner-width{
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-  
 .contact-section h1{
   text-align: center;
   color: #fff;
   font-size: 30px;
 }
-  
 .border{
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
-  
 .contact-section-row{
   display: flex;
   flex-wrap: wrap;
 }
-  
 .contact-section-col{
   flex: 50%;
   text-align: center;
-}
-  
+} 
 .contact{
   padding-right: 30px;
 }
-  
 .contact p{
   text-align: center;
   margin-bottom: 50px;
   color: #fff;
   font-size: 17px;
-}
-  
+} 
 form{
   text-align:center;
   color: #F64C72;
@@ -348,7 +306,6 @@ form{
   padding: 8px 40px;
   position: center;
 }
-  
 .contact-form input {
   width: 100%;
   margin: 20px 0;
@@ -358,21 +315,17 @@ form{
   padding: 20px;
   color: #fff;
   font-size: 17px;
-  
-}
-    
+}  
 ::-webkit-input-placeholder {
   color: #fff;
   font-size: 17px;
   letter-spacing: 2px;
   border: none;
 }
-  
 .contact-button:hover{
   color: #fff;
   background: #F64C72;
 }
-  
 .contact-button {
   padding: 8px 40px;
   font-size: 16px;
@@ -383,9 +336,7 @@ form{
   border: 2px solid #F64C72;
   border-radius: 24px;
   transition: 0.4s linear;
-  
 }
-  
 @media screen and (max-width:1000px) {
 .contact-section-col{
   flex: 100%;
@@ -399,19 +350,15 @@ form{
 }
 }
 
- 
-
 /* trip section */
 table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
 }
-
 .fa-long-arrow-right {
   font-size: 148px;
 }
-
 thead {
   background: #F64C72;
   -webkit-border-top-left-radius: 10px;
@@ -421,7 +368,6 @@ thead {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-  
 th {
   font-size: 1rem;
   text-transform: uppercase;
@@ -431,17 +377,14 @@ th {
   color: #000;
   background: #fff;
 }
-  
 tbody {
   background: #fff;
   font-size: 1rem;
 }
-  
 td {
   padding: 20px 5px;
   color: #242582;
 }
-  
 .more-button {
   background-color: #F64C72;
   display: inline-block;
@@ -455,7 +398,6 @@ td {
 .more-button a{
   text-decoration: none;
 }
-  
 #trips {
   margin-top : 940px;
   padding:5px;
@@ -465,31 +407,24 @@ td {
   color: #242582;
   margin-bottom: 30px;
   font-size: 30px;
-  
 }
-
-
 @media screen and (max-width:1000px) {
   #trips {
     width: 100%;
     margin-top: 940px;
     text-align: center;
     padding: 0;
-
-
-    }
+  }
   .more-button {
     display: block;
     float: left;
   }  
-
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
   }
-  
   @media 
   only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
   
@@ -497,16 +432,13 @@ td {
     table, thead, tbody, th, td, tr { 
       display: block; 
     }
-    
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr { 
       position: absolute;
       top: -9999px;
       left: -9999px;
     }
-    
     tr { border: 1px solid #F64C72; }
-    
     td { 
       /* Behave  like a "row" */
       border: none;
@@ -514,7 +446,6 @@ td {
       position: relative;
       padding-left: 50%; 
     }
-    
     td:before { 
       /* Now like a table header */
       position: absolute;
@@ -525,7 +456,6 @@ td {
       padding-right: 10px; 
       white-space: nowrap;
     }
-    
     /*
     Label the data
     */

@@ -6,17 +6,17 @@ import Booking from '../controllers/bookingController';
 
 const router = express.Router();
 
-//authentication routes
+// authentication routes
 router.post('/auth/signup', SignUp.signup);
 router.post('/auth/signin', SignIn.signin);
 
-//trip routes
+// trip routes
 router.post('/trips', Trip.createNewTrip);
 router.get('/trips', Trip.getAllTrips);
 router.get('/trips/:id', Trip.getSpecificTrip);
 router.patch('/trips/:id/cancel', Trip.cancelTrip);
 
-//booking routes
+// booking routes
 router.post('/bookings', Booking.booking);
 router.get('/bookings', Booking.getAllBookings);
 router.delete('/booking/:id', Booking.deleteBooking);

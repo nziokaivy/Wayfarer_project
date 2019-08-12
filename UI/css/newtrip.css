@@ -4,7 +4,6 @@ html {
     width: 100%;
     height: 100vh;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -14,7 +13,6 @@ body {
     background-size: cover;
     display: table;
 }
-
 .overlay {
     position: absolute;
     top: 0;
@@ -24,7 +22,6 @@ body {
     background:  #242582;
     opacity: 0.8;
 }
-
 .newtrip {
     border-radius: 5px;
     padding: 5em;
@@ -34,7 +31,6 @@ body {
     transform: translateX(-50%) translateY(-50%);
     border: 1px solid #F64C72;
 }
-
 h2 {
     margin-top:  0px;
     font-family: 'Montserrat', sans-serif;
@@ -43,7 +39,6 @@ h2 {
     font-size: 50px;
     text-align: center;
 }
-
 select {
     display: block;
     width: 720px;
@@ -59,7 +54,6 @@ select {
     border-radius: 5px;
     color: #000;
 }
-
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;
@@ -83,7 +77,6 @@ input {
     border-radius: 5px;
     color: #000;
 }
-
 button {
     width: 332px;
     height: 50px;
@@ -96,10 +89,7 @@ button {
     border-radius: 5px;
     margin-top: 40px;
     text-align: center;
-
- 
 }
-
 @media screen and (max-width: 1000px) {
     select, input, .btn , label{
       width: 100%;
