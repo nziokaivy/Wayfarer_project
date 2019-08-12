@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi';
-import User from '../db/user';
+import User from '../models/user';
 import Extension from '@hapi/joi-date';
 
 const dateJoi = Joi.extend(Extension);
@@ -100,6 +100,15 @@ class allValidations {
                 error: "id must be an integer"
             })
         }
+        next();
+    }
+
+    static validateOrigin(req, res, next) {
+        const { origin } = req.params;
+        if (!origin) {
+			return res.status(400).json({status:400, error:'Please fill in the origin of the trip'});
+        }
+
         next();
     }
 

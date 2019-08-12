@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-import User from '../api/db/user';
 
 const should = chai.should();
 chai.use(chaiHttp);

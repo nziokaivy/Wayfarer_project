@@ -1,20 +1,8 @@
 import jwt from 'jsonwebtoken';
-import Booking from '../db/booking';
-import User from '../db/user';
+import Booking from '../models/booking';
 
-const removeBooking = (data) => {
-    const remove = {
-        trip_id: data.id,
-        first_name: User.getUser(data.user_id).first_name,
-        last_name: User.getUser(data.user_id).last_name,
-        email: User.getUser(data.user_id).email,
-        seat_number: data.seat_number,
-    };
-    return remove;
-};
-
-const BookingController = {
-    booking(req, res) {
+class BookingController {
+    static booking(req, res) {
         try {
             const {
                 body
@@ -34,9 +22,9 @@ const BookingController = {
         } catch (error) {
             console.log(error);
         }
-    },
+    }
 
-    getAllBookings(req, res) {
+    static getAllBookings(req, res) {
         const allBookings = Booking.getAllBookings();
         if (!allBookings.length) {
             return res.status(404).json({
@@ -49,9 +37,9 @@ const BookingController = {
             message: 'success',
             data: allBookings
         });
-    },
+    }
 
-    deleteBooking(req, res) {
+    static deleteBooking(req, res) {
         try {
             const bookingId = parseInt(req.params.id);
             const booking_delete = Booking.deleteBooking(bookingId);
@@ -72,8 +60,9 @@ const BookingController = {
             console.log(error);
 
         }
-    },
-    bookingsByUserOnly(req, res) {
+    }
+
+    static bookingsByUserOnly(req, res) {
         const token = req.headers.authorization.split(' ')[1];
         const decodedToken = jwt.verify(token, process.env.JWT_KEY);
         req.body.data = decodedToken;
@@ -94,6 +83,7 @@ const BookingController = {
             data: userBookings,
         });
     }
-};
+
+}
 
 export default BookingController;

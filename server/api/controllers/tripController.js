@@ -1,8 +1,10 @@
-import Trip from '../db/trip';
+import Trip from '../models/trip';
 
-const TripController = {
-    createNewTrip(req, res) {
-        const { body } = req;
+class TripController {
+    static createNewTrip(req, res) {
+        const {
+            body
+        } = req;
         if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare) {
             return res.status(400).json({
                 status: 400,
@@ -15,9 +17,9 @@ const TripController = {
             message: 'success',
             data: newTrip
         });
-    },
+    }
 
-    getAllTrips(req, res) {
+    static getAllTrips(req, res) {
         const allTrips = Trip.getAllTrips();
         if (!allTrips.length) {
             return res.status(404).json({
@@ -30,9 +32,27 @@ const TripController = {
             message: 'success',
             data: allTrips
         });
-    },
+    }
 
-    getSpecificTrip(req, res) {
+    static getAllTripsByOrigin(req, res) {
+        const {
+            origin
+        } = req.params;
+        const filteredTrips = Trip.getTripsByOrigin(origin);        
+        if (!filteredTrips) {
+            return res.status(400).json({
+                status: 400,
+                error: 'Trips not found by that origin name provided',
+            })
+        }
+        return res.status(200).json({
+            status: 200,
+            message: 'success',
+            data: filteredTrips,
+        })
+    }
+
+    static getSpecificTrip(req, res) {
 
         const id = parseInt(req.params.id);
         const specificTrip = Trip.getSpecificTrip(id);
@@ -54,9 +74,9 @@ const TripController = {
             message: 'success',
             data: specificTrip
         });
-    },
+    }
 
-    cancelTrip(req, res) {
+    static cancelTrip(req, res) {
         const id = parseInt(req.params.id);
         const trip = Trip.getSpecificTrip(id);
         const tripId = trip.id;
@@ -78,7 +98,8 @@ const TripController = {
             status: 200,
             message: 'Trip was cancelled successfully!'
         });
-    },
-};
+    }
+}
+
 
 export default TripController;

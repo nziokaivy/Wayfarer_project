@@ -1,7 +1,7 @@
-import User from '../db/user';
+import User from '../models/user';
 import createToken from '../helpers/authToken';
 
-class Users{
+class UserController{
     static signup(req, res) {
         const { first_name, last_name, email ,password } = req.body;
         const newUser = User.createNewUser({first_name,last_name,email,password});
@@ -43,4 +43,4 @@ class Users{
     }
 };
 
-export default Users;
+export default UserController;

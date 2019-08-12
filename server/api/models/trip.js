@@ -4,7 +4,37 @@ class Trip {
         {
             id: 1,
             seating_capacity: 67,
-            bus_license_number: 'KBE223T',
+            bus_license_number: 'KBE 223',
+            origin: 'Kigali',
+            destination: 'Kampala',
+            trip_date: '22-06-2019',
+            fare: 9000,
+            status: 'active',
+        },
+        {
+            id: 2,
+            seating_capacity: 67,
+            bus_license_number: 'KEZ 203',
+            origin: 'Nairobi',
+            destination: 'Kampala',
+            trip_date: '22-06-2019',
+            fare: 9000,
+            status: 'active',
+        },
+        {
+            id: 3,
+            seating_capacity: 67,
+            bus_license_number: 'KCD 156',
+            origin: 'Kisumu',
+            destination: 'Kampala',
+            trip_date: '22-06-2019',
+            fare: 9000,
+            status: 'active',
+        },
+        {
+            id: 4,
+            seating_capacity: 67,
+            bus_license_number: 'KZA 980',
             origin: 'Mombasa',
             destination: 'Kampala',
             trip_date: '22-06-2019',
@@ -29,7 +59,12 @@ class Trip {
     
         getAllTrips() {
             return this.trips;
-        }   
+        } 
+        
+        getTripsByOrigin(origin) {
+            const getOrigin = this.trips.find(trip => trip.origin.toLowerCase() === origin.toLowerCase());
+            return getOrigin;
+        }
 
         getSpecificTrip(id) {
             return this.trips.find(trip => trip.id === id);

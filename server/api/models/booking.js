@@ -86,7 +86,6 @@ class Booking {
     getOnlyBookingsByUser(email) {
         console.log(email);
         const myBookings = this.bookings.find(data => data.email === email);
-        console.log(myBookings,'data');
         
 		if ( myBookings == undefined) {
 			this.result = 'You have no existing booking.';

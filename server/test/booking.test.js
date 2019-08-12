@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-import Booking from '../api/db/booking';
 import Token from '../api/helpers/authToken';
 
 const should = chai.should();

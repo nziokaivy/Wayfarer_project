@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import Booking from '../db/booking';
+import Booking from '../models/booking';
 dotenv.config();
 
 class Auth {
