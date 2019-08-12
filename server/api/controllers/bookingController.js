@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import Booking from '../db/booking';
 import User from '../db/user';
 import Trip from '../db/trip';

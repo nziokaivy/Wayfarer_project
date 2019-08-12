@@ -20,6 +20,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1/', routes);
 
 app.listen(port, () => {
+	// eslint-disable-next-line no-console
 	console.log(`Server is running on PORT ${port}....`);
 });
 export default app;
