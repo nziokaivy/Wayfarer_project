@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+h1, h3{
+text-transform: uppercase;
+font-weight: normal;
+}
+
+.logo {
+  float: left;
+}
+
+.logo a:hover {
+  color: #F64C72;
+}
+  
+.logo a {
+  float: left;
+  display: block;
+  color: #242582;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0px;
+}
+
+.fa-bus {
+  font-size: 84px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.tabs{
+  width: 100%;
+  display: block;
+  margin: 0px auto;
+  position: relative;
+}
+
+.tabs .tab{
+  float: right;
+  display: block;
+}
+.tab {
+  overflow: hidden;
+}
+.tabs .tab>input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.tabs .tab>label {
+  overflow: hidden;
+  display: block;
+  padding: 16px 21px;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  color: #FFF;
+  border: 1px solid #ccc;
+  background-color:  #F64C72;
+  text-align: center;
+}
+
+.tabs .content {
+  z-index: 0;/* or display: none; */
+  overflow: hidden;
+  width: 100%;
+  padding: 25px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  color: #000;
+  opacity:0;
+  transition: opacity 400ms ease-out;
+}
+
+.tabs>.tab>[id^="tab"]:checked + label {
+  top: 0;
+  background: #242582;
+  color: #F5F5F5;
+}
+
+.tabs>.tab>[id^="tab"]:checked ~ [id^="tab-content"] {
+  z-index: 1;/* or display: block; */
+ 
+  opacity: 1;
+  transition: opacity 400ms ease-out;
+}
+
+.card {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.user_img {
+  background: 
+  url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center ; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+width: 115px;
+height: 115px;
+border-radius: 50%;
+margin: 0 auto;
+}
+
+.user-name {
+  color: #242582;
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.user-title {
+  display: block;
+  font-size: 0.8rem;
+  text-align: center; 
+  margin: 10px 0;
+}
+
+.details {
+  padding: 20px;
+  
+}
+
+.fa {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.button-details {
+  width: 300px;
+  height: 50px;
+  font-size: 16px;
+  background: #F64C72;
+  font-weight: lighter;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  background: #fff;
+}
+
+th{
+  text-align: left;
+  padding: 20px;
+  border-bottom: 1px solid #F64C72;
+}
+
+td {
+  text-align: left;
+  padding: 20px;
+
+}
+
+
+.fa-trash-o {
+    padding: 20px 10px;
+    color:  #F64C72;
+    font-size: 96px;
+}
+
+
+ /* booking section */
+ .booking input[type=text], select{
+  width: 50%;
+  padding: 12px;
+  border: 1px solid#F64C72;
+  border-radius: 4px;
+  resize: vertical;
+  background: white;
+  font-size: 20px;
+}
+  
+.booking input[type=date] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid#F64C72;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 20px;
+}
+  
+.booking label {
+  padding: 12px 0 12px 0;
+  display: inline-block;
+  color: #242582;
+  font-size: 20px;
+}
+  
+.booking input[type=submit] {
+  padding: 8px 40px;
+  font-size: 16px;
+  margin-top: 30px;
+  color: #fff;
+  color: #F64C72;
+  text-decoration: none;
+  border: 2px solid #F64C72;
+  border-radius: 24px;
+  transition: 0.4s linear;
+  text-align: center;
+}
+  
+.booking input[type=submit]:hover {
+  color: #fff;
+  background: #F64C72;
+}
+  
+.booking {
+  margin-top: 12px;
+  border-radius: 5px;
+  background: #f1f1f1;
+  opacity: 0.7;
+  padding: 20px;
+  margin-bottom: 300px;
+}
+  
+.booking-title {
+  text-align: center;
+  color: #242582;
+  font-size: 30px;
+}
+  
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+  
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+  
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.border{
+  width: 100px;
+  height: 3px;
+  background: #F64C72;
+  margin: 40px auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .col-25, .col-75, input[type=submit]{
+    width: 100%;
+    margin-top: 0;
+  }
+  .booking{
+    margin-top: 9px;
+  }
+}
+
+/* end of booking section */
+.more-button {
+  background-color: #F64C72;
+  display: inline-block;
+  border-radius: 25px;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.more-button a{
+  text-decoration: none;
+}
+
+/* trip section */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fa-long-arrow-right {
+  font-size: 148px;
+}
+
+thead {
+  background: #F64C72;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 25px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+  
+th {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left;
+  padding: 20px 10px;
+  color: #000;
+}
+  
+tbody {
+  background: #fff;
+  font-size: 1rem;
+}
+  
+td {
+  padding: 20px 5px;
+  color: #242582;
+}
+  
+.more-button {
+  background-color: #F64C72;
+  display: inline-block;
+  border-radius: 25px;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.more-button a{
+  text-decoration: none;
+}
+  
+#trips {
+  margin-top : 0px;
+  padding:5px;
+}
+.heading h1{
+  text-align: center;
+  color: #242582;
+  margin-bottom: 30px;
+  font-size: 30px;
+  
+}
+
+@media screen and (max-width: 1000px) {
+  .tabs{
+    display: block;
+    float: right;
+  }
+  .tab {
+    width: 150px;
+  }
+  .content {
+    margin-top: 80px;
+  }
+  
+}
+  
+  @media 
+  only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+  
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    
+    tr { border: 1px solid #F64C72; }
+    
+    td { 
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee; 
+      position: relative;
+      padding-left: 50%; 
+    }
+    
+    td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding: 5px; 
+      white-space: nowrap;
+  
+    }
+    
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before { content: "TRIP"; }
+    td:nth-of-type(2):before { content: "FROM"; }
+    td:nth-of-type(3):before { content: ""; }
+    td:nth-of-type(4):before { content: "TO"; }
+    td:nth-of-type(5):before { content: "PRICE"; }
+    td:nth-of-type(6):before { content: ""; }
+
+  /*
+  Label the data
+  */
+  .td:nth-of-type(1):before { content: "FROM"; }
+  .td:nth-of-type(2):before { content: "TO"; }
+  .td:nth-of-type(3):before { content: "DEPT DATE"; }
+  .td:nth-of-type(4):before { content: "DEPT TIME"; }
+  .td:nth-of-type(5):before { content: ""; }
+}  
+
+/*end of trip section */
+

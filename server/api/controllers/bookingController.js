@@ -1,48 +1,77 @@
+import jwt from 'jsonwebtoken';
 import Booking from '../db/booking';
 import User from '../db/user';
-import Trip from '../db/trip';
 
 const removeBooking = (data) => {
     const remove = {
-      id: data.id,
-      bus_license_number: Trip.getSpecificTrip(data.trip_id).bus_license_number,
-      trip_date: User.getUser(data.user_id).trip_date,
-      first_name: User.getUser(data.user_id).first_name,
-      last_name: User.getUser(data.user_id).last_name,
-      user_email: User.getUser(data.user_id).email,
-      seat_number: data.seat_number,
+        trip_id: data.id,
+        first_name: User.getUser(data.user_id).first_name,
+        last_name: User.getUser(data.user_id).last_name,
+        email: User.getUser(data.user_id).email,
+        seat_number: data.seat_number,
     };
     return remove;
-  };
+};
 
 const BookingController = {
     booking(req, res) {
-        const { body } =req;
-
-        if(!body.trip_id || !body.user_id || !body.seat_number ) {
-
-            return res.status(400).json({ status: 'error', error: 'Bad Request! Please ensure you have filled in all the fields'});
+        try {
+            const {
+                body
+            } = req;
+            const newBooking = Booking.createNewBooking(body);
+            if (!newBooking) {
+                return res.status(404).json({
+                    status: 404,
+                    error: 'Not found',
+                });
+            }
+            return res.status(201).json({
+                status: 201,
+                message: 'success',
+                data: newBooking
+            });
+        } catch (error) {
+            console.log(error);
         }
-        const newBooking = Booking.createNewBooking(body);
-        return res.status(201).json({ status: 'success', data: newBooking});
     },
-    
+
     getAllBookings(req, res) {
         const allBookings = Booking.getAllBookings();
-        if(!allBookings.length) {
-            return res.status(404).json({ status: 'error', error: 'Not found'});
+        if (!allBookings.length) {
+            return res.status(404).json({
+                status: 404,
+                error: 'Not found'
+            });
         }
-        return res.status(200).json({ status: 'success', data: allBookings});
+        return res.status(200).json({
+            status: 200,
+            message: 'success',
+            data: allBookings
+        });
     },
 
-    getSpecificBooking(req, res) {
-        const bookingId = parseInt(req.params.id);
-        const specificBooking = Booking.getSpecificBooking(bookingId);
-        if (specificBooking) {
-          const removedBooking = removeBooking(specificBooking);
-          return res.status(200).json({ status: 'success', data: removedBooking });
+    deleteBooking(req, res) {
+        try {
+            const bookingId = parseInt(req.params.id);
+            const booking_delete = Booking.deleteBooking(bookingId);
+            if (booking_delete === true) {
+                return res.status(200).json({
+                    status: 200,
+                    message: 'success',
+                    data: {
+                        message: 'Booking Deleted Successfully!'
+                    }
+                });
+            }
+            return res.status(404).json({
+                status: 400,
+                error: 'Booking id not found!',
+            });
+        } catch (error) {
+            console.log(error);
+
         }
-        return res.status(404).json({ status: 'error', error: 'Not found' });
     },
     bookingsByUserOnly(req, res) {
         const token = req.headers.authorization.split(' ')[1];
@@ -58,11 +87,12 @@ const BookingController = {
                 message: 'You do not have any existing bookings!',
             });
         }
-        Booking.deleteBooking(bookingId);
-            return res.status(204).json({ status: 'success', data: { message: 'Booking Deleted Successfully!' } });
-    },   
- 
-
+        return res.status(200).json({
+            status: 200,
+            message: 'success',
+            data: userBookings,
+        });
+    }
 };
 
 export default BookingController;

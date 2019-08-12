@@ -9,7 +9,7 @@ class Trip {
             destination: 'Kampala',
             trip_date: '22-06-2019',
             fare: 9000,
-            status: 1,
+            status: 'active',
         },
     ]};
     createNewTrip(data) {
@@ -21,20 +21,22 @@ class Trip {
                 destination: data.destination,
                 trip_date: data.trip_date,
                 fare: data.fare,
-                status: data.status || 1, //active = 1,
+                status: 'active',
           };
           this.trips.push(newTrip);
           return newTrip;
         }
+    
         getAllTrips() {
             return this.trips;
         }   
+
         getSpecificTrip(id) {
             return this.trips.find(trip => trip.id === id);
         } 
         cancelTrip(id) {
             const trip = this.getSpecificTrip(id);
-            trip.status = 2; //cancel = 2,
+            trip.status= 'cancel';
             return trip;   
         };
     }
