@@ -1,36 +1,28 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Montserrat', sans-serif;
     background: #f1f1f1;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     background: #f1f1f1;
-
-  }
-  
-  th{
+}
+th {
     text-align: left;
     padding: 20px;
     border-bottom: 1px solid #F64C72;
-  }
-  
-  td {
+}
+td {
     text-align: left;
     padding: 20px;
-  
 }
-
 .book-button {
     margin: 20px;
     background-color: #F64C72;
@@ -43,9 +35,3 @@ table {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
-
-
-
-  
-  
-  
