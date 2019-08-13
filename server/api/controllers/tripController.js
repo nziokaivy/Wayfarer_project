@@ -1,12 +1,14 @@
 /* eslint-disable radix */
+// eslint-disable-next-line import/no-named-as-default
 import Trip from '../db/trip';
 
-const TripController = {
-	createNewTrip(req, res) {
+class TripController {
+	static createNewTrip(req, res) {
 		const {
 			body,
 		} = req;
-		if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare || !body.status) {
+		// eslint-disable-next-line max-len
+		if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare) {
 			return res.status(400).json({
 				status: 'error',
 				error: 'Bad Request! Please ensure you have filled in all the fields',
@@ -17,9 +19,9 @@ const TripController = {
 			status: 'success',
 			data: newTrip,
 		});
-	},
+	}
 
-	getAllTrips(req, res) {
+	static getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
 		if (!allTrips.length) {
 			return res.status(404).json({
@@ -31,9 +33,9 @@ const TripController = {
 			status: 'success',
 			data: allTrips,
 		});
-	},
+	}
 
-	getSpecificTrip(req, res) {
+	static getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const specificTrip = Trip.getSpecificTrip(id);
 		if (!specificTrip) {
@@ -46,9 +48,9 @@ const TripController = {
 			status: 'success',
 			data: specificTrip,
 		});
-	},
+	}
 
-	cancelTrip(req, res) {
+	static cancelTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const cancelTrip = Trip.cancelTrip(id);
 		if (!cancelTrip) {
@@ -61,7 +63,6 @@ const TripController = {
 			status: 'success',
 			data: cancelTrip,
 		});
-	},
-};
-
+	}
+}
 export default TripController;
