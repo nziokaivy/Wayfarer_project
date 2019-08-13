@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 // functionality for tabs in profile page
 function openTab(evt, tabName) {
-	let i; let tabcontent; let
-		tablinks;
+	let i; let tabcontent; let tablinks;
 	tabcontent = document.getElementsByClassName('tabcontent');
 	for (i = 0; i < tabcontent.length; i++) {
 		tabcontent[i].style.display = 'none';
