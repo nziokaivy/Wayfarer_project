@@ -1,13 +1,8 @@
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable radix */
 import jwt from 'jsonwebtoken';
-// eslint-disable-next-line import/no-named-as-default
 import Booking from '../db/booking';
-// eslint-disable-next-line import/no-named-as-default
 import User from '../db/user';
 import Trip from '../db/trip';
 
-// eslint-disable-next-line no-unused-vars
 const removeBooking = (data) => {
 	const remove = {
 		id: data.id,
@@ -21,40 +16,48 @@ const removeBooking = (data) => {
 	return remove;
 };
 
-const BookingController = {
-	booking(req, res) {
-		const {
-			body,
-		} = req;
+class BookingController {
+	static booking(req, res) {
+		const { body } = req;
 
 		if (!body.trip_id || !body.user_id || !body.seat_number) {
-			return res.status(400).json({
-				status: 'error',
-				error: 'Bad Request! Please ensure you have filled in all the fields',
-			});
+			return res.status(400).json({ status: 'error', error: 'Bad Request! Please ensure you have filled in all the fields' });
 		}
 		const newBooking = Booking.createNewBooking(body);
-		return res.status(201).json({
-			status: 'success',
-			data: newBooking,
-		});
-	},
+		return res.status(201).json({ status: 'success', data: newBooking });
+	}
 
-	getAllBookings(req, res) {
+	static getAllBookings(req, res) {
 		const allBookings = Booking.getAllBookings();
 		if (!allBookings.length) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not found',
-			});
+			return res.status(404).json({ status: 'error', error: 'Not found' });
 		}
-		return res.status(200).json({
-			status: 'success',
-			data: allBookings,
-		});
-	},
+		return res.status(200).json({ status: 'success', data: allBookings });
+	}
 
-	bookingsByUserOnly(req, res) {
+	static getSpecificBooking(req, res) {
+		// eslint-disable-next-line radix
+		const bookingId = parseInt(req.params.id);
+		const specificBooking = Booking.getSpecificBooking(bookingId);
+		if (specificBooking) {
+			const removedBooking = removeBooking(specificBooking);
+			return res.status(200).json({ status: 'success', data: removedBooking });
+		}
+		return res.status(404).json({ status: 'error', error: 'Not found' });
+	}
+
+	static deleteBooking(req, res) {
+		// eslint-disable-next-line radix
+		const bookingId = parseInt(req.params.id);
+		const specificBooking = Booking.getSpecificBooking(bookingId);
+		if (!specificBooking) {
+			return res.status(404).json({ status: 'error', error: 'Not Found' });
+		}
+		Booking.deleteBooking(bookingId);
+		return res.status(204).json({ status: 'success', data: { message: 'Booking Deleted Successfully!' } });
+	}
+
+	static bookingsByUserOnly(req, res) {
 		const token = req.headers.authorization.split(' ')[1];
 		const decodedToken = jwt.verify(token, process.env.JWT_KEY);
 		req.body.data = decodedToken;
@@ -73,7 +76,6 @@ const BookingController = {
 			message: 'success',
 			data: userBookings,
 		});
-	},
-};
-
+	}
+}
 export default BookingController;
