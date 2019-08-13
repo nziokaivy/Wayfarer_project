@@ -19,8 +19,12 @@ header {
 }
 .topnav {
   overflow: hidden;
+<<<<<<< HEAD
 
 }
+=======
+} 
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 .topnav a {
   float: right;
   display: block;
@@ -41,32 +45,39 @@ header {
   color: #F64C72;
 }
 @media screen and (max-width: 1000px) {
-.topnav a:not(:first-child), .dropdown .dropbtn {
-  display: none;
-}
-.topnav a.icon {
-  float: right;
-  display: block;
-}
-.topnav.responsive {position: relative;}
-.topnav.responsive .icon {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding-bottom: 10px;
-}
-.topnav.responsive a:not(:first-child) {
-  float: none;
-  display: block;
-  text-align: right;
-}
-.topnav.responsive {float: none;}
-.topnav.responsive {position: relative;}
-.topnav.responsive {
-  display: block;
-  width: 100%;
-  text-align: left;
-}
+  .topnav a:not(:first-child),
+  .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-bottom: 10px;
+  }
+  .topnav.responsive a:not(:first-child) {
+    float: none;
+    display: block;
+    text-align: right;
+  }
+  .topnav.responsive {
+    float: none;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 }
 .logo {
   float: left;
@@ -97,7 +108,11 @@ slider {
   overflow: hidden;
   position: absolute;
 }
+<<<<<<< HEAD
 slider > * {
+=======
+slider>* {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   position: absolute;
   display: block;
   width: 100%;
@@ -142,26 +157,42 @@ slide p {
   color: #fff;
 }
 @keyframes slide {
-  0% { left: 100%; width: 100;}
-  5% { left: 0%;}
-  25% { left: 0%;}
-  30% { left: -100%; width: 100%;}
-  30.0001% { left: -100%; width: 0%;}
-  100% { left: 100%; width: 0%;}
+  0% {
+    left: 100%;
+    width: 100;
+  }
+  5% {
+    left: 0%;
+  }
+  25% {
+    left: 0%;
+  }
+  30% {
+    left: -100%;
+    width: 100%;
+  }
+  30.0001% {
+    left: -100%;
+    width: 0%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
 }
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .slider {
-    padding-top: 60px;
+.sticky+.slider {
+  padding-top: 60px;
 }
 /* end of header section */
 /* about section */
-.about-section{
+.about-section {
   width: 100%;
   background: #f1f1f1;
   padding: 40px 0;
@@ -169,23 +200,36 @@ slide p {
   margin-bottom: 280px;
   text-align: center;
 }
+<<<<<<< HEAD
 .inner-width{
+=======
+.inner-width {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
+<<<<<<< HEAD
 .about-section h1{
+=======
+.about-section h1 {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   color: #242582;
-  font-size:30px;
+  font-size: 30px;
 }
+<<<<<<< HEAD
 .border{
+=======
+.border {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
+<<<<<<< HEAD
 .about-section-row{
   display: flex;
   flex-wrap: wrap;
@@ -197,13 +241,30 @@ slide p {
   padding-right: 30px;
 }
 .about p{
+=======
+.about-section-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.about-section-col {
+  flex: 50%;
+}
+.about {
+  padding-right: 30px;
+}
+.about p {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   margin-bottom: 20px;
   color: #242582;
   padding: 10px;
   font-size: 17px;
 }
+<<<<<<< HEAD
 .about a{
+=======
+.about a {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   display: inline-block;
   color: #F64C72;
   text-decoration: none;
@@ -212,11 +273,16 @@ slide p {
   padding: 8px 40px;
   transition: 0.4s linear;
 }
+<<<<<<< HEAD
 .about a:hover{
+=======
+.about a:hover {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #fff;
   background: #F64C72;
 }
 @media screen and (max-width:1000px) {
+<<<<<<< HEAD
   .about-section-col{
   flex: 100%;
   margin: 10px 0;
@@ -225,6 +291,16 @@ slide p {
   padding: 0;
   text-align: center;
 }
+=======
+  .about-section-col {
+    flex: 100%;
+    margin: 10px 0;
+  }
+  .about {
+    padding: 0;
+    text-align: center;
+  }
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 /* end of about section */
 /* footer section */
@@ -249,29 +325,46 @@ slide p {
   }
 }
 /* end of footer section */
+<<<<<<< HEAD
 .contact-section{
+=======
+.contact-section {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100%;
   background: #242582;
   opacity: 0.8;
   padding: 80px 0;
 }
+<<<<<<< HEAD
 .inner-width{
+=======
+.inner-width {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
+<<<<<<< HEAD
 .contact-section h1{
+=======
+.contact-section h1 {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   color: #fff;
   font-size: 30px;
 }
+<<<<<<< HEAD
 .border{
+=======
+.border {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
+<<<<<<< HEAD
 .contact-section-row{
   display: flex;
   flex-wrap: wrap;
@@ -284,13 +377,32 @@ slide p {
   padding-right: 30px;
 }
 .contact p{
+=======
+.contact-section-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-section-col {
+  flex: 50%;
+  text-align: center;
+}
+.contact {
+  padding-right: 30px;
+}
+.contact p {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   margin-bottom: 50px;
   color: #fff;
   font-size: 17px;
 }
+<<<<<<< HEAD
 form{
   text-align:center;
+=======
+form {
+  text-align: center;
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #F64C72;
   text-decoration: none;
   border-radius: 24px;
@@ -312,8 +424,13 @@ form{
   font-size: 17px;
   letter-spacing: 2px;
   border: none;
+<<<<<<< HEAD
 } 
 .contact-button:hover{
+=======
+}
+.contact-button:hover {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #fff;
   background: #F64C72;
 }
@@ -329,16 +446,16 @@ form{
   transition: 0.4s linear;
 }
 @media screen and (max-width:1000px) {
-.contact-section-col{
-  flex: 100%;
-  margin: 10px 0;
-}
-.contact{
-  padding: 0;
-}
-.contact{
-  text-align: center;
-}
+  .contact-section-col {
+    flex: 100%;
+    margin: 10px 0;
+  }
+  .contact {
+    padding: 0;
+  }
+  .contact {
+    text-align: center;
+  }
 }
 /* trip section */
 table {
@@ -385,14 +502,14 @@ td {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
-.more-button a{
+.more-button a {
   text-decoration: none;
 }
 #trips {
-  margin-top : 940px;
-  padding:5px;
+  margin-top: 940px;
+  padding: 5px;
 }
-.heading h1{
+.heading h1 {
   text-align: center;
   color: #242582;
   margin-bottom: 30px;
@@ -404,17 +521,53 @@ td {
     margin-top: 940px;
     text-align: center;
     padding: 0;
+<<<<<<< HEAD
     }
   .more-button {
     display: block;
     float: left;
   }  
+=======
+  }
+  .more-button {
+    display: block;
+    float: left;
+  }
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
+}
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
   }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #F64C72;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+<<<<<<< HEAD
   @media 
   only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
     /* Force table to not be like tables anymore */
@@ -446,13 +599,37 @@ td {
       white-space: nowrap;
     }
     /*
+=======
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  /*
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
     Label the data
     */
-    td:nth-of-type(1):before { content: "TRIP"; }
-    td:nth-of-type(2):before { content: "ORIGIN"; }
-    td:nth-of-type(3):before { content: ""; }
-    td:nth-of-type(4):before { content: "DESTINATION"; }
-    td:nth-of-type(5):before { content: "PRICE"; }
-    td:nth-of-type(6):before { content: ""; }
-  }  
-/*end of trip section */
+  td:nth-of-type(1):before {
+    content: "TRIP";
+  }
+  td:nth-of-type(2):before {
+    content: "ORIGIN";
+  }
+  td:nth-of-type(3):before {
+    content: "";
+  }
+  td:nth-of-type(4):before {
+    content: "DESTINATION";
+  }
+  td:nth-of-type(5):before {
+    content: "PRICE";
+  }
+  td:nth-of-type(6):before {
+    content: "";
+  }
+}

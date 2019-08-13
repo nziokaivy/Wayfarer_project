@@ -10,9 +10,16 @@ body {
 html {
   scroll-behavior: smooth;
 }
+<<<<<<< HEAD
 h1, h3{
 text-transform: uppercase;
 font-weight: normal;
+=======
+h1,
+h3 {
+  text-transform: uppercase;
+  font-weight: normal;
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 .logo {
   float: left;
@@ -38,13 +45,21 @@ font-weight: normal;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
+<<<<<<< HEAD
 .tabs{
+=======
+.tabs {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100%;
   display: block;
   margin: 0px auto;
   position: relative;
 }
+<<<<<<< HEAD
 .tabs .tab{
+=======
+.tabs .tab {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   float: right;
   display: block;
 }
@@ -65,11 +80,12 @@ font-weight: normal;
   position: relative;
   color: #FFF;
   border: 1px solid #ccc;
-  background-color:  #F64C72;
+  background-color: #F64C72;
   text-align: center;
 }
 .tabs .content {
-  z-index: 0;/* or display: none; */
+  z-index: 0;
+  display: none;
   overflow: hidden;
   width: 100%;
   padding: 25px;
@@ -78,16 +94,26 @@ font-weight: normal;
   left: 0;
   background: #fff;
   color: #000;
-  opacity:0;
+  opacity: 0;
   transition: opacity 400ms ease-out;
 }
+<<<<<<< HEAD
 .tabs>.tab>[id^="tab"]:checked + label {
+=======
+.tabs>.tab>[id^="tab"]:checked+label {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   top: 0;
   background: #242582;
   color: #F5F5F5;
 }
+<<<<<<< HEAD
 .tabs>.tab>[id^="tab"]:checked ~ [id^="tab-content"] {
   z-index: 1;/* or display: block; */
+=======
+.tabs>.tab>[id^="tab"]:checked~[id^="tab-content"] {
+  z-index: 1;
+  display: block;
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   opacity: 1;
   transition: opacity 400ms ease-out;
 }
@@ -98,16 +124,16 @@ font-weight: normal;
   overflow: auto;
 }
 .user_img {
-  background: 
-  url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center ; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-width: 115px;
-height: 115px;
-border-radius: 50%;
-margin: 0 auto;
+  background:
+    url("https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 .user-name {
   color: #242582;
@@ -118,7 +144,7 @@ margin: 0 auto;
 .user-title {
   display: block;
   font-size: 0.8rem;
-  text-align: center; 
+  text-align: center;
   margin: 10px 0;
 }
 .details {
@@ -145,7 +171,11 @@ table {
   width: 100%;
   background: #fff;
 }
+<<<<<<< HEAD
 th{
+=======
+th {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: left;
   padding: 20px;
   border-bottom: 1px solid #F64C72;
@@ -155,12 +185,18 @@ td {
   padding: 20px;
 }
 .fa-trash-o {
-    padding: 20px 10px;
-    color:  #F64C72;
-    font-size: 96px;
+  padding: 20px 10px;
+  color: #F64C72;
+  font-size: 96px;
 }
+<<<<<<< HEAD
  /* booking section */
  .booking input[type=text], select{
+=======
+/* booking section */
+.booking input[type=text],
+select {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 50%;
   padding: 12px;
   border: 1px solid#F64C72;
@@ -194,7 +230,11 @@ td {
   border-radius: 24px;
   transition: 0.4s linear;
   text-align: center;
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 .booking input[type=submit]:hover {
   color: #fff;
   background: #F64C72;
@@ -227,18 +267,24 @@ td {
   display: table;
   clear: both;
 }
+<<<<<<< HEAD
 .border{
+=======
+.border {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
 @media screen and (max-width: 1000px) {
-  .col-25, .col-75, input[type=submit]{
+  .col-25,
+  .col-75,
+  input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
-  .booking{
+  .booking {
     margin-top: 9px;
   }
 }
@@ -253,7 +299,7 @@ td {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
-.more-button a{
+.more-button a {
   text-decoration: none;
 }
 /* trip section */
@@ -299,21 +345,25 @@ td {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 }
-.more-button a{
+.more-button a {
   text-decoration: none;
 }
 #trips {
-  margin-top : 0px;
-  padding:5px;
+  margin-top: 0px;
+  padding: 5px;
 }
-.heading h1{
+.heading h1 {
   text-align: center;
   color: #242582;
   margin-bottom: 30px;
   font-size: 30px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 @media screen and (max-width: 1000px) {
-  .tabs{
+  .tabs {
     display: block;
     float: right;
   }
@@ -324,6 +374,7 @@ td {
     margin-top: 80px;
   }
 }
+<<<<<<< HEAD
   @media 
   only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
     /* Force table to not be like tables anymore */
@@ -373,3 +424,122 @@ td {
   .td:nth-of-type(5):before { content: ""; }
 }  
 /*end of trip section */
+=======
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #F64C72;
+  }
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding: 5px;
+    white-space: nowrap;
+  }
+  /*
+    Label the data
+    */
+  td:nth-of-type(1):before {
+    content: "TRIP";
+  }
+  td:nth-of-type(2):before {
+    content: "FROM";
+  }
+  td:nth-of-type(3):before {
+    content: "";
+  }
+  td:nth-of-type(4):before {
+    content: "TO";
+  }
+  td:nth-of-type(5):before {
+    content: "PRICE";
+  }
+  td:nth-of-type(6):before {
+    content: "";
+  }
+  /*
+  Label the data
+  */
+  .td:nth-of-type(1):before {
+    content: "FROM";
+  }
+  .td:nth-of-type(2):before {
+    content: "TO";
+  }
+  .td:nth-of-type(3):before {
+    content: "DEPT DATE";
+  }
+  .td:nth-of-type(4):before {
+    content: "DEPT TIME";
+  }
+  .td:nth-of-type(5):before {
+    content: "";
+  }
+}
+/*end of trip section */
+/* begin filter dropdown section */
+.dropbtn {
+  background-color: #242582;
+  color: white;
+  padding: 16px 26px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px #242582;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: #242582;
+  ;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #fff;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #F64C72;
+}
+
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617

@@ -13,6 +13,7 @@ table {
     border-spacing: 0;
     width: 100%;
     background: #f1f1f1;
+<<<<<<< HEAD
   }
   th{
     text-align: left;
@@ -20,6 +21,15 @@ table {
     border-bottom: 1px solid #F64C72;
   }
   td {
+=======
+}
+th {
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid #F64C72;
+}
+td {
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
     text-align: left;
     padding: 20px;
 }
@@ -34,5 +44,9 @@ table {
     cursor: pointer;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
+<<<<<<< HEAD
 } 
   
+=======
+}
+>>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
