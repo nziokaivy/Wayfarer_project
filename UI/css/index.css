@@ -19,12 +19,7 @@ header {
 }
 .topnav {
   overflow: hidden;
-<<<<<<< HEAD
-
-}
-=======
 } 
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 .topnav a {
   float: right;
   display: block;
@@ -108,11 +103,7 @@ slider {
   overflow: hidden;
   position: absolute;
 }
-<<<<<<< HEAD
 slider > * {
-=======
-slider>* {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   position: absolute;
   display: block;
   width: 100%;
@@ -200,36 +191,23 @@ slide p {
   margin-bottom: 280px;
   text-align: center;
 }
-<<<<<<< HEAD
 .inner-width{
-=======
-.inner-width {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-<<<<<<< HEAD
 .about-section h1{
-=======
-.about-section h1 {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   color: #242582;
   font-size: 30px;
 }
-<<<<<<< HEAD
 .border{
-=======
-.border {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
-<<<<<<< HEAD
 .about-section-row{
   display: flex;
   flex-wrap: wrap;
@@ -241,30 +219,13 @@ slide p {
   padding-right: 30px;
 }
 .about p{
-=======
-.about-section-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-.about-section-col {
-  flex: 50%;
-}
-.about {
-  padding-right: 30px;
-}
-.about p {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   margin-bottom: 20px;
   color: #242582;
   padding: 10px;
   font-size: 17px;
 }
-<<<<<<< HEAD
 .about a{
-=======
-.about a {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   display: inline-block;
   color: #F64C72;
   text-decoration: none;
@@ -273,25 +234,11 @@ slide p {
   padding: 8px 40px;
   transition: 0.4s linear;
 }
-<<<<<<< HEAD
 .about a:hover{
-=======
-.about a:hover {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #fff;
   background: #F64C72;
 }
 @media screen and (max-width:1000px) {
-<<<<<<< HEAD
-  .about-section-col{
-  flex: 100%;
-  margin: 10px 0;
-}
-.about{
-  padding: 0;
-  text-align: center;
-}
-=======
   .about-section-col {
     flex: 100%;
     margin: 10px 0;
@@ -300,7 +247,6 @@ slide p {
     padding: 0;
     text-align: center;
   }
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 /* end of about section */
 /* footer section */
@@ -325,46 +271,29 @@ slide p {
   }
 }
 /* end of footer section */
-<<<<<<< HEAD
 .contact-section{
-=======
-.contact-section {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100%;
   background: #242582;
   opacity: 0.8;
   padding: 80px 0;
 }
-<<<<<<< HEAD
 .inner-width{
-=======
-.inner-width {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-<<<<<<< HEAD
 .contact-section h1{
-=======
-.contact-section h1 {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   color: #fff;
   font-size: 30px;
 }
-<<<<<<< HEAD
 .border{
-=======
-.border {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
-<<<<<<< HEAD
 .contact-section-row{
   display: flex;
   flex-wrap: wrap;
@@ -377,32 +306,13 @@ slide p {
   padding-right: 30px;
 }
 .contact p{
-=======
-.contact-section-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-.contact-section-col {
-  flex: 50%;
-  text-align: center;
-}
-.contact {
-  padding-right: 30px;
-}
-.contact p {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: center;
   margin-bottom: 50px;
   color: #fff;
   font-size: 17px;
 }
-<<<<<<< HEAD
 form{
   text-align:center;
-=======
-form {
-  text-align: center;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #F64C72;
   text-decoration: none;
   border-radius: 24px;
@@ -424,13 +334,8 @@ form {
   font-size: 17px;
   letter-spacing: 2px;
   border: none;
-<<<<<<< HEAD
-} 
-.contact-button:hover{
-=======
 }
 .contact-button:hover {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   color: #fff;
   background: #F64C72;
 }
@@ -521,19 +426,11 @@ td {
     margin-top: 940px;
     text-align: center;
     padding: 0;
-<<<<<<< HEAD
-    }
-  .more-button {
-    display: block;
-    float: left;
-  }  
-=======
   }
   .more-button {
     display: block;
     float: left;
   }
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   .row:after {
     content: "";
     display: table;
@@ -567,7 +464,6 @@ td {
     position: relative;
     padding-left: 50%;
   }
-<<<<<<< HEAD
   @media 
   only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
     /* Force table to not be like tables anymore */
@@ -599,19 +495,6 @@ td {
       white-space: nowrap;
     }
     /*
-=======
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
-  /*
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
     Label the data
     */
   td:nth-of-type(1):before {
@@ -632,4 +515,5 @@ td {
   td:nth-of-type(6):before {
     content: "";
   }
+}
 }

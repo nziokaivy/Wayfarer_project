@@ -33,18 +33,11 @@ h2 {
   border-top: none;
 }
 .card {
-<<<<<<< HEAD
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    overflow: auto;
-=======
   background: #fff;
   border-radius: 5px;
   padding: 20px;
   overflow: auto;
 
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 .user_img {
   background:
@@ -71,18 +64,13 @@ h2 {
   margin: 10px 0;
 }
 .details {
-<<<<<<< HEAD
-    padding: 20px; 
-=======
   padding: 20px;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 .fa {
   font-size: 30px;
   padding: 5px;
 }
 .button-details {
-<<<<<<< HEAD
     width: 300px;
     height: 50px;
     font-size: 16px;
@@ -92,17 +80,6 @@ h2 {
     color: #fff;
     border: 0;
     border-radius: 5px;
-=======
-  width: 300px;
-  height: 50px;
-  font-size: 16px;
-  background: #F64C72;
-  font-weight: lighter;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 table {
   border-collapse: collapse;
@@ -110,11 +87,7 @@ table {
   width: 100%;
   background: #f1f1f1;
 }
-<<<<<<< HEAD
 th{
-=======
-th {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: left;
   padding: 20px;
   border-bottom: 1px solid #F64C72;
@@ -176,7 +149,6 @@ select {
   padding: 20px;
   margin-bottom: 300px;
 }
-<<<<<<< HEAD
  /* booking section */
  .booking input[type=text], select{
     width: 50%;
@@ -254,36 +226,3 @@ select {
     }
   } 
   /* end of booking section */
-=======
-.booking-title {
-  text-align: center;
-  color: #242582;
-  font-size: 30px;
-}
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media screen and (max-width: 1000px) {
-  .col-25,
-  .col-75,
-  input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-  .booking {
-    margin-top: 942px;
-  }
-}
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617

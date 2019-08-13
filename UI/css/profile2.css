@@ -10,16 +10,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
-<<<<<<< HEAD
-h1, h3{
-text-transform: uppercase;
-font-weight: normal;
-=======
 h1,
 h3 {
   text-transform: uppercase;
   font-weight: normal;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 .logo {
   float: left;
@@ -45,21 +39,13 @@ h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
-<<<<<<< HEAD
 .tabs{
-=======
-.tabs {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100%;
   display: block;
   margin: 0px auto;
   position: relative;
 }
-<<<<<<< HEAD
 .tabs .tab{
-=======
-.tabs .tab {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   float: right;
   display: block;
 }
@@ -97,23 +83,13 @@ h3 {
   opacity: 0;
   transition: opacity 400ms ease-out;
 }
-<<<<<<< HEAD
 .tabs>.tab>[id^="tab"]:checked + label {
-=======
-.tabs>.tab>[id^="tab"]:checked+label {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   top: 0;
   background: #242582;
   color: #F5F5F5;
 }
-<<<<<<< HEAD
 .tabs>.tab>[id^="tab"]:checked ~ [id^="tab-content"] {
   z-index: 1;/* or display: block; */
-=======
-.tabs>.tab>[id^="tab"]:checked~[id^="tab-content"] {
-  z-index: 1;
-  display: block;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   opacity: 1;
   transition: opacity 400ms ease-out;
 }
@@ -171,11 +147,7 @@ table {
   width: 100%;
   background: #fff;
 }
-<<<<<<< HEAD
 th{
-=======
-th {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   text-align: left;
   padding: 20px;
   border-bottom: 1px solid #F64C72;
@@ -189,14 +161,9 @@ td {
   color: #F64C72;
   font-size: 96px;
 }
-<<<<<<< HEAD
- /* booking section */
- .booking input[type=text], select{
-=======
 /* booking section */
 .booking input[type=text],
 select {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 50%;
   padding: 12px;
   border: 1px solid#F64C72;
@@ -230,11 +197,7 @@ select {
   border-radius: 24px;
   transition: 0.4s linear;
   text-align: center;
-<<<<<<< HEAD
 } 
-=======
-}
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 .booking input[type=submit]:hover {
   color: #fff;
   background: #F64C72;
@@ -267,11 +230,7 @@ select {
   display: table;
   clear: both;
 }
-<<<<<<< HEAD
-.border{
-=======
 .border {
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
   width: 100px;
   height: 3px;
   background: #F64C72;
@@ -357,10 +316,6 @@ td {
   color: #242582;
   margin-bottom: 30px;
   font-size: 30px;
-<<<<<<< HEAD
-=======
-
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 @media screen and (max-width: 1000px) {
   .tabs {
@@ -374,57 +329,6 @@ td {
     margin-top: 80px;
   }
 }
-<<<<<<< HEAD
-  @media 
-  only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr { 
-      display: block; 
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr { 
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-    tr { border: 1px solid #F64C72; }
-    td { 
-      /* Behave  like a "row" */
-      border: none;
-      border-bottom: 1px solid #eee; 
-      position: relative;
-      padding-left: 50%; 
-    }
-    td:before { 
-      /* Now like a table header */
-      position: absolute;
-      /* Top/left values mimic padding */
-      top: 6px;
-      left: 6px;
-      width: 45%; 
-      padding: 5px; 
-      white-space: nowrap;
-    }
-    /*
-    Label the data
-    */
-    td:nth-of-type(1):before { content: "TRIP"; }
-    td:nth-of-type(2):before { content: "FROM"; }
-    td:nth-of-type(3):before { content: ""; }
-    td:nth-of-type(4):before { content: "TO"; }
-    td:nth-of-type(5):before { content: "PRICE"; }
-    td:nth-of-type(6):before { content: ""; }
-  /*
-  Label the data
-  */
-  .td:nth-of-type(1):before { content: "FROM"; }
-  .td:nth-of-type(2):before { content: "TO"; }
-  .td:nth-of-type(3):before { content: "DEPT DATE"; }
-  .td:nth-of-type(4):before { content: "DEPT TIME"; }
-  .td:nth-of-type(5):before { content: ""; }
-}  
-/*end of trip section */
-=======
 @media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
   /* Force table to not be like tables anymore */
@@ -542,4 +446,3 @@ td {
   background-color: #F64C72;
 }
 
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617

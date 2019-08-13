@@ -46,19 +46,11 @@ h2 {
     width: 100%;
 }
 .fa {
-<<<<<<< HEAD
    padding: 10px;
    color: white;
    min-width: 50px;
    text-align: center;
    font-size: 36px;
-=======
-    padding: 10px;
-    color: white;
-    min-width: 50px;
-    text-align: center;
-    font-size: 36px;
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
 }
 input {
     display: block;
@@ -133,8 +125,4 @@ button {
     html {
         height: 1000px;
     }
-<<<<<<< HEAD
   }
-=======
-}
->>>>>>> e7f7bbd4b01b463fb08b51c11ac57e7dcfe21617
