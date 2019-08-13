@@ -1,9 +1,13 @@
-
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable radix */
 import jwt from 'jsonwebtoken';
+// eslint-disable-next-line import/no-named-as-default
 import Booking from '../db/booking';
+// eslint-disable-next-line import/no-named-as-default
 import User from '../db/user';
+import Trip from '../db/trip';
 
+// eslint-disable-next-line no-unused-vars
 const removeBooking = (data) => {
 	const remove = {
 		id: data.id,
@@ -50,28 +54,26 @@ const BookingController = {
 		});
 	},
 
-        }
-    },
-    bookingsByUserOnly(req, res) {
-        const token = req.headers.authorization.split(' ')[1];
-        const decodedToken = jwt.verify(token, process.env.JWT_KEY);
-        req.body.data = decodedToken;
-        const {
-            email
-        } = req.body.data;
-        const userBookings = Booking.getOnlyBookingsByUser(email);
-        if (!userBookings) {
-            return res.status(404).json({
-                status: 404,
-                message: 'You do not have any existing bookings!',
-            });
-        }
-        return res.status(200).json({
-            status: 200,
-            message: 'success',
-            data: userBookings,
-        });
-    }
+	bookingsByUserOnly(req, res) {
+		const token = req.headers.authorization.split(' ')[1];
+		const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+		req.body.data = decodedToken;
+		const {
+			email,
+		} = req.body.data;
+		const userBookings = Booking.getOnlyBookingsByUser(email);
+		if (!userBookings) {
+			return res.status(404).json({
+				status: 404,
+				message: 'You do not have any existing bookings!',
+			});
+		}
+		return res.status(200).json({
+			status: 200,
+			message: 'success',
+			data: userBookings,
+		});
+	},
 };
 
 export default BookingController;
