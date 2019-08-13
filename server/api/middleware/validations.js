@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import Joi from '@hapi/joi';
 import Extension from '@hapi/joi-date';
-import User from '../db/user';
+import User from '../models/user';
 
 const dateJoi = Joi.extend(Extension);
 

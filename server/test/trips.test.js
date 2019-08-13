@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-import Trip from '../api/db/trip';
+import Trip from '../api/models/trip';
 import Token from '../api/helpers/authToken';
 
 chai.should();

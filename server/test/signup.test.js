@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-import User from '../api/db/user';
+import User from '../api/models/user';
 
 chai.should();
 chai.use(chaiHttp);

@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable space-before-blocks */
 // eslint-disable-next-line import/no-named-as-default-member
-import User from '../db/user';
+import User from '../models/user';
 import createToken from '../helpers/authToken';
 
 class Users{
