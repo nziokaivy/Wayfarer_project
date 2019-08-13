@@ -1,19 +1,15 @@
-sudo: required
-
 language: node_js
 node_js:
-  - "stable"
-cache:
-  directories:
-    - "node_modules"
-install:
+- "8"
+cache: 
+directories:
+- node_modules
+services:
+  - postgresql
+before_script:
   - npm install
-env:
-  global:
-    - NODE_ENV=test
+  - psql -c 'create database test;' -U postgres
 script:
-  - npm test
-after_success:
-  - npm run coverage
+- npm run test
 notifications:
   email: false
