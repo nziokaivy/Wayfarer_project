@@ -16,12 +16,18 @@ class Users{
 		});
 		// eslint-disable-next-line max-len
 		const token = createToken.genToken(newUser.id, newUser.email, newUser.first_name, newUser.last_name, newUser.is_admin);
-		newUser.token = token;
-		if (await newUser !== null) {		
+		const userData = {
+			token,
+			first_name,
+			last_name,
+			email,
+		};
+		if (await newUser !== null) {
+			newUser.token = token;
 			return res.status(201).json({
 				status: 201,
 				message: 'success',
-				data: await newUser,
+				data: await userData,
 			});
 		}
 		return res.status(400).json({
