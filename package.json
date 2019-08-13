@@ -4,20 +4,9 @@
   "description": "#####Link:",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "nodemon ./server/api/server.js --exec babel-node --",
     "test": "nyc mocha --require babel-register ./server/test/*.js  --timeout 200000 --exit",
     "coverage": "npm test && nyc report --reporter=text-lcov | coveralls"
-=======
-    "dev": "nodemon --exec babel-node ./server/api/server.js",
-    "test": "mocha --require @babel/register ./server/test/*.test.js --exit --timeout 20000",
-    "build": "rm -rf ./build && babel ./server/api -d build",
-    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
-    "coveralls-coverage": "coveralls < lcov.info",
-    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
-    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
-    "lint": "node_modules/.bin/eslint ./ --fix"
->>>>>>> ft-user-filter-by-origin-UI-167826408
   },
   "repository": {
     "type": "git",

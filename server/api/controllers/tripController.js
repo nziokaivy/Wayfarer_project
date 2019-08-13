@@ -1,4 +1,5 @@
 /* eslint-disable radix */
+// eslint-disable-next-line import/no-named-as-default
 import Trip from '../db/trip';
 
 const TripController = {
@@ -19,7 +20,6 @@ const TripController = {
 			data: newTrip,
 		});
 	},
-
 	getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
 		if (!allTrips.length) {
@@ -33,7 +33,6 @@ const TripController = {
 			data: allTrips,
 		});
 	},
-
 	getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const specificTrip = Trip.getSpecificTrip(id);
@@ -48,7 +47,6 @@ const TripController = {
 			data: specificTrip,
 		});
 	},
-
 	cancelTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const cancelTrip = Trip.cancelTrip(id);
@@ -64,5 +62,4 @@ const TripController = {
 		});
 	},
 };
-
 export default TripController;
