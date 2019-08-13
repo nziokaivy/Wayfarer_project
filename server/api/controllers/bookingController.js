@@ -1,7 +1,8 @@
+
 /* eslint-disable radix */
+import jwt from 'jsonwebtoken';
 import Booking from '../db/booking';
 import User from '../db/user';
-import Trip from '../db/trip';
 
 const removeBooking = (data) => {
 	const remove = {
@@ -49,39 +50,28 @@ const BookingController = {
 		});
 	},
 
-	getSpecificBooking(req, res) {
-		const bookingId = parseInt(req.params.id);
-		const specificBooking = Booking.getSpecificBooking(bookingId);
-		if (specificBooking) {
-			const removedBooking = removeBooking(specificBooking);
-			return res.status(200).json({
-				status: 'success',
-				data: removedBooking,
-			});
-		}
-		return res.status(404).json({
-			status: 'error',
-			error: 'Not found',
-		});
-	},
-
-	deleteBooking(req, res) {
-		const bookingId = parseInt(req.params.id);
-		const specificBooking = Booking.getSpecificBooking(bookingId);
-		if (!specificBooking) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not Found',
-			});
-		}
-		Booking.deleteBooking(bookingId);
-		return res.status(204).json({
-			status: 'success',
-			data: {
-				message: 'Booking Deleted Successfully!',
-			},
-		});
-	},
+        }
+    },
+    bookingsByUserOnly(req, res) {
+        const token = req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+        req.body.data = decodedToken;
+        const {
+            email
+        } = req.body.data;
+        const userBookings = Booking.getOnlyBookingsByUser(email);
+        if (!userBookings) {
+            return res.status(404).json({
+                status: 404,
+                message: 'You do not have any existing bookings!',
+            });
+        }
+        return res.status(200).json({
+            status: 200,
+            message: 'success',
+            data: userBookings,
+        });
+    }
 };
 
 export default BookingController;
