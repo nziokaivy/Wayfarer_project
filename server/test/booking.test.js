@@ -10,9 +10,6 @@ const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'janedoe@gmail.com', 'user', 'test');
 
 describe('Book Seat', () => {
-<<<<<<< HEAD
-	// TEST FOR BOOKING A SEAT
-=======
 	// TEST FOR CANNOT BOOK A SEAT WITHOUT TRIP ID
 	it('POST/api/v1/bookings Should not book a seat without trip id', (done) => {
 		const bookings = {
@@ -119,7 +116,6 @@ describe('Book Seat', () => {
 	});
 
 	// TEST FOR BOOK A SEAT
->>>>>>> d229ccd7db9ea2e1db723ba11d3fe5e6764a3556
 	it('POST/api/v1/bookings Should book a seat', (done) => {
 		const bookings = {
 			user_id: '2',
