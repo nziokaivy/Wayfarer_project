@@ -1,433 +1,412 @@
 {
-    "swagger" : "2.0",
-    "info" : {
-      "title" : "WayFarer API",
-      "description" : "WayFarer is a public bus transportation booking service",
-      "version" : "1.0.0",
-      "contact" : {
-        "email" : "nziokaivy@gmail.com"
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Wayfarer",
+    "description": "TODO: Add Description",
+    "contact": {}
+  },
+  "host": "wayfarerproject.herokuapp.com",
+  "basePath": "/api/v1",
+  "securityDefinitions": {},
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "signup",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "AuthSignupPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "security": []
       }
     },
-    "basePath" : "/api/",
-    "tags" : [ {
-      "name" : "Authentication",
-      "description" : "Operations about user authentication"
-    }, {
-      "name" : "Bookings",
-      "description" : "Operations about bookings"
-    }, {
-      "name" : "Trips",
-      "description" : "Operations about trips"
-    } ],
-    "schemes" : [ "http" ],
-    "paths" : {
-      "/auth/signup" : {
-        "post" : {
-          "tags" : [ "Authentication" ],
-          "summary" : "Create a user account",
-          "description" : "User can sign up",
-          "operationId" : "signupUser",
-          "consumes" : [ "application/json" ],
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "body",
-            "name" : "body",
-            "description" : "User object that you want to create",
-            "required" : true,
-            "schema" : {
-              "$ref" : "#/definitions/Signup"
-            }
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Signup successful"
-            },
-            "201" : {
-              "description" : "User has been created"
-            },
-            "400" : {
-              "description" : "Bad Request "
-            }
+    "/auth/signin": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "login",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "AuthSigninPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "type": "string",
+            "description": ""
           }
-        }
-      },
-      "/auth/signin" : {
-        "post" : {
-          "tags" : [ "Authentication" ],
-          "summary" : "Signs in a user",
-          "description" : "User can sign in",
-          "operationId" : "signinUser",
-          "consumes" : [ "application/json" ],
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "body",
-            "name" : "body",
-            "description" : "User object that you want to create",
-            "required" : true,
-            "schema" : {
-              "$ref" : "#/definitions/Signin"
-            }
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "User signed in"
-            },
-            "400" : {
-              "description" : "Bad Request"
-            }
-          }
-        }
-      },
-      "/bookings" : {
-        "get" : {
-          "tags" : [ "Bookings" ],
-          "summary" : "Get all bookings",
-          "description" : "View all bookings",
-          "operationId" : "getAllBookings",
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : false
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Bookings fetched successfully"
-            },
-            "400" : {
-              "description" : "Bad Request"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
           }
         },
-        "post" : {
-          "tags" : [ "Bookings" ],
-          "summary" : "Create a booking",
-          "description" : "Can create a booking",
-          "operationId" : "createBooking",
-          "consumes" : [ "application/json" ],
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : false
+        "security": []
+      }
+    },
+    "/trips": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "create trip",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "TripsPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {}",
+            "type": "string"
           },
           {
-            "in" : "body",
-            "name" : "body",
-            "description" : "Booking object to be created",
-            "required" : true,
-            "schema" : {
-              "$ref" : "#/definitions/Booking"
-            }
-          } ],
-          "responses" : {
-            "201" : {
-              "description" : "Booking Created"
-            },
-            "400" : {
-              "description" : "Bad Request"
-            }
+            "name": "seating_capacity",
+            "in": "formData",
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "bus_license_number",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "origin",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "destination",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "trip_date",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "fare",
+            "in": "formData",
+            "type": "integer",
+            "format": "int32",
+            "description": ""
           }
-        }
-      },
-      "/bookings/{bookingId}" : {
-        "delete" : {
-          "tags" : [ "Bookings" ],
-          "summary" : "Delete booking by ID",
-          "description" : "Returns an empty object",
-          "operationId" : "deleteBooking",
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : false
-          },
-          {
-            "name" : "bookingId",
-            "in" : "path",
-            "description" : "ID of booking to be deleted",
-            "required" : true,
-            "type" : "integer",
-            "format" : "int64"
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Booking successfully deleted"
-            },
-            "400" : {
-              "description" : "Invalid ID inputed"
-            },
-            "404" : {
-              "description" : "Booking not found"
-            }
-          }
-        }
-      },
-      "/trips" : {
-        "post" : {
-            "tags" : [ "Trips" ],
-            "summary" : "Create trips",
-            "description" : "Create a trip",
-            "operationId" : "createTrip",
-            "consumes" : [ "application/json" ],
-            "produces" : [ "application/json" ],
-            "parameters" : [ {
-              "in" : "header",
-              "name" : "authorization",
-              "description" : "An authorization header",
-              "required" : false
-            },
-            {
-              "in" : "body",
-              "name" : "body",
-              "description" : "Trip object to be created",
-              "required" : true,
-              "schema" : {
-                "$ref" : "#/definitions/Trip"
-              }
-            } ],
-            "responses" : {
-              "201" : {
-                "description" : "Trip Created"
-              },
-              "400" : {
-                "description" : "Bad request"
-              }
-            }
-          },
-        "get" : {
-          "tags" : [ "Trips" ],
-          "summary" : "Get all trips",
-          "description" : "All bookings",
-          "operationId" : "getAllTrips",
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : true
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Trips fetched successfully"
-            }
-          }
-        }
-
-      },
-      "/trips/{tripId}" : {
-        "get" : {
-          "tags" : [ "Trips" ],
-          "summary" : "Get a specific trip by ID",
-          "description" : "Returns a specific trip given a specific ID",
-          "operationId" : "getOneTrip",
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : false
-          },
-          {
-            "name" : "tripId",
-            "in" : "path",
-            "description" : "ID of trip to return",
-            "required" : true,
-            "type" : "integer",
-            "format" : "int64"
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Trip fetched successfully"
-            },
-            "400" : {
-              "description" : "Invalid ID given"
-            },
-            "404" : {
-              "description" : "Trip not found"
-            }
-          }
-        },
-        "patch" : {
-          "tags" : [ "Trips" ],
-          "summary" : "Update a trip by ID",
-          "description" : "Returns an updated trip",
-          "operationId" : "updateTrip",
-          "consumes" : [ "application/json" ],
-          "produces" : [ "application/json" ],
-          "parameters" : [ {
-            "in" : "header",
-            "name" : "authorization",
-            "description" : "An authorization header",
-            "required" : false
-          },
-          {
-            "name" : "tripId",
-            "in" : "path",
-            "description" : "ID of trip to be updated",
-            "required" : true,
-            "type" : "integer",
-            "format" : "int64"
-          },
-          {
-            "in" : "body",
-            "name" : "body",
-            "description" : "Trip object to be created",
-            "required" : true,
-            "schema" : {
-              "$ref" : "#/definitions/Trip"
-            }
-          } ],
-          "responses" : {
-            "200" : {
-              "description" : "Trip successfully updated",
-              "schema" : {
-                "$ref" : "#/definitions/Trip"
-              }
-            },
-            "400" : {
-              "description" : "Invalid ID supplied"
-            },
-            "404" : {
-              "description" : "Trip not found"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
           }
         }
       }
     },
-    "definitions" : {
-      "Signup" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "format" : "int64"
+    "/trips/{id}/cancel": {
+      "patch": {
+        "description": "TODO: Add Description",
+        "summary": "cancel trip",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Trips1CancelPatch",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer { }",
+            "type": "string"
           },
-          "email" : {
-            "type" : "string",
-            "example" : "nziokaivy@gmail.com"
-          },
-          "first_name" : {
-            "type" : "string",
-            "example" : "Ivy"
-          },
-          "last_name" : {
-            "type" : "string",
-            "example" : "Nzioka"
-          },
-          "is_admin" : {
-            "type" : "boolean",
-            "example" : false
-          },
-          "password" : {
-            "type" : "string",
-            "example" : "pass@123"
+          {
+            "name": "id",
+            "in": "path",
+            "type": "int",
+            "description": ""
           }
-        },
-        "xml" : {
-          "name" : "Signup"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/trips/{id}": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get specific trip",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Trips1Get",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer { }",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "type": "int",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/bookings": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "create booking",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "BookingsPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "trip_id",
+            "in": "formData",
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "first_name",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "last_name",
+            "in": "formData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "email",
+            "in": "tformData",
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "seat_number",
+            "in": "formData",
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
         }
       },
-      "Signin" : {
-        "type" : "object",
-        "properties" : {
-          "email" : {
-            "type" : "string",
-            "example" : "nziokaivy@gmail.com"
-          },
-          "password" : {
-            "type" : "string",
-            "example" : "pass@123"
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get all booking(admin)",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "BookingsGet",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
           }
-        },
-        "xml" : {
-          "name" : "Signin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
         }
-      },
-      "Booking" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "example" : 1
-          },
-          "bus_license_number" : {
-            "type" : "string",
-            "example" : "KBL 458Y"
-          },
-          "trip_date" : {
-            "type" : "date",
-            "example" : "23/07/2019"
-          },
-          "first_name" : {
-            "type" : "string",
-            "example" : "Ivy"
-          },
-          "last_name" : {
-            "type" : "string",
-            "example" : "Nzioka"
-          },
-          "user_email" : {
-            "type" : "string",
-            "example" : "nziokaivy@gmail.com"
-          },
-          "seat_number" : {
-            "type" : "integer",
-            "example" : 45
+      }
+    },
+    "/userbookings": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "get all bookings(user)",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "UserbookingsGet",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer { }",
+            "type": "string"
           }
-        },
-        "xml" : {
-          "name" : "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
         }
-      },
-      "Trip" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "integer",
-            "example" : 1
+      }
+    },
+    "/booking/{id}": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "user delete booking",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Booking1Delete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer { }",
+            "type": "string"
           },
-          "seating_capacity" : {
-            "type" : "integer",
-            "example" : 67
-          },
-          "origin" : {
-            "type" : "string",
-            "example" : "Nairobi"
-          },
-          "destination" : {
-            "type" : "string",
-            "example" : "Mombasa"
-          },
-          "trip_date" : {
-            "type" : "string",
-            "example" : "23/07/2019"
-          },
-          "fare" : {
-            "type" : "number",
-            "example" : 1000
-          },
-          "status" : {
-            "type" : "number",
-            "example" : 1
+          {
+            "name": "id",
+            "in": "path",
+            "type": "int",
+            "description": ""
           }
-        },
-        "xml" : {
-          "name" : "Trip"
-        }
-      },
-      "UpdateSeat" : {
-        "type" : "object",
-        "properties" : {
-          "seat_number" : {
-            "type" : "number",
-            "example" : 21
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
           }
-        },
-        "xml" : {
-          "name" : "Trip"
         }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}
