@@ -6,22 +6,22 @@ import User from '../models/user';
 import createToken from '../helpers/authToken';
 
 class Users{
-	static signup(req, res) {
+	static async signup(req, res) {
 		// eslint-disable-next-line camelcase
 		const {
-			first_name, last_name, email, password,
+			email, first_name, last_name, password,
 		} = req.body;
 		const newUser = User.createNewUser({
-			first_name, last_name, email, password,
+			email, first_name, last_name, password,
 		});
 		// eslint-disable-next-line max-len
-		const token = createToken.genToken(newUser.id, newUser.is_admin, newUser.email, newUser.first_name, newUser.last_name);
+		const token = createToken.genToken(newUser.id, newUser.email, newUser.first_name, newUser.last_name, newUser.is_admin);
 		newUser.token = token;
-		if (newUser !== null) {
+		if (await newUser !== null) {		
 			return res.status(201).json({
 				status: 201,
 				message: 'success',
-				data: newUser,
+				data: await newUser,
 			});
 		}
 		return res.status(400).json({

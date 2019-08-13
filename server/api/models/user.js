@@ -1,4 +1,7 @@
-import db from '../db/db';
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable camelcase */
+import db from '../db/Db';
 
 class User {
 	constructor() {
@@ -22,20 +25,16 @@ class User {
 		];
 	}
 
-	createNewUser({
+	async createNewUser({
 		// eslint-disable-next-line camelcase
-		first_name, last_name, email, password,
+		email, first_name, last_name, password,
 	}) {
-		const newUser = {
-			id: this.users.length + 1,
-			first_name,
-			last_name,
-			email,
-			password,
-			is_admin: false,
-		};
-		this.users.push(newUser);
-		return newUser;
+		const userValues = [email, first_name, last_name, password];
+		const queryData = 'INSERT INTO users(email, first_name, last_name, password) VALUES ($1, $2, $3, $4) returning *';
+		const { rows } = await db.query(queryData, userValues);	
+		if (rows.length > 0) {
+			return rows;
+		}
 	}
 
 	getUser(id) {
@@ -46,13 +45,12 @@ class User {
 		return this.users;
 	}
 
-	verifyEmail(email) {
-		const confirmEmail = this.users.find(user => user.email === email);
-		if (!confirmEmail) {
-			return false;
-		}
-		this.result = email;
-		return true;
+	async verifyEmail(email) {
+		const confirmEmailQuery = `SELECT * FROM users WHERE email = '${email}'`;
+		const { rows } = await db.query(confirmEmailQuery);
+		if (rows.length > 0) {
+			return true;
+		} return false;
 	}
 }
 export default new User();

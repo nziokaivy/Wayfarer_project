@@ -2,9 +2,8 @@
 // eslint-disable-next-line import/no-named-as-default
 import User from '../models/user';
 
-
 const SignUp = {
-	signup(req, res) {
+	assignup(req, res) {
 		const {
 			body,
 		} = req;

@@ -15,7 +15,7 @@ class DatabaseInstance {
 		});
 
 		this.queryUsers = `CREATE TABLE IF NOT EXISTS users(
-          id INT PRIMARY KEY NOT NULL,
+          id serial PRIMARY KEY,
           email VARCHAR(40) UNIQUE NOT NULL,
           first_name VARCHAR(25) NOT NULL,
           last_name VARCHAR(25) NOT NULL,
@@ -23,7 +23,7 @@ class DatabaseInstance {
         )`;
 
 		this.queryTrips = `CREATE TABLE IF NOT EXISTS trips(
-          trip_id INT PRIMARY KEY NOT NULL,
+          trip_id serial PRIMARY KEY,
           bus_license_number VARCHAR(10) NOT NULL,
           origin VARCHAR (25) NOT NULL;
           destination VARCHAR(25) NOT NULL,
@@ -32,7 +32,7 @@ class DatabaseInstance {
         )`;
 
 		this.queryBookings = `CREATE TABLE IF NOT EXISTS booking(
-          booking_id PRIMARY KEY NOT NULL,
+          booking_id serial PRIMARY KEY,
           user_id INT KEY NOT NULL,
           trip_id INT  NOT NULL,
           first_name VARCHAR(25),
@@ -58,5 +58,4 @@ class DatabaseInstance {
 		await this.query(this.queryBookings);
 	}
 }
-
 export default new DatabaseInstance();
