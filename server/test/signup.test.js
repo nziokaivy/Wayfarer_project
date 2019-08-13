@@ -10,10 +10,10 @@ describe('Sign up', () => {
 	it('POST/api/v1/auth/signup Should create a new user account', (done) => {
 		const user = {
 			id: User.getAllUsers().length + 1,
-			email: 'johndoe@gmail.com',
+			email: 'johndodee@gmail.com',
 			first_name: 'John',
 			last_name: 'Doe',
-			password: 'pass@123',
+			password: 'PAass@123gh',
 		};
 		chai
 			.request(app)

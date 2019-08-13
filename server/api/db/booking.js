@@ -35,7 +35,7 @@ class Booking {
 			seat_number: 34,
 		},
 		{
-			booking_id: 3,
+			booking_id: 4,
 			trip_id: 1,
 			user_id: 2,
 			bus_license_number: 'KTZ 590M',
@@ -95,6 +95,11 @@ class Booking {
 		this.result = myBookings;
 		return myBookings;
 	}
+
+	getSpecificBooking(id) {
+		return this.bookings.find(booking => booking.booking_id === id);
+	}
 }
+
 
 export default new Booking();
