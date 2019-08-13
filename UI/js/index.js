@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // functionality for tabs in profile page
 function openTab(evt, tabName) {
 	let i; let tabcontent; let
@@ -29,6 +30,7 @@ window.onscroll = function () {
 
 const navbar = document.getElementById('myTopnav');
 const sticky = navbar.offsetTop;
+// eslint-disable-next-line max-len
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function stickyNav() {
 	if (window.pageYOffset >= sticky) {

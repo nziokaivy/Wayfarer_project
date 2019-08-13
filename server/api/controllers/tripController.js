@@ -1,6 +1,6 @@
 /* eslint-disable radix */
 // eslint-disable-next-line import/no-named-as-default
-import Trip from '../db/trip';
+import Trip from '../models/trip';
 
 class TripController {
 	static createNewTrip(req, res) {

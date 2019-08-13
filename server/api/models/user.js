@@ -1,3 +1,5 @@
+import db from '../db/db';
+
 class User {
 	constructor() {
 		this.users = [

@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import Booking from '../db/booking';
-import User from '../db/user';
-import Trip from '../db/trip';
+import Booking from '../models/booking';
+import User from '../models/user';
+import Trip from '../models/trip';
 
 const removeBooking = (data) => {
 	const remove = {
