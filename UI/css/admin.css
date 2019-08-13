@@ -262,7 +262,7 @@ td {
         padding-left: 0;
         width: 100%;
     }
-}
+  }
 @media screen and (max-height: 450px) {
     #sideMenu {
         padding-top: 15px;
@@ -271,7 +271,7 @@ td {
         font-size: 18px;
         padding: 55px;
     }
-}
+  }
 @media screen and (max-width: 1000px) {
     .column {
         width: 100%;
@@ -305,11 +305,10 @@ td {
         margin-top: 0;
         text-align: center;
         padding: 0;
-    }
+    }    
 }
 @media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
-
     /* Force table to not be like tables anymore */
     table,
     thead,
@@ -348,19 +347,9 @@ td {
     /*
 	Label the data
 	*/
-    td:nth-of-type(1):before {
-        content: "ORIGIN";
-    }
-    td:nth-of-type(2):before {
-        content: "DESTINATION";
-    }
-    td:nth-of-type(3):before {
-        content: "PRICE";
-    }
-    td:nth-of-type(4):before {
-        content: "DATE CREATED";
-    }
-    td:nth-of-type(5):before {
-        content: "";
-    }
+	td:nth-of-type(1):before { content: "ORIGIN"; }
+	td:nth-of-type(2):before { content: "DESTINATION"; }
+	td:nth-of-type(3):before { content: "PRICE"; }
+	td:nth-of-type(4):before { content: "DATE CREATED"; }
+	td:nth-of-type(5):before { content: ""; }
 }

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+// eslint-disable-next-line import/no-named-as-default
 import User from '../db/user';
 import loginValidation from '../helpers/signInValidators';
 
@@ -16,6 +18,7 @@ const SignIn = {
 				error: error.details[0].message,
 			});
 		}
+		// eslint-disable-next-line max-len
 		const getUser = User.getAllUsers().find(user => user.email === body.email && user.password === body.password);
 		if (!getUser) {
 			return res.status(404).json({
@@ -29,5 +32,4 @@ const SignIn = {
 		});
 	},
 };
-
 export default SignIn;

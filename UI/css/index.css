@@ -103,7 +103,7 @@ slider {
   overflow: hidden;
   position: absolute;
 }
-slider>* {
+slider > * {
   position: absolute;
   display: block;
   width: 100%;
@@ -182,7 +182,6 @@ slide p {
   padding-top: 60px;
 }
 /* end of header section */
-
 /* about section */
 .about-section {
   width: 100%;
@@ -192,41 +191,41 @@ slide p {
   margin-bottom: 280px;
   text-align: center;
 }
-.inner-width {
+.inner-width{
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-.about-section h1 {
+.about-section h1{
   text-align: center;
   color: #242582;
   font-size: 30px;
 }
-.border {
+.border{
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
-.about-section-row {
+.about-section-row{
   display: flex;
   flex-wrap: wrap;
 }
-.about-section-col {
+.about-section-col{
   flex: 50%;
 }
-.about {
+.about{
   padding-right: 30px;
 }
-.about p {
+.about p{
   text-align: center;
   margin-bottom: 20px;
   color: #242582;
   padding: 10px;
   font-size: 17px;
 }
-.about a {
+.about a{
   display: inline-block;
   color: #F64C72;
   text-decoration: none;
@@ -235,7 +234,7 @@ slide p {
   padding: 8px 40px;
   transition: 0.4s linear;
 }
-.about a:hover {
+.about a:hover{
   color: #fff;
   background: #F64C72;
 }
@@ -250,7 +249,6 @@ slide p {
   }
 }
 /* end of about section */
-
 /* footer section */
 .footer {
   left: 0;
@@ -273,48 +271,48 @@ slide p {
   }
 }
 /* end of footer section */
-.contact-section {
+.contact-section{
   width: 100%;
   background: #242582;
   opacity: 0.8;
   padding: 80px 0;
 }
-.inner-width {
+.inner-width{
   max-width: 1000px;
   overflow: hidden;
   padding: 0 20px;
   margin: auto;
 }
-.contact-section h1 {
+.contact-section h1{
   text-align: center;
   color: #fff;
   font-size: 30px;
 }
-.border {
+.border{
   width: 100px;
   height: 3px;
   background: #F64C72;
   margin: 40px auto;
 }
-.contact-section-row {
+.contact-section-row{
   display: flex;
   flex-wrap: wrap;
 }
-.contact-section-col {
+.contact-section-col{
   flex: 50%;
   text-align: center;
 }
-.contact {
+.contact{
   padding-right: 30px;
 }
-.contact p {
+.contact p{
   text-align: center;
   margin-bottom: 50px;
   color: #fff;
   font-size: 17px;
 }
-form {
-  text-align: center;
+form{
+  text-align:center;
   color: #F64C72;
   text-decoration: none;
   border-radius: 24px;
@@ -466,17 +464,37 @@ td {
     position: relative;
     padding-left: 50%;
   }
-  td:before {
-    /* Now like a table header */
-    position: absolute;
-    /* Top/left values mimic padding */
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
-  /*
+  @media 
+  only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr { border: 1px solid #F64C72; }
+    td { 
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee; 
+      position: relative;
+      padding-left: 50%; 
+    }
+    td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+    }
+    /*
     Label the data
     */
   td:nth-of-type(1):before {
@@ -497,4 +515,5 @@ td {
   td:nth-of-type(6):before {
     content: "";
   }
+}
 }
