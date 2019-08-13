@@ -13,13 +13,13 @@ table {
     border-spacing: 0;
     width: 100%;
     background: #f1f1f1;
-}
-th {
+  }
+  th{
     text-align: left;
     padding: 20px;
     border-bottom: 1px solid #F64C72;
-}
-td {
+  }
+  td {
     text-align: left;
     padding: 20px;
 }
@@ -34,4 +34,4 @@ td {
     cursor: pointer;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-}
+} 

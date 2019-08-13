@@ -71,15 +71,15 @@ h2 {
   padding: 5px;
 }
 .button-details {
-  width: 300px;
-  height: 50px;
-  font-size: 16px;
-  background: #F64C72;
-  font-weight: lighter;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  border: 0;
-  border-radius: 5px;
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    background: #F64C72;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
 }
 table {
   border-collapse: collapse;
@@ -87,7 +87,7 @@ table {
   width: 100%;
   background: #f1f1f1;
 }
-th {
+th{
   text-align: left;
   padding: 20px;
   border-bottom: 1px solid #F64C72;
@@ -149,34 +149,80 @@ select {
   padding: 20px;
   margin-bottom: 300px;
 }
-.booking-title {
-  text-align: center;
-  color: #242582;
-  font-size: 30px;
-}
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media screen and (max-width: 1000px) {
-  .col-25,
-  .col-75,
-  input[type=submit] {
-    width: 100%;
-    margin-top: 0;
+ /* booking section */
+ .booking input[type=text], select{
+    width: 50%;
+    padding: 12px;
+    border: 1px solid#F64C72;
+    border-radius: 4px;
+    resize: vertical;
+    background: white;
+    font-size: 20px;
+  }
+  .booking input[type=date] {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid#F64C72;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 20px;
+  }
+  .booking label {
+    padding: 12px 0 12px 0;
+    display: inline-block;
+    color: #242582;
+    font-size: 20px;
+  }
+  .booking input[type=submit] {
+    padding: 8px 40px;
+    font-size: 20px;
+    margin-top: 30px;
+    color: #fff;
+    color: #F64C72;
+    text-decoration: none;
+    border: 2px solid #F64C72;
+    border-radius: 24px;
+    transition: 0.4s linear;
+  }
+  .booking input[type=submit]:hover {
+    color: #fff;
+    background: #F64C72;
   }
   .booking {
-    margin-top: 942px;
+    margin-top: 1200px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    opacity: 0.7;
+    padding: 20px;
+    margin-bottom: 300px;
   }
-}
+  .booking-title {
+    text-align: center;
+    color: #242582;
+    font-size: 30px;
+  }
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  } 
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @media screen and (max-width: 1000px) {
+    .col-25, .col-75, input[type=submit]{
+      width: 100%;
+      margin-top: 0;
+    }
+    .booking{
+      margin-top: 942px;
+    }
+  } 
+  /* end of booking section */

@@ -3,12 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
   background: #fff;
 }
-
 html {
   scroll-behavior: smooth;
 }
@@ -41,13 +39,13 @@ h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
-.tabs {
+.tabs{
   width: 100%;
   display: block;
   margin: 0px auto;
   position: relative;
 }
-.tabs .tab {
+.tabs .tab{
   float: right;
   display: block;
 }
@@ -85,14 +83,13 @@ h3 {
   opacity: 0;
   transition: opacity 400ms ease-out;
 }
-.tabs>.tab>[id^="tab"]:checked+label {
+.tabs>.tab>[id^="tab"]:checked + label {
   top: 0;
   background: #242582;
   color: #F5F5F5;
 }
-.tabs>.tab>[id^="tab"]:checked~[id^="tab-content"] {
-  z-index: 1;
-  display: block;
+.tabs>.tab>[id^="tab"]:checked ~ [id^="tab-content"] {
+  z-index: 1;/* or display: block; */
   opacity: 1;
   transition: opacity 400ms ease-out;
 }
@@ -150,7 +147,7 @@ table {
   width: 100%;
   background: #fff;
 }
-th {
+th{
   text-align: left;
   padding: 20px;
   border-bottom: 1px solid #F64C72;
@@ -200,7 +197,7 @@ select {
   border-radius: 24px;
   transition: 0.4s linear;
   text-align: center;
-}
+} 
 .booking input[type=submit]:hover {
   color: #fff;
   background: #F64C72;
@@ -319,7 +316,6 @@ td {
   color: #242582;
   margin-bottom: 30px;
   font-size: 30px;
-
 }
 @media screen and (max-width: 1000px) {
   .tabs {
