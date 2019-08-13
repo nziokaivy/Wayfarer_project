@@ -118,10 +118,11 @@ describe('Book Seat', () => {
 	// TEST FOR BOOK A SEAT
 	it('POST/api/v1/bookings Should book a seat', (done) => {
 		const bookings = {
+			user_id: '2',
 			trip_id: '1',
-			first_name: 'John',
+			first_name: 'Jane',
 			last_name: 'Doe',
-			email: 'johndoe@gmail.com',
+			email: 'janedoe@gmail.com',
 			seat_number: '23',
 		};
 		chai
@@ -135,6 +136,7 @@ describe('Book Seat', () => {
 				done();
 			});
 	});
+
 
 	// TEST FOR GETTING ALL BOOKINGS
 	it('GET/api/v1/bookings Should fetch all bookings admin', (done) => {
