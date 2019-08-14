@@ -30,7 +30,7 @@ class Users {
 		}
 		return res.status(400).json({
 			status: 400,
-			message: 'error could not create new account',
+			error: 'error could not create new account',
 		});
 	}
 
