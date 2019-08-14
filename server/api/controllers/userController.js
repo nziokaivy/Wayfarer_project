@@ -4,24 +4,33 @@
 // eslint-disable-next-line import/no-named-as-default-member
 import User from '../models/user';
 import createToken from '../helpers/authToken';
+import HashedPassword from '../helpers/hashPassword';
 
 class Users{
-	static signup(req, res) {
+	static async signup(req, res) {
 		// eslint-disable-next-line camelcase
 		const {
-			first_name, last_name, email, password,
+			email, first_name, last_name, password,
 		} = req.body;
+
+		const passwordHashed = HashedPassword.hashPassword(password);
 		const newUser = User.createNewUser({
-			first_name, last_name, email, password,
+			email, first_name, last_name, passwordHashed,
 		});
 		// eslint-disable-next-line max-len
-		const token = createToken.genToken(newUser.id, newUser.is_admin, newUser.email, newUser.first_name, newUser.last_name);
-		newUser.token = token;
-		if (newUser !== null) {
+		const token = createToken.genToken(newUser.id, newUser.email, newUser.first_name, newUser.last_name, newUser.is_admin);
+		const userData = {
+			token,
+			first_name,
+			last_name,
+			email,
+		};
+		if (await newUser !== null) {
+			newUser.token = token;
 			return res.status(201).json({
 				status: 201,
 				message: 'success',
-				data: newUser,
+				data: await userData,
 			});
 		}
 		return res.status(400).json({
