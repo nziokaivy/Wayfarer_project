@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable camelcase */
 /* eslint-disable space-before-blocks */
@@ -6,16 +7,22 @@ import User from '../models/user';
 import createToken from '../helpers/authToken';
 import HashedPassword from '../helpers/hashPassword';
 
-class Users{
+class Users {
 	static async signup(req, res) {
 		// eslint-disable-next-line camelcase
 		const {
-			email, first_name, last_name, password,
+			email,
+			first_name,
+			last_name,
+			password,
 		} = req.body;
 
 		const passwordHashed = HashedPassword.hashPassword(password);
 		const newUser = User.createNewUser({
-			email, first_name, last_name, passwordHashed,
+			email,
+			first_name,
+			last_name,
+			passwordHashed,
 		});
 		// eslint-disable-next-line max-len
 		const token = createToken.genToken(newUser.id, newUser.email, newUser.first_name, newUser.last_name, newUser.is_admin);
@@ -39,30 +46,46 @@ class Users{
 		});
 	}
 
-	static signin(req, res) {
-		const { email, password } = req.body;
+	static async signin(req, res) {
+		const {
+			email,
+			userpassword,
+		} = req.body;
 		// eslint-disable-next-line max-len
-		const getUser = User.getAllUsers().find(user => user.email === email && user.password === password);
-		if (!getUser) {
+		const getUser = User.verifyEmail(email);
+
+		if (await getUser) {
+			const {
+				id,
+				first_name,
+				last_name,
+				password,
+				is_admin,
+			} = await getUser;
+			const comparePasword = HashedPassword.comparePassword(password, userpassword);
+			if (comparePasword) {
+				// eslint-disable-next-line max-len
+				const token = createToken.genToken(id, is_admin, email, first_name, last_name);
+				const userData = {
+					token,
+					first_name,
+					last_name,
+					email,
+				};
+				return res.status(200).json({
+					status: 200,
+					message: 'success',
+					data: await userData,
+				});
+			}
 			return res.status(404).json({
 				status: 404,
-				error: 'Invalid email and password',
+				error: 'Invalid email or password',
 			});
 		}
-		const getPassword = getUser.password === password;
-		if (!getPassword) {
-			return res.status(401).json({
-				status: 401,
-				error: 'Invalid email and password',
-			});
-		}
-		// eslint-disable-next-line max-len
-		const token = createToken.genToken(getUser.id, getUser.is_admin, getUser.email, getUser.first_name, getUser.last_name);
-		getUser.token = token;
-		return res.status(200).json({
-			status: 200,
-			message: 'success',
-			data: getUser,
+		return res.status(404).json({
+			status: 404,
+			error: 'Invalid email or password',
 		});
 	}
 }
