@@ -24,6 +24,7 @@ class User {
 				is_admin: false,
 			},
 		];
+		this.user = null;
 	}
 
 	async createNewUser({
@@ -51,8 +52,11 @@ class User {
 		const confirmEmailQuery = `SELECT * FROM users WHERE email = '${email}'`;
 		const { rows } = await db.query(confirmEmailQuery);
 		if (rows.length > 0) {
-			return true;
-		} return false;
+			// eslint-disable-next-line prefer-destructuring
+			this.user = rows[0];
+			return this.user;
+		}
+		return false;
 	}
 }
 export default new User();

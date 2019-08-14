@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 
 const env = process.env.NODE_ENV;
 dotenv.config();
+console.log(env);
 
 const dev = {
 	db: process.env.DATABASE_URL,

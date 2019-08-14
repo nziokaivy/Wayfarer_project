@@ -49,11 +49,11 @@ class allValidations {
 	}
 
 	static signin(req, res, next) {
-		const { email, password } = req.body;
+		const { email, userpassword } = req.body;
 		if (!email) {
 			return res.status(400).json({ status: 400, error: 'Please fill in your email address' });
 		}
-		if (!password) {
+		if (!userpassword) {
 			return res.status(400).json({ status: 400, error: 'Please fill in your password' });
 		}
 		next();

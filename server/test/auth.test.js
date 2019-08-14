@@ -2,7 +2,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-
+import db from '../api/db/Db';
 
 should = chai.should();
 chai.use(chaiHttp);
@@ -11,6 +11,10 @@ chai.use(chaiHttp);
 // TEST FOR CREATING A NEW USER ACCOUNT
 
 describe('Sign up', () => {
+	after('drops db after sign up', (done) => {
+		db.query(`DROP TABLE users;`);
+		done();
+	});
 	it('POST/api/v1/auth/signup Should create a new user account', (done) => {
 		chai
 			.request(app)
@@ -124,8 +128,8 @@ describe('Sign up', () => {
 			.request(app)
 			.post('/api/v1/auth/signin')
 			.send({
-				email: 'janedoe@gmail.com',
-				password: 'Ivyme@123',
+				email: 'johndoe@gmail.com',
+				userpassword: 'Ivyme@123',
 			})
 			.end((err, res) => {
 				res.should.have.status(200);
@@ -141,7 +145,7 @@ describe('Sign up', () => {
 			.post('/api/v1/auth/signin')
 			.send({
 				email: '',
-				password: 'Ivyme@123',
+				userpassword: 'Ivyme@123',
 			})
 			.end((err, res) => {
 				res.should.have.status(400);
@@ -157,7 +161,7 @@ describe('Sign up', () => {
 			.post('/api/v1/auth/signin')
 			.send({
 				email: 'meme@gmail.com',
-				password: 'Ivyme@123',
+				userpassword: 'Ivyme@123',
 			})
 			.end((err, res) => {
 				res.should.have.status(404);
@@ -173,7 +177,7 @@ describe('Sign up', () => {
 			.post('/api/v1/auth/signin')
 			.send({
 				email: 'janedoe@gmail.com',
-				password: '',
+				userpassword: '',
 			})
 			.end((err, res) => {
 				res.should.have.status(400);
@@ -189,7 +193,7 @@ describe('Sign up', () => {
 			.post('/api/v1/auth/signin')
 			.send({
 				email: 'janedoe@gmail.com',
-				password: 'frrfvgrevrevr',
+				userpassword: 'frrfvgrevrevr',
 			})
 			.end((err, res) => {
 				res.should.have.status(404);
