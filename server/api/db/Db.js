@@ -1,11 +1,15 @@
 import { Pool } from 'pg';
 // eslint-disable-next-line no-unused-vars
 import dotenv from 'dotenv';
+import config from '../config/config';
 
 dotenv.config();
 const pool = {
-	connectionString: process.env.DATABASE_URL,
+	connectionString: config.db,
 };
+// eslint-disable-next-line no-console
+console.log(config.db);
+
 
 class DatabaseInstance {
 	constructor() {
