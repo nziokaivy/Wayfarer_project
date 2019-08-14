@@ -4,6 +4,7 @@
 import db from '../db/Db';
 
 class Booking {
+	// eslint-disable-next-line no-useless-constructor
 	constructor() {}
 
 	// eslint-disable-next-line class-methods-use-this
@@ -29,7 +30,7 @@ class Booking {
 
 	// eslint-disable-next-line class-methods-use-this
 	async getAllBookings() {
-		const findAllBookingsQuery = 'SELECT *  FROM bookings';
+		const findAllBookingsQuery = 'SELECT *  FROM booking';
 		const { rows } = await db.query(findAllBookingsQuery);
 		if (rows.length === 0) {
 			return false;
