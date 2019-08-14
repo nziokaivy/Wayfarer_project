@@ -1,15 +1,11 @@
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-named-as-default */
 /* eslint-disable camelcase */
-/* eslint-disable space-before-blocks */
-// eslint-disable-next-line import/no-named-as-default-member
+
 import User from '../models/user';
 import createToken from '../helpers/authToken';
 import HashedPassword from '../helpers/hashPassword';
 
 class Users {
 	static async signup(req, res) {
-		// eslint-disable-next-line camelcase
 		const {
 			email,
 			first_name,
@@ -51,7 +47,6 @@ class Users {
 			email,
 			userpassword,
 		} = req.body;
-		// eslint-disable-next-line max-len
 		const getUser = User.verifyEmail(email);
 
 		if (await getUser) {
@@ -64,7 +59,6 @@ class Users {
 			} = await getUser;
 			const comparePasword = HashedPassword.comparePassword(password, userpassword);
 			if (comparePasword) {
-				// eslint-disable-next-line max-len
 				const token = createToken.genToken(id, is_admin, email, first_name, last_name);
 				const userData = {
 					token,
