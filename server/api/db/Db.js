@@ -38,10 +38,11 @@ class DatabaseInstance {
 
 		this.queryBookings = `CREATE TABLE IF NOT EXISTS booking(
           id serial PRIMARY KEY,
-          user_id INT KEY NOT NULL,
+          user_id INT NOT NULL,
           trip_id INT  NOT NULL,
-          first_name VARCHAR(25),
-          last_name VARCHAR(25),
+          first_name VARCHAR(25) NOT NULL,
+					last_name VARCHAR(25) NOT NULL,
+					email VARCHAR(50) NOT NULL,
           seat_number VARCHAR (4) NOT NULL
         )`;
 		this.initializeDatabase();

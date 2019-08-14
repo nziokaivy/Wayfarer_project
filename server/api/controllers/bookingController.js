@@ -17,22 +17,36 @@ const removeBooking = (data) => {
 };
 
 class BookingController {
-	static booking(req, res) {
+	static async booking(req, res) {
 		const { body } = req;
-
-		if (!body.trip_id || !body.user_id || !body.seat_number) {
-			return res.status(400).json({ status: 'error', error: 'Bad Request! Please ensure you have filled in all the fields' });
-		}
-		const newBooking = Booking.createNewBooking(body);
-		return res.status(201).json({ status: 'success', data: newBooking });
+		const newBooking = Booking.createNewBooking({ ...body });
+		const bookingValues = {
+			...body,
+		};
+		if (await newBooking) {
+			return res.status(201).json({
+				status: 201,
+				data: bookingValues,
+			});
+		}	return res.status(400).json({
+			status: 400,
+			error: 'Could not create new booking',
+		});
 	}
 
-	static getAllBookings(req, res) {
+	static async getAllBookings(req, res) {
 		const allBookings = Booking.getAllBookings();
-		if (!allBookings.length) {
-			return res.status(404).json({ status: 'error', error: 'Not found' });
+		if (await allBookings) {
+			return res.status(200).json({
+				status: '200',
+				message: 'success',
+				data: await allBookings,
+			});
 		}
-		return res.status(200).json({ status: 'success', data: allBookings });
+		return res.status(404).json({
+			status: '404',
+			error: 'Not found',
+		});
 	}
 
 	static getSpecificBooking(req, res) {
