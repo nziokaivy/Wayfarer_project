@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import Booking from '../models/booking';
 import User from '../models/user';
 import Trip from '../models/trip';
+import Booking from '../models/booking';
 
 const removeBooking = (data) => {
 	const remove = {
@@ -49,12 +49,11 @@ class BookingController {
 	static deleteBooking(req, res) {
 		// eslint-disable-next-line radix
 		const bookingId = parseInt(req.params.id);
-		const specificBooking = Booking.getSpecificBooking(bookingId);
-		if (!specificBooking) {
-			return res.status(404).json({ status: 'error', error: 'Not Found' });
+		const findBooking = Booking.deleteBooking(bookingId);
+		if (!findBooking) {
+			return res.status(400).json({ status: 404, error: 'Booking id not found' });
 		}
-		Booking.deleteBooking(bookingId);
-		return res.status(204).json({ status: 'success', data: { message: 'Booking Deleted Successfully!' } });
+		return res.status(200).json({ status: '204', data: { message: 'Booking Deleted Successfully!' } });
 	}
 
 	static bookingsByUserOnly(req, res) {

@@ -1,4 +1,7 @@
 /* eslint-disable camelcase */
+
+import db from '../db/Db';
+
 class Booking {
 	constructor() {
 		this.bookings = [{
@@ -50,7 +53,11 @@ class Booking {
 
 	createNewBooking({
 		// eslint-disable-next-line camelcase
-		trip_id, seat_number, first_name, last_name, email,
+		trip_id,
+		seat_number,
+		first_name,
+		last_name,
+		email,
 	}) {
 		const tripId = this.bookings.filter(trip => trip.trip_id === trip_id);
 		if (!tripId) {
@@ -73,16 +80,39 @@ class Booking {
 		return this.bookings;
 	}
 
-	deleteBooking(id) {
+	async deleteBooking(id) {
 		// eslint-disable-next-line radix
 		const booking_Id = parseInt(id);
-		const booking_data = this.bookings.find(data => data.booking_id === booking_Id);
-		if (booking_data) {
-			// eslint-disable-next-line no-unused-vars
-			const user = this.bookings.splice(this.bookings.booking_id - 1, 1);
+		const findBookingQuery = `SELECT *  FROM bookings WHERE id = '${booking_Id}'`;
+		const {
+			rows,
+		} = await db.query(findBookingQuery);
+		if (rows.length === 0) {
+			const result = {
+				status: 404,
+				message: `Booking Id : is not available`,
+			};
+			return false;
+		// eslint-disable-next-line no-else-return
+		} else {
+			const foundBookingQuery = `DELETE FROM bookings WHERE id ='${booking_Id}'`;
+			const {
+				// eslint-disable-next-line no-shadow
+				rows,
+			} = await db.query(foundBookingQuery);
+			if (!rows) {
+				const result = {
+					status: 401,
+					message: 'You are not allowed to delete this booking.',
+				};
+				return false;
+			}
+			this.result = {
+				status: 200,
+				message: 'You have successfully deleted this booking.',
+			};
 			return true;
 		}
-		return false;
 	}
 
 	getOnlyBookingsByUser(email) {
@@ -100,6 +130,4 @@ class Booking {
 		return this.bookings.find(booking => booking.booking_id === id);
 	}
 }
-
-
 export default new Booking();
