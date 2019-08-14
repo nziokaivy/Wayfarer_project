@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
-import Trip from '../api/models/trip';
 import Token from '../api/helpers/authToken';
 
 chai.should();
@@ -181,20 +180,9 @@ describe('Trip Tests', () => {
 
 	// GET A SPECIFIC TRIP TEST
 	it('GET/api/v1/trips/:trip-id Should fetch a specific trip', (done) => {
-		const trip = {
-			id: Trip.getAllTrips().length + 1,
-			seating_capacity: '67',
-			bus_license_number: 'KZE 432',
-			origin: 'Nairobi',
-			destination: 'Kigali',
-			trip_date: '23/09/2019',
-			fare: '4000',
-			status: '1',
-		};
-		const tripId = Trip.createNewTrip(trip).id;
 		chai
 			.request(app)
-			.get(`/api/v1/trips/${tripId}`)
+			.get(`/api/v1/trips/${1}`)
 			.set('authorization', `Bearer ${userToken}`)
 			.end((err, res) => {
 				res.should.have.status(200);
@@ -205,20 +193,9 @@ describe('Trip Tests', () => {
 
 	// SHOULD NOT ALLOW AN ID THAT IS NOT AN INTEGER
 	it('GET/api/v1/trips/:trip-id Should not allow non-integer id', (done) => {
-		const trip = {
-			id: '1asdfgvhbjn',
-			seating_capacity: '67',
-			bus_license_number: 'KZE 432',
-			origin: 'Nairobi',
-			destination: 'Kigali',
-			trip_date: '23/08/2019',
-			fare: '4000',
-			status: '1',
-		};
-		const tripId = Trip.createNewTrip(trip).id;
 		chai
 			.request(app)
-			.get(`/api/v1/trips/${tripId}`)
+			.get(`/api/v1/trips/${1}`)
 			.set('authorization', `Bearer ${userToken}`)
 			.end((err, res) => {
 				res.should.have.status(200);
