@@ -38,6 +38,7 @@
     "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
+    "@babel/register": "^7.5.5",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "eslint": "^6.1.0",
