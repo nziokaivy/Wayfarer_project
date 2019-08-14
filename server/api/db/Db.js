@@ -26,16 +26,18 @@ class DatabaseInstance {
         )`;
 
 		this.queryTrips = `CREATE TABLE IF NOT EXISTS trips(
-          trip_id serial PRIMARY KEY,
-          bus_license_number VARCHAR(10) NOT NULL,
-          origin VARCHAR (25) NOT NULL;
+					id serial PRIMARY KEY,
+					seating_capacity INT NOT NULL,
+          bus_license_number VARCHAR(20) NOT NULL,
+          origin VARCHAR(25) NOT NULL,
           destination VARCHAR(25) NOT NULL,
-          trip_date  VARCHAR(30) NOT NULL,
-          fare INT NOT NULL
+          trip_date VARCHAR(30) NOT NULL,
+					fare INT NOT NULL,
+					status VARCHAR(20) NOT NULL
         )`;
 
 		this.queryBookings = `CREATE TABLE IF NOT EXISTS booking(
-          booking_id serial PRIMARY KEY,
+          id serial PRIMARY KEY,
           user_id INT KEY NOT NULL,
           trip_id INT  NOT NULL,
           first_name VARCHAR(25),

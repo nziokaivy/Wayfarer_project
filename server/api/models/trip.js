@@ -1,3 +1,7 @@
+/* eslint-disable camelcase */
+/* eslint-disable class-methods-use-this */
+import db from '../db/Db';
+
 class Trip {
 	constructor() {
 		this.trips = [
@@ -14,19 +18,16 @@ class Trip {
 		];
 	}
 
-	createNewTrip(data) {
-		const newTrip = {
-			id: this.trips.length + 1,
-			seating_capacity: data.seating_capacity,
-			bus_license_number: data.bus_license_number,
-			origin: data.origin,
-			destination: data.destination,
-			trip_date: data.trip_date,
-			fare: data.fare,
-			status: 'active',
-		};
-		this.trips.push(newTrip);
-		return newTrip;
+	async createNewTrip({
+		bus_license_number, seating_capacity, origin, destination, trip_date, fare,
+	}) {
+		// eslint-disable-next-line max-len
+		const tripValues = [bus_license_number, seating_capacity, origin, destination, trip_date, fare, 'active'];
+		const queryData = `INSERT INTO trips(bus_license_number, seating_capacity, origin, destination, trip_date, fare, status) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
+		const { rows } = await db.query(queryData, tripValues);
+		if (rows.length > 0) {
+			return rows;
+		}
 	}
 
 	getAllTrips() {

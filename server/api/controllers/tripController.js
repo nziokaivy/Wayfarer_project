@@ -3,21 +3,22 @@
 import Trip from '../models/trip';
 
 class TripController {
-	static createNewTrip(req, res) {
-		const {
-			body,
-		} = req;
+	static async createNewTrip(req, res) {
+		const { body } = req;
 		// eslint-disable-next-line max-len
-		if (!body.seating_capacity || !body.bus_license_number || !body.origin || !body.destination || !body.trip_date || !body.fare) {
-			return res.status(400).json({
-				status: 'error',
-				error: 'Bad Request! Please ensure you have filled in all the fields',
+
+		const newTrip = Trip.createNewTrip({ ...body });
+		const tripValues = {
+			...body,
+		};
+		if (await newTrip) {
+			return res.status(201).json({
+				status: 201,
+				data: tripValues,
 			});
-		}
-		const newTrip = Trip.createNewTrip(body);
-		return res.status(201).json({
-			status: 'success',
-			data: newTrip,
+		}	return res.status(400).json({
+			status: 400,
+			error: 'Could not create new trip',
 		});
 	}
 
