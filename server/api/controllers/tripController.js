@@ -38,6 +38,8 @@ class TripController {
 
 	static async getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
+		// eslint-disable-next-line prefer-destructuring
+		const status = req.body.status;
 		const specificTrip = Trip.getSpecificTrip(id);
 		if (await specificTrip) {
 			return res.status(200).json({
