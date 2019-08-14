@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 
 import db from '../db/Db';
@@ -88,10 +89,6 @@ class Booking {
 			rows,
 		} = await db.query(findBookingQuery);
 		if (rows.length === 0) {
-			const result = {
-				status: 404,
-				message: `Booking Id : is not available`,
-			};
 			return false;
 		// eslint-disable-next-line no-else-return
 		} else {

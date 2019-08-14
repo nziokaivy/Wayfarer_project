@@ -205,10 +205,13 @@ describe('Trip Tests', () => {
 	});
 
 	// CANCEL A TRIP TEST
-	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel all trips', (done) => {
+	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel a trip', (done) => {
 		chai
 			.request(app)
 			.patch(`/api/v1/trips/1/cancel`)
+			.send({
+				status: 'canceled',
+			})
 			.set('authorization', `Bearer ${adminToken}`)
 			.end((err, res) => {
 				res.should.have.status(200);
