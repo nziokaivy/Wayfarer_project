@@ -22,24 +22,25 @@ class TripController {
 		});
 	}
 
-	static getAllTrips(req, res) {
+	static async getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
-		if (!allTrips.length) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not found',
+		if (await allTrips) {
+			return res.status(200).json({
+				status: '200',
+				message: 'success',
+				data: await allTrips,
 			});
 		}
-		return res.status(200).json({
-			status: 'success',
-			data: allTrips,
+		return res.status(404).json({
+			status: 'error',
+			error: 'Not found',
 		});
 	}
 
 	static async getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
 		// eslint-disable-next-line prefer-destructuring
-		const status = req.body.status;
+		// eslint-disable-next-line no-unused-vars
 		const specificTrip = Trip.getSpecificTrip(id);
 		if (await specificTrip) {
 			return res.status(200).json({

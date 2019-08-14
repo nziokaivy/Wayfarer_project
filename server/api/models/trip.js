@@ -39,8 +39,17 @@ class Trip {
 		}
 	}
 
-	getAllTrips() {
-		return this.trips;
+	async getAllTrips() {
+		// eslint-disable-next-line radix
+		const findAllTripsQuery = `SELECT * FROM trips`;
+		const {
+			rows,
+		} = await db.query(findAllTripsQuery);
+		if (rows.length === 0) {
+			return false;
+		}
+		const result = rows;
+		return result;
 	}
 
 	async getSpecificTrip(id) {
