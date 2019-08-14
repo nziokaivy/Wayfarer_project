@@ -70,15 +70,16 @@ class Booking {
 		}
 	}
 
-	getOnlyBookingsByUser(email) {
-		const myBookings = this.bookings.find(data => data.email === email);
-
-		if (myBookings === undefined) {
-			this.result = 'You have no existing booking.';
-			return false;
+	// eslint-disable-next-line class-methods-use-this
+	async getOnlyBookingsByUser(email) {
+		const getBookingsByUserQuery = `SELECT * FROM booking WHERE email = '${email}'`;
+		const { rows } = await db.query(getBookingsByUserQuery);
+		if (rows.length === 0) {
+			const result = 'You have no booking records yet.';
+			return result;
 		}
-		this.result = myBookings;
-		return myBookings;
+		const result = rows;
+		return result;
 	}
 
 	getSpecificBooking(id) {

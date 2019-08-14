@@ -70,7 +70,7 @@ class BookingController {
 		return res.status(200).json({ status: '204', data: { message: 'Booking Deleted Successfully!' } });
 	}
 
-	static bookingsByUserOnly(req, res) {
+	static async bookingsByUserOnly(req, res) {
 		const token = req.headers.authorization.split(' ')[1];
 		const decodedToken = jwt.verify(token, process.env.JWT_KEY);
 		req.body.data = decodedToken;
@@ -78,16 +78,16 @@ class BookingController {
 			email,
 		} = req.body.data;
 		const userBookings = Booking.getOnlyBookingsByUser(email);
-		if (!userBookings) {
-			return res.status(404).json({
-				status: 404,
-				message: 'You do not have any existing bookings!',
+		if (userBookings) {
+			return res.status(200).json({
+				status: 200,
+				message: 'success',
+				data: await userBookings,
 			});
 		}
-		return res.status(200).json({
-			status: 200,
-			message: 'success',
-			data: userBookings,
+		return res.status(404).json({
+			status: 404,
+			message: 'You do not have any existing bookings!',
 		});
 	}
 }
