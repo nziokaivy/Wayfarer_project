@@ -1,32 +1,24 @@
 /* eslint-disable camelcase */
-
 import User from '../models/user';
 import createToken from '../helpers/authToken';
 import HashedPassword from '../helpers/hashPassword';
 
 class Users {
 	static async signup(req, res) {
-		const {
-			email,
-			first_name,
-			last_name,
-			password,
-		} = req.body;
+		const { body } = req;
 
-		const passwordHashed = HashedPassword.hashPassword(password);
+		const passwordHashed = HashedPassword.hashPassword(body.password);
 		const newUser = User.createNewUser({
-			email,
-			first_name,
-			last_name,
+			...body,
+			password: undefined,
 			passwordHashed,
 		});
 		// eslint-disable-next-line max-len
 		const token = createToken.genToken(newUser.id, newUser.email, newUser.first_name, newUser.last_name, newUser.is_admin);
 		const userData = {
 			token,
-			first_name,
-			last_name,
-			email,
+			...body,
+			password: undefined,
 		};
 		if (await newUser !== null) {
 			newUser.token = token;
