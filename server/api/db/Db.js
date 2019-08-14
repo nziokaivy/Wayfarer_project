@@ -1,9 +1,8 @@
 import { Pool } from 'pg';
+// eslint-disable-next-line no-unused-vars
 import dotenv from 'dotenv';
-import config from '../config/config';
 
 dotenv.config();
-
 const pool = {
 	connectionString: process.env.DATABASE_URL,
 };
@@ -19,7 +18,7 @@ class DatabaseInstance {
           email VARCHAR(40) UNIQUE NOT NULL,
           first_name VARCHAR(25) NOT NULL,
           last_name VARCHAR(25) NOT NULL,
-          password  VARCHAR(20) NOT NULL
+          password  VARCHAR(200) NOT NULL
         )`;
 
 		this.queryTrips = `CREATE TABLE IF NOT EXISTS trips(

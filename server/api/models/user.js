@@ -2,6 +2,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable camelcase */
 import db from '../db/Db';
+import HashedPassword from '../helpers/hashPassword';
 
 class User {
 	constructor() {
@@ -27,11 +28,12 @@ class User {
 
 	async createNewUser({
 		// eslint-disable-next-line camelcase
-		email, first_name, last_name, password,
+		email, first_name, last_name, passwordHashed,
 	}) {
-		const userValues = [email, first_name, last_name, password];
+		// eslint-disable-next-line no-undef
+		const userValues = [email, first_name, last_name, passwordHashed];
 		const queryData = 'INSERT INTO users(email, first_name, last_name, password) VALUES ($1, $2, $3, $4) returning *';
-		const { rows } = await db.query(queryData, userValues);	
+		const { rows } = await db.query(queryData, userValues);
 		if (rows.length > 0) {
 			return rows;
 		}

@@ -125,8 +125,6 @@ class allValidations {
 	static async validateEmail(req, res, next) {
 		const { email } = req.body;
 		const checkEmail = User.verifyEmail(email);
-		console.log(await checkEmail);
-		
 		if (await checkEmail) {
 			return res.status(409).json({ status: 409, error: 'Email already exist.Please use another one' });
 		}
