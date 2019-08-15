@@ -1,7 +1,9 @@
 import { Pool } from 'pg';
 // eslint-disable-next-line no-unused-vars
 import dotenv from 'dotenv';
+import HashedPassword from '../helpers/hashPassword';
 import config from '../config/config';
+
 
 dotenv.config();
 const pool = {
@@ -22,7 +24,8 @@ class DatabaseInstance {
           email VARCHAR(40) UNIQUE NOT NULL,
           first_name VARCHAR(25) NOT NULL,
           last_name VARCHAR(25) NOT NULL,
-          password  VARCHAR(200) NOT NULL
+					password  VARCHAR(200) NOT NULL,
+					is_admin BOOLEAN NOT NULL DEFAULT false
         )`;
 
 		this.queryTrips = `CREATE TABLE IF NOT EXISTS trips(
@@ -46,6 +49,7 @@ class DatabaseInstance {
           seat_number VARCHAR (4) NOT NULL
         )`;
 		this.initializeDatabase();
+		this.createAdmin();
 	}
 
 	async query(sql, data = []) {
@@ -62,6 +66,27 @@ class DatabaseInstance {
 		await this.query(this.queryUsers);
 		await this.query(this.queryTrips);
 		await this.query(this.queryBookings);
+	}
+
+	async createAdmin() {
+		const admin = `SELECT * FROM users where email='${process.env.EMAIL}'`;
+		const {
+			rows,
+		} = await this.query(admin);
+		if (rows.length === 0) {
+			const passwordHashed = HashedPassword.hashPassword(process.env.PASSWORD);
+			const adminUser = {
+				first_name: 'admin',
+				last_name: 'admin',
+				email: process.env.EMAIL,
+				password: passwordHashed,
+				is_admin: true,
+			};
+			const sqlAdmin = 'INSERT INTO users (first_name, last_name, email, password, is_admin) values($1, $2, $3, $4, $5) returning *';
+			// eslint-disable-next-line max-len
+			const value = [adminUser.first_name, adminUser.last_name, adminUser.email, adminUser.password, adminUser.is_admin];
+			const dataEntry = await this.query(sqlAdmin, value);
+		}
 	}
 }
 export default new DatabaseInstance();
