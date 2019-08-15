@@ -1,16 +1,19 @@
-/* eslint-disable radix */
-// eslint-disable-next-line import/no-named-as-default
 import Trip from '../models/trip';
 
 class TripController {
 	static async createNewTrip(req, res) {
 		const { body } = req;
-		// eslint-disable-next-line max-len
-
 		const newTrip = Trip.createNewTrip({ ...body });
+		// const checkTrip = Trip.checkRepeatTrip(body.bus_license_number, body.trip_date);
 		const tripValues = {
 			...body,
 		};
+		// if (!await checkTrip) {
+		// 	return res.status(409).json({
+		// 		status: 409,
+		// 		error: 'Trip already exists',
+		// 	});
+		// }
 		if (await newTrip) {
 			return res.status(201).json({
 				status: 201,
@@ -22,47 +25,51 @@ class TripController {
 		});
 	}
 
-	static getAllTrips(req, res) {
+	static async getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
-		if (!allTrips.length) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not found',
+		if (await allTrips) {
+			return res.status(200).json({
+				status: '200',
+				message: 'success',
+				data: await allTrips,
 			});
 		}
-		return res.status(200).json({
-			status: 'success',
-			data: allTrips,
+		return res.status(404).json({
+			status: 'error',
+			error: 'Not found',
 		});
 	}
 
-	static getSpecificTrip(req, res) {
+	static async getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const specificTrip = Trip.getSpecificTrip(id);
+		if (await specificTrip) {
+			return res.status(200).json({
+				status: 'success',
+				data: await specificTrip,
+			});
+		}
 		if (!specificTrip) {
 			return res.status(404).json({
 				status: 'error',
 				error: 'Not found',
 			});
 		}
-		return res.status(200).json({
-			status: 'success',
-			data: specificTrip,
-		});
 	}
 
-	static cancelTrip(req, res) {
+	static async cancelTrip(req, res) {
 		const id = parseInt(req.params.id);
-		const cancelTrip = Trip.cancelTrip(id);
-		if (!cancelTrip) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not found',
+		const { status } = req.body;
+		const cancelTrip = Trip.cancelTrip(id, status);
+		if (await cancelTrip) {
+			return res.status(200).json({
+				status: '200',
+				data: await cancelTrip,
 			});
 		}
-		return res.status(200).json({
-			status: 'success',
-			data: cancelTrip,
+		return res.status(404).json({
+			status: '404',
+			error: 'Not Found',
 		});
 	}
 }

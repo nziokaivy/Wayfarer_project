@@ -56,7 +56,7 @@ describe('Book Seat', () => {
 	it('POST/api/v1/bookings Should not book a seat in a trip that is non-existent', (done) => {
 		const bookings = {
 			trip_id: '1000',
-			first_name: '',
+			first_name: 'John',
 			last_name: 'Doe',
 			email: 'johndoe@gmail.com',
 			seat_number: '23',
@@ -137,7 +137,6 @@ describe('Book Seat', () => {
 			});
 	});
 
-
 	// TEST FOR GETTING ALL BOOKINGS
 	it('GET/api/v1/bookings Should fetch all bookings admin', (done) => {
 		chai
@@ -151,8 +150,7 @@ describe('Book Seat', () => {
 			});
 	});
 
-
-	// TEST FOR GETTING ALL BOOKINGS A SPECIFIC BOOKING
+	// TEST FOR GETTING ALL BOOKINGS BY A SPECIFIC BOOKING
 	it('GET/api/v1/bookings Should show all user bookings', (done) => {
 		chai
 			.request(app)

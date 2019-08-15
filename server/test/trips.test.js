@@ -2,15 +2,19 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Token from '../api/helpers/authToken';
+import db from '../api/db/Db';
 
 chai.should();
 chai.use(chaiHttp);
-
 
 const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'user@test.com', 'user', 'test');
 
 describe('Trip Tests', () => {
+	after('drops db after cancel trip', (done) => {
+		db.query(`DROP TABLE trips;`);
+		done();
+	});
 	// TEST FOR CREATING A NEW TRIP
 	it('POST/api/v1/trips Should create a new trip', (done) => {
 		const trip = {
@@ -205,13 +209,32 @@ describe('Trip Tests', () => {
 	});
 
 	// CANCEL A TRIP TEST
-	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel all trips', (done) => {
+	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel a trip', (done) => {
 		chai
 			.request(app)
 			.patch(`/api/v1/trips/1/cancel`)
+			.send({
+				status: 'canceled',
+			})
 			.set('authorization', `Bearer ${adminToken}`)
 			.end((err, res) => {
 				res.should.have.status(200);
+				res.should.should.be.a('object');
+				done();
+			});
+	});
+
+	// CANCEL A TRIP TEST
+	it('PATCH/api/v1/trips/:trip-id/cancel Should not cancel an already cancelled trip ', (done) => {
+		chai
+			.request(app)
+			.patch(`/api/v1/trips/1/cancel`)
+			.send({
+				status: 'canceled',
+			})
+			.set('authorization', `Bearer ${adminToken}`)
+			.end((err, res) => {
+				res.should.have.status(404);
 				res.should.should.be.a('object');
 				done();
 			});
