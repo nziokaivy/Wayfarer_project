@@ -207,7 +207,7 @@ describe('Trip Tests', () => {
 	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel a trip', (done) => {
 		chai
 			.request(app)
-			.patch(`/api/v1/trips/9/cancel`)
+			.patch(`/api/v1/trips/10/cancel`)
 			.send({
 				status: 'canceled',
 			})
