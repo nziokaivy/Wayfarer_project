@@ -38,9 +38,6 @@ class BookingController {
 	}
 
 	static async deleteBooking(req, res) {
-		const token = req.headers.authorization.split(' ')[1];
-		const decodedToken = jwt.verify(token, process.env.JWT_KEY);
-		req.body.data = decodedToken;
 		const bookingId = parseInt(req.params.id);
 		const findBooking = Booking.deleteBooking(bookingId);
 		if (await findBooking) {
