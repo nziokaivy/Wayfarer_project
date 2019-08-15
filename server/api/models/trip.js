@@ -1,9 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-else-return */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-/* eslint-disable class-methods-use-this */
 import db from '../db/Db';
 
 class Trip {
@@ -28,7 +22,6 @@ class Trip {
 		trip_date,
 		fare,
 	}) {
-		// eslint-disable-next-line max-len
 		const tripValues = [bus_license_number, seating_capacity, origin, destination, trip_date, fare, 'active'];
 		const queryData = `INSERT INTO trips(bus_license_number, seating_capacity, origin, destination, trip_date, fare, status) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
 		const {
@@ -40,7 +33,6 @@ class Trip {
 	}
 
 	async getAllTrips() {
-		// eslint-disable-next-line radix
 		const findAllTripsQuery = `SELECT * FROM trips`;
 		const {
 			rows,
@@ -53,7 +45,6 @@ class Trip {
 	}
 
 	async getSpecificTrip(id) {
-		// eslint-disable-next-line radix
 		const tripId = parseInt(id);
 		const findTripQuery = `SELECT * FROM trips WHERE id ='${tripId}'`;
 		const {
@@ -66,6 +57,16 @@ class Trip {
 		return result;
 	}
 
+	async checkRepeatTrip(bus_license_number, trip_date) {
+		const findTripQuery = `SELECT * FROM trips WHERE bus_license_number = '${bus_license_number} AND trip_date = '${trip_date}'`;
+		const { rows } = await db.query(findTripQuery);
+		if (rows.length === 0) {
+			return false;
+		}
+		if (rows.length > 0) {
+			return true;
+		}
+	}
 
 	async cancelTrip(id, status) {
 		const tripId = parseInt(id, 10);
@@ -77,7 +78,6 @@ class Trip {
 			return false;
 		}
 		if (rows[0].status === 'canceled') {
-			// eslint-disable-next-line no-unused-vars
 			const result = {
 				status: 400,
 				message: `This trip is already canceled`,
@@ -95,7 +95,6 @@ class Trip {
 				};
 				return false;
 			}
-			// eslint-disable-next-line prefer-destructuring
 			const result = rows[0];
 			return result;
 		}

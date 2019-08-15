@@ -1,9 +1,7 @@
 import { Pool } from 'pg';
-// eslint-disable-next-line no-unused-vars
 import dotenv from 'dotenv';
 import HashedPassword from '../helpers/hashPassword';
 import config from '../config/config';
-
 
 dotenv.config();
 const pool = {
@@ -11,7 +9,6 @@ const pool = {
 };
 // eslint-disable-next-line no-console
 console.log(config.db);
-
 
 class DatabaseInstance {
 	constructor() {
@@ -85,6 +82,7 @@ class DatabaseInstance {
 			const sqlAdmin = 'INSERT INTO users (first_name, last_name, email, password, is_admin) values($1, $2, $3, $4, $5) returning *';
 			// eslint-disable-next-line max-len
 			const value = [adminUser.first_name, adminUser.last_name, adminUser.email, adminUser.password, adminUser.is_admin];
+			// eslint-disable-next-line no-unused-vars
 			const dataEntry = await this.query(sqlAdmin, value);
 		}
 	}

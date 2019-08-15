@@ -6,7 +6,6 @@ import Token from '../api/helpers/authToken';
 chai.should();
 chai.use(chaiHttp);
 
-
 const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'user@test.com', 'user', 'test');
 
@@ -208,7 +207,7 @@ describe('Trip Tests', () => {
 	it('PATCH/api/v1/trips/:trip-id/cancel Should cancel a trip', (done) => {
 		chai
 			.request(app)
-			.patch(`/api/v1/trips/1/cancel`)
+			.patch(`/api/v1/trips/9/cancel`)
 			.send({
 				status: 'canceled',
 			})

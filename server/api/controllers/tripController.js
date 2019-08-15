@@ -1,16 +1,19 @@
-/* eslint-disable radix */
-// eslint-disable-next-line import/no-named-as-default
 import Trip from '../models/trip';
 
 class TripController {
 	static async createNewTrip(req, res) {
 		const { body } = req;
-		// eslint-disable-next-line max-len
-
 		const newTrip = Trip.createNewTrip({ ...body });
+		// const checkTrip = Trip.checkRepeatTrip(body.bus_license_number, body.trip_date);
 		const tripValues = {
 			...body,
 		};
+		// if (!await checkTrip) {
+		// 	return res.status(409).json({
+		// 		status: 409,
+		// 		error: 'Trip already exists',
+		// 	});
+		// }
 		if (await newTrip) {
 			return res.status(201).json({
 				status: 201,
@@ -39,8 +42,6 @@ class TripController {
 
 	static async getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
-		// eslint-disable-next-line prefer-destructuring
-		// eslint-disable-next-line no-unused-vars
 		const specificTrip = Trip.getSpecificTrip(id);
 		if (await specificTrip) {
 			return res.status(200).json({
@@ -58,9 +59,7 @@ class TripController {
 
 	static async cancelTrip(req, res) {
 		const id = parseInt(req.params.id);
-		// eslint-disable-next-line prefer-destructuring
-		const status = req.body.status;
-		// eslint-disable-next-line prefer-destructuring
+		const { status } = req.body;
 		const cancelTrip = Trip.cancelTrip(id, status);
 		if (await cancelTrip) {
 			return res.status(200).json({

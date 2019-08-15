@@ -139,7 +139,7 @@ describe('Sign up', () => {
 	});
 
 	// TEST FOR USER CANNOT LOG IN IF EMAIL IS MISSING
-	it('POST/api/v1/auth/signin Should not log if a user if email is missing', (done) => {
+	it('POST/api/v1/auth/signin Should not log if a user email is missing', (done) => {
 		chai
 			.request(app)
 			.post('/api/v1/auth/signin')
@@ -155,7 +155,7 @@ describe('Sign up', () => {
 	});
 
 	// TEST FOR USER CANNOT LOG IN IF EMAIL IS INVALID
-	it('POST/api/v1/auth/signin Should not log if a user if email is invalid', (done) => {
+	it('POST/api/v1/auth/signin Should not log if a user email is invalid', (done) => {
 		chai
 			.request(app)
 			.post('/api/v1/auth/signin')
@@ -171,7 +171,7 @@ describe('Sign up', () => {
 	});
 
 	// TEST FOR USER CANNOT LOG IN IF PASSWORD IS MISSING
-	it('POST/api/v1/auth/signin Should not log if a user if password is missing', (done) => {
+	it('POST/api/v1/auth/signin Should not log if a user password is missing', (done) => {
 		chai
 			.request(app)
 			.post('/api/v1/auth/signin')
@@ -187,7 +187,7 @@ describe('Sign up', () => {
 	});
 
 	// TEST FOR CHECKING IF PASSWORD IS INVALID
-	it('POST/api/v1/auth/signin Should not log if a user if password is invalid', (done) => {
+	it('POST/api/v1/auth/signin Should not log if a user password is invalid', (done) => {
 		chai
 			.request(app)
 			.post('/api/v1/auth/signin')

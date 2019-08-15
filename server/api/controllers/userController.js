@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import User from '../models/user';
 import createToken from '../helpers/authToken';
 import HashedPassword from '../helpers/hashPassword';
@@ -40,7 +39,6 @@ class Users {
 			userpassword,
 		} = req.body;
 		const getUser = User.verifyEmail(email);
-
 		if (await getUser) {
 			const {
 				id,

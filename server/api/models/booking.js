@@ -1,15 +1,10 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-
 import db from '../db/Db';
 
 class Booking {
 	// eslint-disable-next-line no-useless-constructor
 	constructor() {}
 
-	// eslint-disable-next-line class-methods-use-this
 	async createNewBooking({
-		// eslint-disable-next-line camelcase
 		user_id,
 		trip_id,
 		first_name,
@@ -17,7 +12,6 @@ class Booking {
 		email,
 		seat_number,
 	}) {
-		// eslint-disable-next-line max-len
 		const bookingValues = [user_id, trip_id, first_name, last_name, email, seat_number];
 		const queryData = `INSERT INTO booking(user_id,trip_id, first_name, last_name, email, seat_number) VALUES ($1, $2, $3, $4, $5, $6) returning *`;
 		const {
@@ -28,7 +22,6 @@ class Booking {
 		}
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	async getAllBookings() {
 		const findAllBookingsQuery = 'SELECT *  FROM booking';
 		const { rows } = await db.query(findAllBookingsQuery);
@@ -40,7 +33,6 @@ class Booking {
 	}
 
 	async deleteBooking(id) {
-		// eslint-disable-next-line radix
 		const booking_Id = parseInt(id);
 		const findBookingQuery = `SELECT * FROM bookings WHERE id = '${booking_Id}'`;
 		const {
@@ -48,11 +40,9 @@ class Booking {
 		} = await db.query(findBookingQuery);
 		if (rows.length === 0) {
 			return false;
-		// eslint-disable-next-line no-else-return
 		} else {
 			const foundBookingQuery = `DELETE FROM bookings WHERE id ='${booking_Id}'`;
 			const {
-				// eslint-disable-next-line no-shadow
 				rows,
 			} = await db.query(foundBookingQuery);
 			if (!rows) {
@@ -70,7 +60,6 @@ class Booking {
 		}
 	}
 
-	// eslint-disable-next-line class-methods-use-this
 	async getOnlyBookingsByUser(email) {
 		const getBookingsByUserQuery = `SELECT * FROM booking WHERE email = '${email}'`;
 		const { rows } = await db.query(getBookingsByUserQuery);
