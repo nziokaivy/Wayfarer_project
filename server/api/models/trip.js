@@ -26,8 +26,6 @@ class Trip {
 		const {
 			rows
 		} = await db.query(findTripQuery);
-		console.log(rows);
-		
 		if (rows.length) {
 			return false;
 		} else {
@@ -46,10 +44,8 @@ class Trip {
 		const findAllTripsQuery = `SELECT * FROM trips`;
 		const { rows } = await db.query(findAllTripsQuery);
 		if (rows.length === 0) {
-			console.log('nothing');
 			return false;
 		}
-		console.log('something');
 		return true;
 	}
 
