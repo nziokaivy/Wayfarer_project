@@ -5,16 +5,16 @@ class TripController {
 		const {
 			body
 		} = req;
+		console.log(body);
 		const newTrip = Trip.createNewTrip({
 			...body
 		});
-		// const checkTrip = Trip.checkRepeatTrip(body.bus_license_number, body.trip_date);
 		const tripValues = {
 			...body,
-		};			
+		};
 		if (!await newTrip) {
-			return res.status(400).json({
-				status: 400,
+			return res.status(409).json({
+				status: 409,
 				error: 'Could not create new trip',
 			});
 		}
@@ -26,34 +26,33 @@ class TripController {
 
 	static async getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
-		if (await allTrips) {
-			return res.status(200).json({
-				status: '200',
-				message: 'success',
-				data: await allTrips,
+		if (!await allTrips) {
+			return res.status(404).json({
+				status: 404,
+				error: 'Not found',
 			});
 		}
-		return res.status(404).json({
-			status: 'error',
-			error: 'Not found',
+		return res.status(200).json({
+			status: '200',
+			message: 'success',
+			data: await allTrips,
 		});
 	}
 
 	static async getSpecificTrip(req, res) {
 		const id = parseInt(req.params.id);
 		const specificTrip = Trip.getSpecificTrip(id);
+		console.log(await specificTrip);
 		if (await specificTrip) {
 			return res.status(200).json({
 				status: 'success',
 				data: await specificTrip,
 			});
 		}
-		if (!specificTrip) {
-			return res.status(404).json({
-				status: 'error',
-				error: 'Not found',
-			});
-		}
+		return res.status(404).json({
+			status: 'error',
+			error: 'Not found',
+		});
 	}
 
 	static async cancelTrip(req, res) {

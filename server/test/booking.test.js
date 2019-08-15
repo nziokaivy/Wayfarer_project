@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Token from '../api/helpers/authToken';
+import db from '../api/db/Db';
 
 chai.should();
 chai.use(chaiHttp);
@@ -10,6 +11,10 @@ const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'janedoe@gmail.com', 'user', 'test');
 
 describe('Book Seat', () => {
+	after('drops db after sign up', (done) => {
+		db.query(`DROP TABLE booking;`);
+		done();
+	});
 	// TEST FOR CANNOT BOOK A SEAT WITHOUT TRIP ID
 	it('POST/api/v1/bookings Should not book a seat without trip id', (done) => {
 		const bookings = {

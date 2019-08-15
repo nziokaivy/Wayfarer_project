@@ -24,8 +24,10 @@ class Trip {
 	}) {
 		const findTripQuery = `SELECT * FROM trips WHERE bus_license_number = '${bus_license_number}' AND trip_date = '${trip_date}'`;
 		const {
-			rows,
+			rows
 		} = await db.query(findTripQuery);
+		console.log(rows);
+		
 		if (rows.length) {
 			return false;
 		} else {
@@ -33,7 +35,7 @@ class Trip {
 			const queryData = `INSERT INTO trips(bus_license_number, seating_capacity, origin, destination, trip_date, fare, status) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
 			const {
 				rows,
-			} = await db.query(queryData, tripValues);
+			} = await db.query(queryData, tripValues);			
 			if (rows.length > 0) {
 				return rows;
 			}
@@ -42,14 +44,13 @@ class Trip {
 
 	async getAllTrips() {
 		const findAllTripsQuery = `SELECT * FROM trips`;
-		const {
-			rows,
-		} = await db.query(findAllTripsQuery);
+		const { rows } = await db.query(findAllTripsQuery);
 		if (rows.length === 0) {
+			console.log('nothing');
 			return false;
 		}
-		const result = rows;
-		return result;
+		console.log('something');
+		return true;
 	}
 
 	async getSpecificTrip(id) {

@@ -12,19 +12,30 @@ class Booking {
 		email,
 		seat_number,
 	}) {
-		const bookingValues = [user_id, trip_id, first_name, last_name, email, seat_number];
-		const queryData = `INSERT INTO booking(user_id,trip_id, first_name, last_name, email, seat_number) VALUES ($1, $2, $3, $4, $5, $6) returning *`;
+		const findBookingQuery = `SELECT * FROM booking WHERE seat_number = '${seat_number}'`;
 		const {
 			rows,
-		} = await db.query(queryData, bookingValues);
-		if (rows.length > 0) {
-			return rows;
+		} = await db.query(findBookingQuery);
+		if (rows.length) {
+			return false;
+		} else {
+			const bookingValues = [user_id, trip_id, first_name, last_name, email, seat_number];
+			const queryData = `INSERT INTO booking(user_id,trip_id, first_name, last_name, email, seat_number) VALUES ($1, $2, $3, $4, $5, $6) returning *`;
+			const {
+				rows,
+			} = await db.query(queryData, bookingValues);
+			if (rows.length > 0) {		
+				return rows;
+			}
 		}
 	}
 
+
 	async getAllBookings() {
 		const findAllBookingsQuery = 'SELECT *  FROM booking';
-		const { rows } = await db.query(findAllBookingsQuery);
+		const {
+			rows
+		} = await db.query(findAllBookingsQuery);
 		if (rows.length === 0) {
 			return false;
 		}
@@ -62,7 +73,9 @@ class Booking {
 
 	async getOnlyBookingsByUser(email) {
 		const getBookingsByUserQuery = `SELECT * FROM booking WHERE email = '${email}'`;
-		const { rows } = await db.query(getBookingsByUserQuery);
+		const {
+			rows
+		} = await db.query(getBookingsByUserQuery);
 		if (rows.length === 0) {
 			const result = 'You have no booking records yet.';
 			return result;

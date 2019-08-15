@@ -7,18 +7,19 @@ class BookingController {
 		const decodedToken = jwt.verify(token, process.env.JWT_KEY);
 		req.body.data = decodedToken;
 		const { body } = req;
-		const newBooking = Booking.createNewBooking({ ...body });
+		const newBooking = Booking.createNewBooking({ ...body });		
 		const bookingValues = {
 			...body,
-		};
-		if (await newBooking) {
+		};		
+		if (!await newBooking) {
+			return res.status(409).json({
+				status: 409,
+				error: 'Could not create new booking',
+			});
+		}	
 			return res.status(201).json({
 				status: 201,
 				data: bookingValues,
-			});
-		}	return res.status(400).json({
-			status: 400,
-			error: 'Could not create new booking',
 		});
 	}
 
