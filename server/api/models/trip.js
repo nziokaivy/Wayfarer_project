@@ -46,7 +46,7 @@ class Trip {
 		if (rows.length === 0) {
 			return false;
 		}
-		return true;
+		return rows;
 	}
 
 	async getSpecificTrip(id) {
