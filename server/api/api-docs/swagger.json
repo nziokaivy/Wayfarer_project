@@ -6,11 +6,11 @@
     "description": "TODO: Add Description",
     "contact": {}
   },
-  "host": "wayfarerproject.herokuapp.com",
+  "host": "localhost:8000",
   "basePath": "/api/v1",
   "securityDefinitions": {},
   "schemes": [
-    "https"
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -92,7 +92,7 @@
             "description": ""
           },
           {
-            "name": "password",
+            "name": "userpassword",
             "in": "formData",
             "type": "string",
             "description": ""

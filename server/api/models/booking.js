@@ -45,14 +45,14 @@ class Booking {
 
 	async deleteBooking(id) {
 		const booking_Id = parseInt(id);
-		const findBookingQuery = `SELECT * FROM bookings WHERE id = '${booking_Id}'`;
+		const findBookingQuery = `SELECT * FROM booking WHERE id = '${booking_Id}'`;
 		const {
 			rows,
 		} = await db.query(findBookingQuery);
 		if (rows.length === 0) {
 			return false;
 		} else {
-			const foundBookingQuery = `DELETE FROM bookings WHERE id ='${booking_Id}'`;
+			const foundBookingQuery = `DELETE FROM booking WHERE id ='${booking_Id}'`;
 			const {
 				rows,
 			} = await db.query(foundBookingQuery);
