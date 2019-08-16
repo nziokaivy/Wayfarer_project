@@ -8,8 +8,6 @@ const pool = {
 	connectionString: config.db,
 };
 
-console.log(config.db);
-
 class DatabaseInstance {
 	constructor() {
 		this.pool = new Pool(pool);

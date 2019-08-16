@@ -18,7 +18,7 @@ class BookingController {
 		if (!await newBooking) {
 			return res.status(409).json({
 				status: 409,
-				error: 'Could not create new booking',
+				error: 'Booking has already been created.Cannot duplicate a booking',
 			});
 		}
 		return res.status(201).json({
@@ -38,13 +38,13 @@ class BookingController {
 			
 			if (await allBookings) {
 				return res.status(200).json({
-					status: '200',
+					status: 200,
 					message: 'success',
 					data: await allBookings,
 				});
 			}
 			return res.status(404).json({
-				status: '404',
+				status: 404,
 				error: 'Not found',
 			});
 		} const {
@@ -69,7 +69,7 @@ class BookingController {
 		const findBooking = Booking.deleteBooking(bookingId);
 		if (await findBooking) {
 			return res.status(200).json({
-				status: '204',
+				status: 200,
 				data: {
 					message: 'Booking Deleted Successfully!'
 				}

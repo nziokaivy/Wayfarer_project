@@ -155,18 +155,6 @@ describe('Book Seat', () => {
 			});
 	});
 
-	// TEST FOR GETTING ALL BOOKINGS BY A SPECIFIC BOOKING
-	it('GET/api/v1/bookings Should show all user bookings', (done) => {
-		chai
-			.request(app)
-			.get('/api/v1/userbookings')
-			.set('authorization', `Bearer ${userToken}`)
-			.end((err, res) => {
-				res.should.have.status(200);
-				res.should.should.be.a('object');
-				done();
-			});
-	});
 
 	// TEST FOR CANNOT BOOK A SEAT WITH INVALID SEAT NUMBER
 	it('POST/api/v1/bookings Should not book a seat with an invalid trip id', (done) => {

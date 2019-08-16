@@ -179,8 +179,8 @@ describe('Trip Tests', () => {
 		const trip = {
 			seating_capacity: '23',
 			bus_license_number: 'KZE 432',
-			origin: 'Nairobijhjjghghghbhjbj',
-			destination: 'KIgalijhjjjhug',
+			origin: 'Nairobi',
+			destination: 'Kigali',
 			trip_date: '21/09/2019',
 			fare: '4000',
 		};
@@ -203,8 +203,6 @@ describe('Trip Tests', () => {
 			.get('/api/v1/trips')
 			.set('authorization', `Bearer ${userToken}`)
 			.end((err, res) => {
-				console.log(res.body);
-
 				res.should.have.status(200);
 				res.should.should.be.a('object');
 				done();

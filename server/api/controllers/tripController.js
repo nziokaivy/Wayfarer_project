@@ -5,7 +5,6 @@ class TripController {
 		const {
 			body
 		} = req;
-		console.log(body);
 		const newTrip = Trip.createNewTrip({
 			...body
 		});
@@ -15,7 +14,7 @@ class TripController {
 		if (!await newTrip) {
 			return res.status(409).json({
 				status: 409,
-				error: 'Could not create new trip',
+				error: 'Trip already exists',
 			});
 		}
 		return res.status(201).json({
@@ -45,7 +44,8 @@ class TripController {
 		console.log(await specificTrip);
 		if (await specificTrip) {
 			return res.status(200).json({
-				status: 'success',
+				status: 200,
+				message: 'success',
 				data: await specificTrip,
 			});
 		}
