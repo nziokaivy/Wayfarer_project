@@ -33,7 +33,9 @@ class Trip {
 			const queryData = `INSERT INTO trips(bus_license_number, seating_capacity, origin, destination, trip_date, fare, status) VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
 			const {
 				rows,
-			} = await db.query(queryData, tripValues);			
+			} = await db.query(queryData, tripValues);		
+			console.log(rows);
+				
 			if (rows.length > 0) {
 				return rows;
 			}

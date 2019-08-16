@@ -11,6 +11,8 @@ class TripController {
 		const tripValues = {
 			...body,
 		};
+		console.log(tripValues);
+		
 		if (!await newTrip) {
 			return res.status(409).json({
 				status: 409,
@@ -25,6 +27,8 @@ class TripController {
 
 	static async getAllTrips(req, res) {
 		const allTrips = Trip.getAllTrips();
+		console.log(await allTrips);
+		
 		if (!await allTrips) {
 			return res.status(404).json({
 				status: 404,
