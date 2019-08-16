@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../api/server';
 import Token from '../api/helpers/authToken';
+import db from '../api/db/Db';
 
 chai.should();
 chai.use(chaiHttp);
@@ -10,6 +11,10 @@ const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'janedoe@gmail.com', 'user', 'test');
 
 describe('Book Seat', () => {
+	after('drops db after sign up', (done) => {
+		db.query(`DROP TABLE booking;`);
+		done();
+	});
 	// TEST FOR CANNOT BOOK A SEAT WITHOUT TRIP ID
 	it('POST/api/v1/bookings Should not book a seat without trip id', (done) => {
 		const bookings = {
@@ -150,18 +155,6 @@ describe('Book Seat', () => {
 			});
 	});
 
-	// TEST FOR GETTING ALL BOOKINGS BY A SPECIFIC BOOKING
-	it('GET/api/v1/bookings Should show all user bookings', (done) => {
-		chai
-			.request(app)
-			.get('/api/v1/userbookings')
-			.set('authorization', `Bearer ${userToken}`)
-			.end((err, res) => {
-				res.should.have.status(200);
-				res.should.should.be.a('object');
-				done();
-			});
-	});
 
 	// TEST FOR CANNOT BOOK A SEAT WITH INVALID SEAT NUMBER
 	it('POST/api/v1/bookings Should not book a seat with an invalid trip id', (done) => {

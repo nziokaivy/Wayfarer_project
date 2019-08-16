@@ -11,32 +11,10 @@ const adminToken = Token.genToken(1, true, 'admin@test.com', 'admin', 'test');
 const userToken = Token.genToken(2, false, 'user@test.com', 'user', 'test');
 
 describe('Trip Tests', () => {
-	after('drops db after cancel trip', (done) => {
+	after('drops db after sign up', (done) => {
 		db.query(`DROP TABLE trips;`);
 		done();
 	});
-	// TEST FOR CREATING A NEW TRIP
-	it('POST/api/v1/trips Should create a new trip', (done) => {
-		const trip = {
-			seating_capacity: '67',
-			bus_license_number: 'KZE 432',
-			origin: 'Nairobi',
-			destination: 'Kigali',
-			trip_date: '23/08/2019',
-			fare: '4000',
-		};
-		chai
-			.request(app)
-			.post('/api/v1/trips')
-			.send(trip)
-			.set('authorization', `Bearer ${adminToken}`)
-			.end((err, res) => {
-				res.should.have.status(201);
-				res.should.should.be.a('object');
-				done();
-			});
-	});
-
 	// TEST FOR CANNOT CREATE A NEW TRIP WITH A MISSING SEATING CAPACITY
 	it('POST/api/v1/trips Should not create a new trip if seating capacit is missing', (done) => {
 		const trip = {
@@ -169,6 +147,55 @@ describe('Trip Tests', () => {
 			});
 	});
 
+	// TEST FOR CANNOT GET ALL TRIPS
+	it('GET/api/v1/trips Should not fetch all trips', (done) => {
+		chai
+			.request(app)
+			.get('/api/v1/trips')
+			.set('authorization', `Bearer ${userToken}`)
+			.end((err, res) => {
+				console.log(res.body);
+				res.should.have.status(404);
+				res.should.should.be.a('object');
+				done();
+			});
+	});
+
+	// TEST FOR CANNOT GET A SPECIFIC TRIP TEST
+	it('GET/api/v1/trips/:trip-id Should fetch a specific trip', (done) => {
+		chai
+			.request(app)
+			.get(`/api/v1/trips/${1}`)
+			.set('authorization', `Bearer ${userToken}`)
+			.end((err, res) => {
+				res.should.have.status(404);
+				res.should.should.be.a('object');
+				done();
+			});
+	});
+
+	// TEST FOR CREATE A NEW TRIP 
+	it('POST/api/v1/trips Should create a new trip', (done) => {
+		const trip = {
+			seating_capacity: '23',
+			bus_license_number: 'KZE 432',
+			origin: 'Nairobi',
+			destination: 'Kigali',
+			trip_date: '21/09/2019',
+			fare: '4000',
+		};
+		chai
+			.request(app)
+			.post('/api/v1/trips')
+			.send(trip)
+			.set('authorization', `Bearer ${adminToken}`)
+			.end((err, res) => {
+				res.should.have.status(201);
+				res.should.should.be.a('object');
+				done();
+			});
+	});
+
 	// TEST FOR GET ALL TRIPS
 	it('GET/api/v1/trips Should fetch all trips', (done) => {
 		chai
@@ -224,7 +251,7 @@ describe('Trip Tests', () => {
 			});
 	});
 
-	// CANCEL A TRIP TEST
+	// CANCEL AN EXISITING TRIP TEST
 	it('PATCH/api/v1/trips/:trip-id/cancel Should not cancel an already cancelled trip ', (done) => {
 		chai
 			.request(app)

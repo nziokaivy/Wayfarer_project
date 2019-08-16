@@ -18,8 +18,7 @@ router.patch('/trips/:id/cancel', Auth.checkAdmin, allValidations.validateId, Tr
 
 // booking routes
 router.post('/bookings', Auth.checkUser, allValidations.validateBooking, Booking.booking);
-router.get('/bookings', Auth.checkAdmin, Booking.getAllBookings);
-router.get('/userbookings', Auth.checkUser, Booking.bookingsByUserOnly);
+router.get('/bookings', Booking.getAllBookings);
 router.delete('/booking/:id', Auth.checkUser, allValidations.validateId, Booking.deleteBooking);
 
 export default router;

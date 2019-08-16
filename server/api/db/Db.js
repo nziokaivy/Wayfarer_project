@@ -7,8 +7,6 @@ dotenv.config();
 const pool = {
 	connectionString: config.db,
 };
-// eslint-disable-next-line no-console
-console.log(config.db);
 
 class DatabaseInstance {
 	constructor() {
